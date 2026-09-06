@@ -1354,14 +1354,14 @@ window.TABS = (function(){
 
   // ══════════════════════════════════════════ KEYWORD MODAL
   const MODAL_FASET_GRUP = [
-    ['Sınıflandırma',    ['spor','org','turHam','st','it','ent']],
-    ['Dizi',             ['diziAd','kulup','yil','sezonSay','durum','sezonNo']],
-    ['Erişim & Kaynak',  ['hak','resmi','marka','belirsiz']],
-    ['Sorgu Özellikleri',['dil','bucket','sinif','trend','mden']],
+    ['Sınıflandırma', ['spor','org','turHam']],
+    ['Sayfa & Niyet', ['st','it','ent','marka']],
+    ['Dizi',          ['diziAd','yil','sezonSay','durum','sezonNo']],
+    ['Sorgu',         ['dil','bucket','sinif','trend','hak']],
   ];
-  // Veride hiç değeri olmayan alan gösterilmez: dikey değiştiğinde artakalan
+  // Veride hiç değeri olmayan alan gösterilmez. Dikey değiştiğinde artakalan
   // fasetler ("mus", "cog", "turk" gibi) detay panelinde boş satır olarak
-  // kalıyordu. Süzgeç bir kez hesaplanır.
+  // kalıyordu; süzgeç bu hata sınıfını kalıcı olarak kapatır. Bir kez hesaplanır.
   let _dolu = null;
   function doluAlanlar(){
     if(_dolu) return _dolu;

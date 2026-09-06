@@ -1,43 +1,43 @@
 {
-  "kaynak": "Keyword denetimi · 2026-09-06 · SERP kanıtı (145 'izle' sorgusu) + 51 çıplak adın anlam denetimi",
-  "yontem": "Denetim yıkıcı değildir: satırlar kaynak CSV'de durur, mantik_denetim kolonuyla işaretlenir ve build aşamasında kapsam dışı bırakılır. Karar değişirse kolon değeri düzeltilir.",
-
-  "tum_kume": {
-    "_not": "Kümenin tamamı dizi dışı: SERP'te dizi yok ya da baskın olarak başka bir yapımı gösteriyor.",
-    "curses": "Cursed (2020, Netflix) ve İngilizce 'curse' sözlük araması; 9 sonuçtan yalnızca 1'i Apple dizisine ait",
-    "the hunt": "Av / The Hunt (2020 filmi) SERP'e hâkim; Apple'ın 2026 Fransız dizisi Traqués ilk 10'da yok",
-    "dear": "İngilizce 'dear' hitabı ve Kore dizileri Dear X / Dear M; hiç Apple sonucu yok",
-    "ghostwriter": "Hayalet yazar mesleği, Hayalet Yazar (2010 filmi) ve KDE editörü; Apple yapımı ilk 10'da yok",
-    "home": "Evim (2015 animasyon) ve Örümcek Adam filmleri; 10 sonuçtan 2'si eşleşiyor"
-  },
-
-  "ciplak_form": {
-    "_not": "Yalnızca çıplak dizi adı dizi dışı; niteleyicili biçimler ('{ad} dizi', '{ad} izle') kapsamda kalır.",
-    "dickinson": "Şair Emily Dickinson",
-    "neuromancer": "William Gibson'ın 1984 tarihli romanı; dizi Ocak 2027'de yayınlanacak",
-    "shantaram": "Gregory David Roberts romanı; kitapyurdu ilk sırada",
-    "bearbrick": "Medicom Toy BE@RBRICK koleksiyon figürü",
-    "circuit breakers": "Elektrik devre kesici / şalter",
-    "duck goose": "Goose Goose Duck oyunu (Steam ilk sırada)",
-    "born to be wild": "Steppenwolf şarkısı (1968)",
-    "harriet the spy": "1996 filmi ve Louise Fitzhugh romanı",
-    "pachinko": "Japon pachinko kumar makinesi ve salonları",
-    "lessons in chemistry": "Bonnie Garmus romanı",
-    "invasion": "Tureng / Cambridge sözlük araması ('ne demek', 'çevir')",
-    "the mosquito coast": "Sivrisinek Sahili (1986, Harrison Ford)",
-    "the changeling": "The Changeling (1980) ve Sahtekar (2008)",
-    "me": "Lie to Me",
-    "sunny": "Sunny - Güneşli (2011 Kore filmi)",
-    "stillwater": "Durgun Su (2021 filmi)",
-    "jane": "Jane (Disney+) ve Lady Jane'im",
-    "the afterparty": "The After Party (2018) ve After Party (2013)",
-    "love you to death": "Love You to Death (2019 filmi)",
-    "now and then": "Şimdi ve Sonra (1995) ve Now & Later (2011)",
-    "the line": "On The Line (2023) ve Sınır (2009)",
-    "long way home": "Örümcek Adam: Eve Dönüş Yok"
-  },
-
-  "kapsamda_kalanlar": {
-    "losing alice": "SERP kontrolünde tüm sonuçlar dizi sayfası; hacim yüksek görünse de dizi talebi (kullanıcı doğrulaması, 2026-09-06)"
-  }
+ "kaynak": "Keyword denetimi · 2026-09-06 · SERP kanıtı (145 'izle' sorgusu) + 51 çıplak adın anlam denetimi",
+ "yontem": "Denetim yıkıcı değildir: satırlar kaynak CSV'de durur, mantik_denetim kolonuyla işaretlenir ve build aşamasında kapsam dışı bırakılır. Karar değişirse kolon değeri düzeltilir.",
+ "tum_kume": {
+  "_not": "Kümenin tamamı dizi dışı: SERP'te dizi yok ya da baskın olarak başka bir yapımı gösteriyor.",
+  "curses": "Cursed (2020, Netflix) ve İngilizce 'curse' sözlük araması; 9 sonuçtan yalnızca 1'i Apple dizisine ait",
+  "the hunt": "Av / The Hunt (2020 filmi) SERP'e hâkim; Apple'ın 2026 Fransız dizisi Traqués ilk 10'da yok",
+  "dear": "İngilizce 'dear' hitabı ve Kore dizileri Dear X / Dear M; hiç Apple sonucu yok",
+  "ghostwriter": "Hayalet yazar mesleği, Hayalet Yazar (2010 filmi) ve KDE editörü; Apple yapımı ilk 10'da yok",
+  "home": "Evim (2015 animasyon) ve Örümcek Adam filmleri; 10 sonuçtan 2'si eşleşiyor",
+  "number one on the call sheet": "Apple Original Films çatısında iki parçalı belgesel film, dizi değil",
+  "steve martin a documentary in 2 pieces": "Apple Original Films çatısında belgesel film, dizi değil"
+ },
+ "ciplak_form": {
+  "_not": "Yalnızca çıplak dizi adı dizi dışı; niteleyicili biçimler ('{ad} dizi', '{ad} izle') kapsamda kalır.",
+  "dickinson": "Şair Emily Dickinson",
+  "neuromancer": "William Gibson'ın 1984 tarihli romanı; dizi Ocak 2027'de yayınlanacak",
+  "shantaram": "Gregory David Roberts romanı; kitapyurdu ilk sırada",
+  "bearbrick": "Medicom Toy BE@RBRICK koleksiyon figürü",
+  "circuit breakers": "Elektrik devre kesici / şalter",
+  "duck goose": "Goose Goose Duck oyunu (Steam ilk sırada)",
+  "born to be wild": "Steppenwolf şarkısı (1968)",
+  "harriet the spy": "1996 filmi ve Louise Fitzhugh romanı",
+  "pachinko": "Japon pachinko kumar makinesi ve salonları",
+  "lessons in chemistry": "Bonnie Garmus romanı",
+  "invasion": "Tureng / Cambridge sözlük araması ('ne demek', 'çevir')",
+  "the mosquito coast": "Sivrisinek Sahili (1986, Harrison Ford)",
+  "the changeling": "The Changeling (1980) ve Sahtekar (2008)",
+  "me": "Lie to Me",
+  "sunny": "Sunny - Güneşli (2011 Kore filmi)",
+  "stillwater": "Durgun Su (2021 filmi)",
+  "jane": "Jane (Disney+) ve Lady Jane'im",
+  "the afterparty": "The After Party (2018) ve After Party (2013)",
+  "love you to death": "Love You to Death (2019 filmi)",
+  "now and then": "Şimdi ve Sonra (1995) ve Now & Later (2011)",
+  "the line": "On The Line (2023) ve Sınır (2009)",
+  "long way home": "Örümcek Adam: Eve Dönüş Yok"
+ },
+ "kapsamda_kalanlar": {
+  "losing alice": "SERP kontrolünde tüm sonuçlar dizi sayfası; hacim yüksek görünse de dizi talebi (kullanıcı doğrulaması, 2026-09-06)"
+ },
+ "_not_format": "Apple basın sitesinin Originals dizinindeki 'Series' kovası iki parçalı belgesel filmleri de içeriyor; format kararı bülten metnine göre verildi."
 }

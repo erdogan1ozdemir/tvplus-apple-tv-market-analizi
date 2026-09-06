@@ -71,3 +71,15 @@
 - **Arayüz · Özet varlık tipi düğmeleri çalışmıyordu:** Özet matrisi gruplarını dışarıda hesaplıyor (`gruplarDis`), süzgeç yerel `rowsF` üzerinde kalıyordu; düğme durum değiştiriyor ama matris değişmiyordu. Süzgeç etkinken gruplar yeniden hesaplanıyor.
 - **Arayüz · keyword detayı:** spor deposundan kalan boş fasetler (mus, sev, per, tak, cins, km, tb, cog, yer, turk, kurum, ktm, anaAd, odog, uzn) panelde boş satır olarak duruyordu. Grup tanımı dizi dikeyine göre yeniden yazıldı; ayrıca veride hiç değeri olmayan alan artık gösterilmiyor, böylece bu hata sınıfı bir daha oluşmuyor.
 
+### Katalog doğrulaması ve panel sadeleştirmesi
+- **202 dizinin tamamı üç partide kaynaktan doğrulandı** (apple.com/tv-pr bültenleri + Wikipedia orijinal yapım listesi; DataForSEO kullanılmadı).
+- **Apple Original olmayan 4 başlık bulundu**, dördü de Apple TV'de yayınlanıyor ama lisanslı: Love You to Death (Atresmedia TV, "global acquisition"), Small Prophets (BBC / Sphere Abacus), Unconditional (Keshet 12), You Would Do It Too (Disney+ İspanya çıkışlı). Kataloğa `apple_tipi` alanı eklendi; ortak yapımlar da işaretlendi (Tehran · Kan 11, Losing Alice · Dori Media/HOT, Drops of God, Calls · Canal+).
+- Önemli uyarı: `apple.com/tv-pr/originals/` altında listelenmek "Apple Original" kanıtı değil — dört lisanslı başlığın hepsi o dizinde duruyor. Ayrım yalnızca bülten metninden ya da sektör basınından çıkıyor.
+- **İki kayıt dizi değil, film:** Number One on the Call Sheet ve STEVE! (martin) a documentary in 2 pieces. İkisi de Apple Original Films çatısında; kapsam dışı bırakıldı (20/ay). Basın sitesinin "Series" kovası iki parçalı belgesel filmleri de içine alıyor.
+- The Line kaydı doğru: Apple'da aynı adla hem 4 bölümlük belgesel dizi hem ayrı bir podcast var; katalogdaki dizi kaydıdır.
+- Last Seen 9 Eylül 2026'da yayına giriyor (bugün 6 Eylül); durumu "Yakında" olarak düzeltildi.
+- **Keyword tutarlılık taraması:** 2.138 keyword'ün tamamı şablon kalıbına göre denetlendi — sayfa tipi, intent, varlık tipi, dil, marka tipi. Sıfır tutarsızlık.
+- **Keyword detay paneli** dört gruba indirildi: Sınıflandırma (Kategori · Tür · Alt Tür) · Sayfa & Niyet (Sayfa Tipi · Intent · Varlık Tipi · Marka Tipi) · Dizi (Dizi Adı · Çıkış Yılı · Sezon Sayısı · Durum · Sezon No) · Sorgu (Dil · Hacim Aralığı · Mevsim Tipi · Trend · Meşru Erişim). İçsel alanlar (dizi anahtarı, belirsiz ad, apple resmi) kaldırıldı.
+- Kapsam: **2.138 keyword · 200 dizi · 900.080/ay**.
+- Doğrulama notu: artifact tarayıcıda açılıp render ettiği görüldü; önizleme sunucusu oturum boyunca eski proje köküne sabit kaldığı ve artifact çapraz-origin iframe'de çalıştığı için düğme/modal etkileşimi tarayıcıda tıklanarak sınanamadı. Panel alanları ve varlık tipi süzgeci veri düzeyinde doğrulandı.
+
