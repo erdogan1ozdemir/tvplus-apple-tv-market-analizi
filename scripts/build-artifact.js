@@ -22,7 +22,8 @@ let app = oku('app.jsx')
   .replace(/'assets\/inbound-small-logo\.png'/g, JSON.stringify(inboundS));
 
 const parcalar = [
-  '<title>TV+ Spor Talep Haritası</title>',
+  // Başlık brand.config.js'ten türetilir; artifact galeride bu adla görünür.
+  `<title>${(brand.match(/name:\s*"([^"]+)"/)||[,''])[1]} · ${(brand.match(/title:\s*"([^"]+)"/)||[,''])[1]}</title>`,
   '<link rel="preconnect" href="https://fonts.googleapis.com">',
   '<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
   '<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">',
