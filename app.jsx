@@ -199,6 +199,11 @@
       setFiltre(f=>({...f,[alan]:[deger]}));
       setTab('gruplar'); window.scrollTo({top:0, behavior:'smooth'});
     };
+    // Bir sekme içinden faset filtresi kurar: sekme değişmez, üstteki filtre
+    // şeridinde de seçili görünür. Rakip Trafiği'nde diziye tıklamak bunu çağırır.
+    const setFacet = (alan, deger) => {
+      setFiltre(f => ({...f, [alan]: deger ? [deger] : []}));
+    };
     const onNavigateKw = ctx => {
       if(ctx&&ctx.alan) setFiltre(f=>({...f,[ctx.alan]:[ctx.deger]}));
       setTab('keyword'); window.scrollTo({top:0, behavior:'smooth'});
@@ -212,7 +217,7 @@
     // Bilim Kurgu" seçiliyse Keyword ve Dizi & Sezon da o kapsamı gösterir.
     // İz şeridinden bir adım geri alınarak her yerde birlikte kaldırılır.
     const ortak = { rows: kapsamRows, tumRows: rows, viewMode, setKeywordModal,
-      onSelectGroup, onNavigateKw, gitSekme, secili, setSecili, seviye, setSeviye,
+      onSelectGroup, onNavigateKw, setFacet, gitSekme, secili, setSecili, seviye, setSeviye,
       entFiltre, setEntFiltre, peakGizli, setPeakGizli, yol, setYol };
 
     return h('div',{className:'app'},

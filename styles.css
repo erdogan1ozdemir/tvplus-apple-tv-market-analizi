@@ -2368,3 +2368,10 @@ button.action-card:hover { border-color: currentColor; transform: translateY(-1p
    başlık dar ekranda tek karakter genişliğine eziliyordu. Tablo kendi
    kabında kaydırılır, başlık sarmaz. */
 .tbl th.num { white-space: nowrap; }
+
+/* Sıralanabilir tablo başlığı — Rakip Trafiği tabloları başlığa tıklanarak sıralanır */
+.tbl th.sortable { cursor: pointer; user-select: none; white-space: nowrap; }
+.tbl th.sortable:hover { color: var(--ink); }
+.tbl th.sortable .sort-ok { margin-left: 5px; font-size: 9px; opacity: .35; }
+.tbl th.sortable.aktif { color: var(--accent-deep); }
+.tbl th.sortable.aktif .sort-ok { opacity: 1; }

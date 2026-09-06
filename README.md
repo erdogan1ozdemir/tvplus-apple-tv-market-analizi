@@ -24,6 +24,16 @@ Domainler üç sınıfa ayrılır: Meşru Platform (Apple TV, Prime Video, Netfl
 
 SERP verisi yenilemek için: `python3 scripts/dfs_serp.py` (sıralama + URL) → Ahrefs `batch-analysis` ile `data/serp/url_trafik.json` güncelle → `python3 scripts/serp_birlestir.py`.
 
+## Excel çıktıları
+```bash
+python3 scripts/excel_rakip.py    # cikti/appletv-rakip-trafigi.xlsx
+python3 scripts/excel_hacim.py    # cikti/appletv-arama-hacmi.xlsx
+```
+- **Rakip trafiği:** dizi bazında trafik · tüm SERP sonuçları (1.420 satır, tam URL) · domain özeti · sınıf özeti · yöntem.
+- **Arama hacmi:** master liste (2.138 keyword) · dizi, kategori, tür, sayfa tipi, intent, varlık tipi, erişim, marka tipi küme sayfaları · dizi × sayfa tipi çapraz tablosu · kapsam dışı · yöntem.
+
+Biçim Inbound Design System Excel rejimindedir (Bölüm 15.3): başlık `#434343` beyaz kalın, gövde Calibri + ink teal, dolgusuz sayısal sütun, satır başına ince üst kenarlık.
+
 ## Çalıştırma
 ```bash
 python3 scripts/tur_konsolide.py data/raw/hacim_*.csv   # ham tür → 19 Türkçe tür
