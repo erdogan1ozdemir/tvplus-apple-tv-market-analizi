@@ -380,13 +380,16 @@ window.TABS = (function(){
           '. ', h('strong',null,'Önceki 12 Ay'),' = ', U.ymLabel(D().monthsP12[0]),' – ',
           U.ymLabel(D().monthsP12[11]),'. Tüm YoY karşılaştırmaları bu iki pencere arasındadır; ',
           'üstteki görünüm düğmesiyle takvim yılı karşılaştırmasına geçilebilir.'),
-        h('p',null,'Rakip markalı sorgular (beIN, Mackolik, Sofascore ve benzeri) jenerik ' +
-          'toplamdan çıkarılmıştır. TFF ve TJK gibi resmi kurumlar bilginin birinci çıkış ' +
-          'noktası olduğundan jenerik kabul edilir.'),
+        h('p',null,'Korsan site markalı sorgular ("dizibox", "dizipal") kapsamda tutulmuştur: ' +
+          'korsan da olsa izleme niyeti taşıdıkları için talebin ne kadarının o tarafa aktığını ' +
+          'göstermektedirler. Ad belirsizliği taşıyan kümeler ise SERP kanıtıyla kapsam dışı ' +
+          'bırakılmıştır; dizinin adı başka bir yapımı ya da genel bir kelimeyi karşılıyorsa ' +
+          'o hacim dizi talebi sayılmamaktadır.'),
         h('p',null, h('strong',null,'Okuma notu: '),
-          'Bir dizinin talebi tek sayfaya sığmaz: izleme, konu, oyuncu ve sezon takvimi ayrı sayfa adaylarıdır. Bu pano her diziyi ' +
-          'verilmektedir; bu ailede organik tıklama oranı düşük kalmaktadır. İzleme intent\'i ' +
-          '("canlı izle", "nerede izlenir", "hangi kanalda") bileşen tarafından bastırılmamaktadır.')),
+          'Bir dizinin talebi tek sayfaya sığmaz: izleme, konu, oyuncular ve sezon takvimi ayrı ' +
+          'sayfa adaylarıdır. Çıplak dizi adı aramaları navigasyonel katmandır; SERP kontrolünde ' +
+          'bu sorgularda izleme değil bilgi kaynakları (Wikipedia, IMDb, Beyazperde) öne ' +
+          'çıkmaktadır. İzleme niyeti kendi sorgu ailesinde toplanmaktadır.')),
 
       // ——— Pazar Özeti hero ———
       h(C.SectionHeader,{icon:'ozet', title:'Pazar Özeti', accent:'coral',
@@ -903,12 +906,13 @@ window.TABS = (function(){
       h(C.Explainer,{title:'Sayfa tipi neden belirleyici?', icon:'hedef', defaultOpen:true},
         h('p',null,'Dizi talebinin yaklaşık yarısı izleme intent\'idir ("izle", "türkçe dublaj izle", "altyazılı izle"). ' +
           'Bu ailede SERP\'in büyük bölümü korsan sitelerdedir; meşru platform sıralanmadığında talep oraya akar.'),
-        h('p',null,'Konu, oyuncu ve sezon takvimi sorguları bilgi katmanıdır; yayın hakkı gerektirmez ve dizi hub\'ının ' +
-          'alt sayfalarını besler. Hakkı olan platform için izleme sayfası doğal üstünlük alanıdır.')),
+        h('p',null,'Konu, oyuncular ve sezon takvimi sorguları bilgi katmanıdır; dizinin yayın hakkını ' +
+          'gerektirmez ve dizi hub\'ının alt sayfalarını besler. Hakkı elinde tutan platform içinse ' +
+          'izleme sayfası doğal üstünlük alanıdır.')),
       h('div',{className:'grid grid-kpi kpi-4'},
         h(C.Kpi,{label:'İZLEME INTENT\'İ', value:fmtOrt(topR12(izleme)), accent:true,
-          sub:izleme.length.toLocaleString('tr-TR')+' keyword · bileşen bastırmıyor'}),
-        h(C.Kpi,{label:'VERİ SAYFASI TALEBİ', value:fmtOrt(topR12(veri)), sub:'konu · oyuncu · sezon takvimi · aylık ort.'}),
+          sub:izleme.length.toLocaleString('tr-TR')+' keyword · aylık ort.'}),
+        h(C.Kpi,{label:'VERİ SAYFASI TALEBİ', value:fmtOrt(topR12(veri)), sub:'konu · oyuncular · sezon takvimi · aylık ort.'}),
         h(C.Kpi,{label:'NAVİGASYONEL', value:fmtOrt(topR12(rows.filter(k=>k.it==='Navigasyonel'))),
           sub:'çıplak varlık adı · hub sayfası ister'}),
         h(C.Kpi,{label:'SEZON & TAKVİM', value:fmtOrt(topR12(rows.filter(k=>k.it==='Sezon & Takvim'))),
@@ -1159,8 +1163,9 @@ window.TABS = (function(){
   function RakipTab({rows}){
     const serp = (D().serp)||[];
     const [sinifF, setSinifF]   = React.useState('');
+    const [diziF, setDiziF]     = React.useState('');      // dizi kırılımından gelir
     const [seciliKw, setSecili] = React.useState(null);
-    const [sirala, setSirala]   = React.useState('hacim');
+    const [sirala, setSirala]   = React.useState('trafik');
 
     if(!serp.length) return h('div',{className:'tab-content-anim'},
       h(C.EmptyState,{title:'SERP taraması yok',
@@ -1168,21 +1173,51 @@ window.TABS = (function(){
 
     const kapsam = new Set(rows.map(k=>k.takim).filter(Boolean));
     const veri = React.useMemo(()=>serp.filter(s=>
-      (!kapsam.size || kapsam.has(s.dizi)) && (!sinifF || s.sinif===sinifF)),[serp, sinifF, rows]);
+      (!kapsam.size || kapsam.has(s.dizi)) && (!sinifF || s.sinif===sinifF) &&
+      (!diziF || s.dizi===diziF)),[serp, sinifF, diziF, rows]);
 
     const siniflar = ['Korsan','Meşru Platform','Agregatör / Bilgi'];
-    // İlk 10'da görünme: kapsam eksiksiz olduğu için asıl gösterge budur
+    const izlemeOdakli = sn => sn==='Korsan' || sn==='Meşru Platform';
     const gorunme = siniflar.map(sn=>({sn, n:veri.filter(s=>s.sinif===sn).length}));
     const toplamG = gorunme.reduce((a,x)=>a+x.n,0) || 1;
+
+    // ——— Dizi bazında rakip trafiği ———
+    // Her dizinin "{ad} izle" SERP'indeki ilk 10 sayfanın Ahrefs tahmini aylık
+    // trafiği. İzleme odaklı toplam = korsan + meşru platform; agregatör
+    // (JustWatch, IMDb) izleme sayfası olmadığı için ayrı sütunda durur.
+    const diziTablo = React.useMemo(()=>{
+      const m={};
+      for(const s of veri){
+        const o = m[s.dizi] || (m[s.dizi]={dizi:s.dizi, tur:s.tur, hacim:0, kw:new Set(),
+                                          izleme:0, korsan:0, mesru:0, agregat:0, ilk3:0, jenerik:0});
+        o.kw.add(s.keyword);
+        const t = s.sayfa_trafik||0;
+        if(!s.dizi_sayfasi){ o.jenerik += t; continue; }   // jenerik sayfa diziye yazılmaz
+        if(izlemeOdakli(s.sinif)) o.izleme += t;
+        if(s.sinif==='Korsan') o.korsan += t;
+        else if(s.sinif==='Meşru Platform') o.mesru += t;
+        else o.agregat += t;
+        if(s.pozisyon<=3) o.ilk3 += t;
+      }
+      for(const s of serp){                                  // hacim tekil sorgudan
+        const o=m[s.dizi]; if(o && s.aylik_hacim>o.hacim) o.hacim=s.aylik_hacim;
+      }
+      const l=Object.values(m);
+      if(sirala==='hacim') l.sort((a,b)=>b.hacim-a.hacim);
+      else if(sirala==='korsan') l.sort((a,b)=>b.korsan-a.korsan);
+      else if(sirala==='az') l.sort((a,b)=>a.dizi.localeCompare(b.dizi,'tr'));
+      else l.sort((a,b)=>b.izleme-a.izleme);
+      return l;
+    },[veri, sirala]);
 
     const domTablo = React.useMemo(()=>{
       const m={};
       for(const s of veri){
         const o = m[s.domain] || (m[s.domain]={dom:s.domain, sinif:s.sinif, n:0, ilk3:0,
-                                              trafik:0, trafikli:0, diziler:new Set()});
+                                              trafik:0, diziler:new Set()});
         o.n++; if(s.pozisyon<=3) o.ilk3++;
         o.diziler.add(s.dizi);
-        if(s.sayfa_trafik!=null){ o.trafik += s.sayfa_trafik; o.trafikli++; }
+        if(s.dizi_sayfasi) o.trafik += s.sayfa_trafik||0;
       }
       return Object.values(m).sort((a,b)=>b.n-a.n);
     },[veri]);
@@ -1191,54 +1226,96 @@ window.TABS = (function(){
       const m={};
       for(const s of veri){
         const o = m[s.keyword] || (m[s.keyword]={kw:s.keyword, dizi:s.dizi, tur:s.tur,
-                                                hacim:s.aylik_hacim, sat:[]});
+                                                hacim:s.aylik_hacim, sat:[],
+                                                korsanTrafik:0, ilk3Trafik:0, izlemeTrafik:0});
         o.sat.push(s);
+        const t=s.dizi_sayfasi ? (s.sayfa_trafik||0) : 0;
+        if(s.sinif==='Korsan') o.korsanTrafik += t;
+        if(izlemeOdakli(s.sinif)) o.izlemeTrafik += t;
+        if(s.pozisyon<=3) o.ilk3Trafik += t;
       }
       const l = Object.values(m);
-      l.forEach(o=>{ o.sat.sort((a,b)=>a.pozisyon-b.pozisyon);
-        o.pay = siniflar.map(sn=>({sn, n:o.sat.filter(x=>x.sinif===sn).length}));
-        o.ilk3 = o.sat.filter(x=>x.pozisyon<=3).map(x=>x.sinif); });
+      l.forEach(o=>o.sat.sort((a,b)=>a.pozisyon-b.pozisyon));
       if(sirala==='hacim') l.sort((a,b)=>b.hacim-a.hacim);
-      else if(sirala==='korsan') l.sort((a,b)=>
-        (b.pay.find(p=>p.sn==='Korsan').n) - (a.pay.find(p=>p.sn==='Korsan').n));
-      else l.sort((a,b)=>a.kw.localeCompare(b.kw,'tr'));
+      else if(sirala==='korsan') l.sort((a,b)=>b.korsanTrafik-a.korsanTrafik);
+      else if(sirala==='az') l.sort((a,b)=>a.kw.localeCompare(b.kw,'tr'));
+      else l.sort((a,b)=>b.izlemeTrafik-a.izlemeTrafik);
       return l;
     },[veri, sirala]);
 
     const secili = seciliKw ? kwTablo.find(k=>k.kw===seciliKw) : null;
+    const toplamIzleme = diziTablo.reduce((a,d)=>a+d.izleme,0);
+    const toplamKorsan = diziTablo.reduce((a,d)=>a+d.korsan,0);
+
+    const sinifRozet = sn => h('span',{className:'pill', style:{
+      background:`color-mix(in srgb, ${SINIF_RENK[sn]} 15%, transparent)`,
+      color:SINIF_RENK[sn], fontWeight:600, whiteSpace:'nowrap'}}, sn);
 
     return h('div',{className:'tab-content-anim'},
       h(C.Explainer,{title:'Bu talep hangi sayfalara gidiyor?', icon:'karar', defaultOpen:true},
         h('p',null,'145 dizinin ', h('b',null,'"{dizi adı} izle"'), ' sorgusunda ilk 10 organik sonuç tarandı. ',
           'Her satır tek bir sayfadır: domain değil, tam URL. Sayfa trafiği, Ahrefs\'in o URL için ',
           'verdiği tahmini aylık organik trafiktir; yalnızca bu sorgudan geleni değil, sayfanın tamamını kapsar.'),
-        h('p',null,'Domainler üç sınıfa ayrılıyor: ',
-          h('b',{style:{color:SINIF_RENK['Meşru Platform']}},'Meşru Platform'),' (Apple TV, Prime Video, Netflix, TV+), ',
-          h('b',{style:{color:SINIF_RENK['Korsan']}},'Korsan'),' ve ',
-          h('b',{style:{color:SINIF_RENK['Agregatör / Bilgi']}},'Agregatör / Bilgi'),
-          ' (JustWatch, IMDb, Wikipedia).'),
+        h('p',null,h('b',null,'İzleme odaklı trafik'),' = korsan + meşru platform sayfalarının toplamı. ',
+          'Agregatör ve bilgi siteleri (JustWatch, IMDb, Wikipedia) izleme sayfası sunmadığı için ',
+          'ayrı sütunda tutulur.'),
+        h('p',null,'Toplamlara yalnızca ', h('b',null,'dizinin kendi sayfaları'), ' girer. ',
+          '"{dizi} izle" sorgusunun ilk 10\'unda dizinin sayfası olmayan sonuçlar da çıkıyor: ',
+          'platformların genel katalog sayfaları (tvplus.com.tr/dizi-izle, puhutv.com/dizi) ve ',
+          'aynı adı taşıyan başka yapımlar. Bunların trafiği o dizinin izleme talebine yazılamaz; ',
+          'satır detayda "jenerik" olarak görünür, toplama girmez.'),
         h('p',{className:'txt-3', style:{fontSize:11.5}},
-          'Kapsam: 145 dizinin tamamı · 1.373 sonuç · 1.369 tekil sayfa. Sayfa trafiği ',
-          h('b',null,'tüm sayfalar için'), ' ölçüldü; 0 değeri ölçüm eksikliği değil, ',
-          'Ahrefs\'in o sayfaya organik trafik atfetmediği anlamına gelir. Bir sayfanın trafiği ',
-          'yalnızca dizi sorgusundan gelmez: genel liste sayfaları (ör. platformların dizi ',
-          'kataloğu) toplamda yüksek görünür, bu satırlar toplamlar okunurken ayrıca değerlendirilebilir.')),
+          'Kapsam: 1.420 sonucun tamamında sayfa trafiği ölçüldü; 0 değeri ölçüm eksikliği değil, ',
+          'Ahrefs\'in o sayfaya organik trafik atfetmediği anlamına gelir. Sayfa trafiği o URL\'in ',
+          'tüm organik trafiğidir, yalnızca bu sorgudan geleni değil; dolayısıyla üst sınır okuması verir.')),
 
       h('div',{className:'grid grid-kpi kpi-4', style:{marginBottom:16}},
-        gorunme.map(g=>h(C.Kpi,{key:g.sn, label:g.sn.toLocaleUpperCase('tr-TR'), value:fmtNum(g.n),
-          chip:'%'+Math.round(100*g.n/toplamG), chipClass:'neu',
-          sub:'ilk 10\'da görünme', accent:g.sn==='Korsan'})),
-        h(C.Kpi,{label:'TARANAN DİZİ', value:fmtNum(new Set(veri.map(s=>s.dizi)).size),
-          sub:fmtNum(new Set(veri.map(s=>s.keyword)).size)+' sorgu · ilk 10'})),
+        h(C.Kpi,{label:'İZLEME ODAKLI TRAFİK', value:fmtNum(toplamIzleme), accent:true,
+          sub:'korsan + meşru platform · aylık'}),
+        h(C.Kpi,{label:'KORSAN TRAFİĞİ', value:fmtNum(toplamKorsan),
+          chip:'%'+Math.round(100*toplamKorsan/(toplamIzleme||1)), chipClass:'neu',
+          sub:'izleme odaklı trafiğin payı'}),
+        h(C.Kpi,{label:'TARANAN DİZİ', value:fmtNum(diziTablo.length),
+          sub:fmtNum(new Set(veri.map(s=>s.keyword)).size)+' sorgu · ilk 10'}),
+        h(C.Kpi,{label:'İLK 10\'DA KORSAN', value:'%'+Math.round(100*(gorunme[0].n)/toplamG),
+          sub:fmtNum(gorunme[0].n)+' sonuç · '+fmtNum(toplamG)+' içinde'})),
 
       h('div',{className:'toolbar', style:{marginBottom:14}},
         h('div',{className:'segmented segmented-saran'},
           [['','Tüm sınıflar'], ...siniflar.map(s=>[s,s])].map(([v,l])=>
             h('button',{key:v||'all', className:sinifF===v?'active':'',
               onClick:()=>{setSinifF(v); setSecili(null);}}, l))),
+        diziF && h('button',{className:'chip-btn', onClick:()=>{setDiziF(''); setSecili(null);}},
+          h('span',{className:'btn-ikon'},'✕'), 'Dizi: '+diziF),
         h('div',{className:'segmented', style:{marginLeft:'auto'}},
-          [['hacim','Hacim ↓'],['korsan','Korsan yoğunluğu ↓'],['az','A–Z']].map(([v,l])=>
+          [['trafik','İzleme trafiği ↓'],['korsan','Korsan trafiği ↓'],['hacim','Hacim ↓'],['az','A–Z']].map(([v,l])=>
             h('button',{key:v, className:sirala===v?'active':'', onClick:()=>setSirala(v)}, l)))),
+
+      // ——— Dizilere göre rakip trafik ———
+      h(C.SectionHeader,{icon:'karne', title:'Dizilere göre rakip trafik',
+        desc:'bir diziyi izlemek için rakip sayfalara giden toplam trafik · satıra tıklayın, tüm sekme o diziye daralır'}),
+      h('div',{className:'card flush', style:{marginBottom:18}},
+        h('div',{className:'tbl-wrap'},
+          h('table',{className:'tbl'},
+            h('thead',null, h('tr',null,
+              h('th',null,'Dizi'), h('th',{className:'col-hide-sm'},'Tür'),
+              h('th',{className:'num'},'Sorgu Hacmi'),
+              h('th',{className:'num'},'İzleme Odaklı Trafik'),
+              h('th',{className:'num'},'Korsan'),
+              h('th',{className:'num'},'Meşru Platform'),
+              h('th',{className:'num col-hide-sm'},'Agregatör'),
+              h('th',{className:'num'},'İlk 3 Trafiği'))),
+            h('tbody',null, diziTablo.map(d=>h('tr',{key:d.dizi,
+              className:'clickable'+(diziF===d.dizi?' secili':''),
+              onClick:()=>{ setDiziF(diziF===d.dizi?'':d.dizi); setSecili(null); }},
+              h('td',{className:'kw-cell'}, d.dizi),
+              h('td',{className:'cat-cell col-hide-sm'}, d.tur),
+              h('td',{className:'num'}, fmtNum(d.hacim)),
+              h('td',{className:'num'}, h('strong',null, fmtNum(d.izleme))),
+              h('td',{className:'num', style:{color:SINIF_RENK['Korsan']}}, fmtNum(d.korsan)),
+              h('td',{className:'num', style:{color:SINIF_RENK['Meşru Platform']}}, fmtNum(d.mesru)),
+              h('td',{className:'num col-hide-sm'}, fmtNum(d.agregat)),
+              h('td',{className:'num'}, fmtNum(d.ilk3)))))))),
 
       h(C.SectionHeader,{icon:'liste', title:'Domain bazında görünürlük',
         desc:domTablo.length+' domain · ilk 10\'da kaç kez, kaçında ilk 3\'te'}),
@@ -1252,37 +1329,31 @@ window.TABS = (function(){
               h('th',{className:'num'},'AHREFS SAYFA TRAFİĞİ'))),
             h('tbody',null, domTablo.slice(0,30).map(d=>h('tr',{key:d.dom},
               h('td',{className:'kw-cell'}, d.dom),
-              h('td',null, h('span',{className:'pill', style:{
-                background:`color-mix(in srgb, ${SINIF_RENK[d.sinif]} 15%, transparent)`,
-                color:SINIF_RENK[d.sinif], fontWeight:600, whiteSpace:'nowrap'}}, d.sinif)),
+              h('td',null, sinifRozet(d.sinif)),
               h('td',{className:'num'}, h('strong',null, fmtNum(d.n))),
               h('td',{className:'num'}, fmtNum(d.ilk3)),
               h('td',{className:'num col-hide-sm'}, fmtNum(d.diziler.size)),
               h('td',{className:'num'}, h('strong',null, fmtNum(d.trafik))))))))),
 
-      h(C.SectionHeader,{icon:'liste', title:'Sorgu bazında ilk 10',
+      h(C.SectionHeader,{icon:'liste', title:'Sorgu bazında trafik dağılımı',
         desc:'satıra tıklayın, o sorgunun 10 sayfası tam URL ile açılır'}),
       h('div',{className:'card flush'},
         h('div',{className:'tbl-wrap'},
           h('table',{className:'tbl'},
             h('thead',null, h('tr',null,
-              h('th',null,'Sorgu'), h('th',null,'Tür'),
+              h('th',null,'Sorgu'), h('th',{className:'col-hide-sm'},'Tür'),
               h('th',{className:'num'},'AYLIK HACİM'),
-              h('th',null,'İlk 3'), h('th',null,'İlk 10 dağılımı'))),
+              h('th',{className:'num'},'Rakip Korsan Trafiği'),
+              h('th',{className:'num'},'Rakip İlk 3 Trafiği'))),
             h('tbody',null, kwTablo.map(k=>h('tr',{key:k.kw,
               className:'clickable'+(seciliKw===k.kw?' secili':''),
               onClick:()=>setSecili(seciliKw===k.kw?null:k.kw)},
               h('td',{className:'kw-cell'}, k.kw),
-              h('td',{className:'cat-cell'}, k.tur),
+              h('td',{className:'cat-cell col-hide-sm'}, k.tur),
               h('td',{className:'num'}, fmtNum(k.hacim)),
-              h('td',null, h('div',{style:{display:'flex',gap:3}},
-                k.ilk3.map((sn,i)=>h('span',{key:i, title:sn,
-                  style:{width:9,height:9,borderRadius:2,background:SINIF_RENK[sn]}})))),
-              h('td',{style:{minWidth:140}},
-                h('div',{style:{display:'flex',height:15,borderRadius:4,overflow:'hidden'}},
-                  k.pay.filter(p=>p.n>0).map(p=>h('div',{key:p.sn,
-                    title:p.sn+' · '+p.n+' sayfa',
-                    style:{width:(100*p.n/k.sat.length)+'%', background:SINIF_RENK[p.sn]}})))))))))),
+              h('td',{className:'num', style:{color:SINIF_RENK['Korsan']}},
+                h('strong',null, fmtNum(k.korsanTrafik))),
+              h('td',{className:'num'}, fmtNum(k.ilk3Trafik)))))))),
 
       secili && h(React.Fragment,null,
         h(C.SectionHeader,{icon:'liste', title:secili.kw+' · ilk 10 sayfa',
@@ -1301,15 +1372,17 @@ window.TABS = (function(){
                     style:{color:'var(--ink)', textDecoration:'none'}},
                     h('div',{style:{fontWeight:600}}, s.domain),
                     h('div',{className:'cat-cell', style:{wordBreak:'break-all'}}, s.url))),
-                h('td',null, h('span',{className:'pill', style:{
-                  background:`color-mix(in srgb, ${SINIF_RENK[s.sinif]} 15%, transparent)`,
-                  color:SINIF_RENK[s.sinif], fontWeight:600, whiteSpace:'nowrap'}}, s.sinif)),
-                h('td',{className:'num'},
+                h('td',null, sinifRozet(s.sinif),
+                  !s.dizi_sayfasi && h('span',{className:'pill', style:{marginLeft:6,
+                    background:'var(--line-soft)', color:'var(--ink-3)'},
+                    title:'Dizinin kendi sayfası değil · toplama girmiyor'},'jenerik')),
+                h('td',{className:'num', style:s.dizi_sayfasi?null:{opacity:.45}},
                   s.sayfa_trafik ? h('strong',null, fmtNum(s.sayfa_trafik))
                                  : h('span',{className:'txt-3'},'0'))))))))),
 
       h(Kaynak,{}));
   }
+
 
   // ══════════════════════════════════════════ MASTER LİSTE
   function MasterTab({rows, setKeywordModal, viewMode}){
@@ -1460,27 +1533,32 @@ window.TABS = (function(){
      İki gösterim: karo şeridi (A) ve sütun kırılımı (B). Yol ve
      kontroller ikisinde ortaktır, gösterim değişince yer korunur.
      ═══════════════════════════════════════════════════════════════════ */
-  const KIRILIM_SEVIYE = [['spor','Kategori'],['org','Tür'],['takim','Dizi']];
+  const KIRILIM_SEVIYE = [['takim','Dizi'],['st','Sayfa Tipi'],['it','Intent']];
   const KIRILIM_ESIK = [0, 10000, 50000, 250000, 1e6, 5e6, 25e6];
   const KIRILIM_SINIR = 24;   // seviye başına ilk gösterilen karo sayısı
 
   // Üç seviyeli ağaç. Her düğümde hacim ve keyword sayısı
   // [tümü, yalnız dizi adı, yalnız sezon/bölüm] olarak tutulur.
+  // Kırılım zinciri dizi adıyla başlar: karar birimi dizidir, kategori ve tür
+  // yalnızca toplama eksenidir. Diziye tıklanınca sayfa tipine, oradan intent'e
+  // inilir; böylece "bu dizinin talebinin ne kadarı izleme" tek tıkla görülür.
+  // v[]/k[] üçlüsü kapsam seçicisine karşılık gelir: 0 tümü · 1 izleme · 2 izleme dışı.
   function kirilimAgaci(rows){
     const kok = new Map();
     const bos = ad => ({n:ad, v:[0,0,0], k:[0,0,0], c:new Map()});
     const ekle = (d,k) => {
-      const i = k.ent==='Dizi' ? 1 : (k.ent==='Sezon'||k.ent==='Bölüm') ? 2 : -1;
+      const i = k.it==='İzleme' ? 1 : 2;
       d.v[0]+=k.r12||0; d.k[0]++;
-      if(i>0){ d.v[i]+=k.r12||0; d.k[i]++; }
+      d.v[i]+=k.r12||0; d.k[i]++;
     };
-        for(const k of rows){
-      const s=k.spor||'Diğer', o=k.org||'Belirsiz', t=k.takim||null;
-      if(!kok.has(s)) kok.set(s, bos(s));
-      const ds=kok.get(s); ekle(ds,k);
-      if(!ds.c.has(o)) ds.c.set(o, bos(o));
-      const dOrg=ds.c.get(o); ekle(dOrg,k);
-      if(t){ if(!dOrg.c.has(t)) dOrg.c.set(t, bos(t)); ekle(dOrg.c.get(t), k); }
+    for(const k of rows){
+      const t=k.takim||k.diziAd||'Belirsiz', st=k.st||'Diğer', it=k.it||'Belirsiz';
+      if(!kok.has(t)) kok.set(t, bos(t));
+      const dz=kok.get(t); ekle(dz,k);
+      if(!dz.c.has(st)) dz.c.set(st, bos(st));
+      const dSt=dz.c.get(st); ekle(dSt,k);
+      if(!dSt.c.has(it)) dSt.c.set(it, bos(it));
+      ekle(dSt.c.get(it), k);
     }
     const diz = m => [...m.values()].map(d=>({n:d.n, v:d.v, k:d.k, c:diz(d.c)}));
     return diz(kok);
@@ -1553,18 +1631,18 @@ window.TABS = (function(){
       setYol(yol.slice(0, seviye).concat(dugum.n));
     }
 
-    const kapsamAd = ['tüm aramalar','takım araması','oyuncu araması'][kapsam];
+    const kapsamAd = ['tüm aramalar','izleme araması','izleme dışı arama'][kapsam];
     const gorunenler = cocuklar(konum.liste);
     const seviyeIdx  = Math.min(yol.length, 2);
     const toplamHacim = gorunenler.reduce((a,d)=>a+d.v[kapsam],0);
     const toplamKw    = gorunenler.reduce((a,d)=>a+d.k[kapsam],0);
 
-    // ——— parça: pay çubuğu (takım / oyuncu) ———
+    // ——— parça: pay çubuğu (izleme / izleme dışı) ———
     function PayCubugu({d}){
       const t=d.v[1]||0, o=d.v[2]||0, s=t+o;
       if(!s) return null;
       return h('span',{className:'kr-bar',
-        'data-tip':'Dizi adı '+fmtOrt(t)+'/ay · sezon/bölüm '+fmtOrt(o)+'/ay'},
+        'data-tip':'İzleme '+fmtOrt(t)+'/ay · izleme dışı '+fmtOrt(o)+'/ay'},
         h('i',{className:'t', style:{width:(100*t/s).toFixed(1)+'%'}}),
         h('i',{className:'o', style:{width:(100*o/s).toFixed(1)+'%'}}));
     }
@@ -1604,7 +1682,7 @@ window.TABS = (function(){
                   h('span',{className:'kr-karo-hacim'}, fmtOrt(d.v[kapsam])),
                   h('span',{className:'kr-karo-alt'},
                     d.k[kapsam].toLocaleString('tr-TR')+' kw' +
-                    (alt ? ' · '+alt+' '+(lv===0?'org':'takım') : '')),
+                    (alt ? ' · '+alt+' '+KIRILIM_SEVIYE[lv+1][1].toLocaleLowerCase('tr') : '')),
                   h(PayCubugu,{d}));
               })),
             gosterilen.length > KIRILIM_SINIR && h('button',{className:'chip-btn sessiz kr-daha',
@@ -1652,7 +1730,7 @@ window.TABS = (function(){
 
     return h('div',null,
       h(C.SectionHeader,{icon:'karne', title:'Kırılım',
-        desc:'spor dalı, organizasyon ve takım zincirinde hızlı bakış · trend gösterilmiyor'}),
+        desc:'dizi → sayfa tipi → intent zincirinde hızlı bakış · trend gösterilmiyor'}),
 
       h('div',{className:'card kr-kontrol'},
         h('div',{className:'kr-kontrol-satir'},
@@ -1667,7 +1745,7 @@ window.TABS = (function(){
           h('span',{className:'kr-grup'},
             h('span',{className:'kr-etiket'},'Kapsam'),
             h('div',{className:'segmented'},
-              ['Tümü','Yalnız Takım','Yalnız Oyuncu'].map((g,i)=>
+              ['Tümü','Yalnız İzleme','İzleme Dışı'].map((g,i)=>
                 h('button',{key:g, className: kapsam===i?'active':'',
                   onClick:()=>setKapsam(i)}, g)))),
 
@@ -1715,9 +1793,10 @@ window.TABS = (function(){
         gorunum==='karo' ? karoGorunum() : sutunGorunum()),
 
       h('div',{className:'txt-3', style:{fontSize:10.5, marginTop:8}},
-        'Alt kırılımı olan bir kayda tıklandığında bir seviye aşağı inilir; ',
-        'alt kırılımı olmayan kayıtta ve takım seviyesinde Keyword sekmesi açılır. ',
-        'Bireysel sporlarda takım seviyesi bulunmadığı için zincir organizasyonda tamamlanır.'));
+        'Alt kırılımı olan bir kayda tıklandığında bir seviye aşağı inilir: ',
+        'diziden sayfa tipine, oradan intent katmanına. Son seviyede ve alt kırılımı ',
+        'olmayan kayıtta Keyword sekmesi o kapsamla açılır. Çubuk, kaydın izleme ve ',
+        'izleme dışı talep payını gösterir.'));
   }
 
   return { OzetTab, GruplarTab, KeywordTab, TrendlerTab, SayfaTipiTab, EntityTab,
