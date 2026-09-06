@@ -14,6 +14,7 @@
       rozet:r=>fmtNum(r.filter(k=>k.ent==='Dizi'||k.ent==='Sezon'||k.ent==='Bölüm').length)},
     {id:'keyword', label:'Keyword',             Comp:T.KeywordTab, rozet:r=>fmtNum(r.length)},
     {id:'kirilim', label:'Kırılım',             Comp:T.KirilimTab},
+    {id:'rakip',   label:'Rakip Trafiği',        Comp:T.RakipTab},
     {id:'sayfa',   label:'Sayfa Tipi & Intent', Comp:T.SayfaTipiTab},
     {id:'trendler',label:'Trendler',            Comp:T.TrendlerTab},
     {id:'master',  label:'Master Liste',        Comp:T.MasterTab},

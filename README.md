@@ -8,8 +8,15 @@ Apple TV+ orijinal dizi kütüphanesinin Türkiye arama talebi: dizi bazında ha
 - Aylık ort. **924K** arama · izleme intent'i **%42**.
 - Rakip katmanı: dizibox, filmmakinesi, hdfilmcehennemi, Prime Video, Apple TV (Ahrefs organik, her domain ilk 400 kw). Apple TV+ dizi trafiğinin **%75'i korsan**.
 
-## Hiyerarşi ve karar
-Kategori (Drama) → Tür (Science fiction) → Dizi. Karar birimi **dizi**; eşikler dizi dağılımından türetildi (`data/arastirma/bulgular.md`).
+## Hiyerarşi
+Kategori (Drama) → Tür (19 konsolide tür) → Dizi. Wikipedia'nın 115 serbest metin türü kırılım ekseni olarak işe yaramıyordu (79'u tek dizilik); anahtar kelime kuralıyla indirgendi, orijinali `tur_ham` alanında "Alt Tür" olarak duruyor.
+
+## Rakip Trafiği sekmesi
+15 keyword × ilk 10 organik sonuç (Ahrefs TR). Birincil metrik **tahmini tık** = keyword aylık hacmi × pozisyon CTR'ı; Ahrefs'in `traffic` alanı sıralanan URL'nin toplam trafiği olduğu ve jenerik URL'de hub'ın tamamını saydığı için ikincil sütunda duruyor.
+
+Domainler üç sınıfa ayrılır: Meşru Platform (Apple TV, Prime Video) · Korsan · Agregatör/Bilgi (Wikipedia, IMDb, JustWatch). **İzleme sorgularında korsan %75, navigasyonel sorgularda Wikipedia/IMDb %82.**
+
+SERP verisi yenilemek için: `serp-overview` çıktısını `data/serp/ham.jsonl`'a ekle, sonra `python3 scripts/serp_isle.py`.
 
 ## Çalıştırma
 ```bash

@@ -21,3 +21,13 @@
 - Artifact üretimi ilk denemede başarısız oldu: üretici React/Babel'i `.artifact/` altındaki yerel kopyalardan gömüyor, klasör gitignore'da olduğu için TV+'tan gelmemişti. Vendor dosyaları kopyalandı, artifact üretildi.
 - Artifact yayınlandı (downloads yeteneği bildirildi, CSV indirme çalışıyor): https://claude.ai/code/artifact/e5c64ca9-16bb-4af6-8b6a-9371ab70ddd2
 - Açık kalanlar: sezon bütünlüğü bölümü (lig bütünlüğünün dizi karşılığı) · 196 dizide erişim faseti "Doğrulanacak" (rakip örneklemi ilk 400 kw ile sınırlı) · Apple'ın `/tr/` yerine `/cy/` sıralanması rapor için önemli bulgu.
+
+## 2026-09-01 (ikinci tur)
+- Talep: takım ekleme butonu kaldırılsın · spor etiketleri dizi diline · gruplar konsolide · Karar Ağacı ve Meşru Erişim Dışı sekmeleri çıksın · rakip trafiği sekmesi eklensin · repo gözden geçirilsin.
+- **Kaldırılanlar:** Karar Ağacı ve Meşru Erişim Dışı sekmeleri · `takimDahil` bayrağı ve `orgGenislet` (bu dikeyde karşılığı yok) · Milli Takım Kümeleri bölümü (ölü kod, `milli` alanı boş).
+- **Etiketler:** Dizi Kümesi Tablosu, Dizi Adı / Sezon-Bölüm Ort., Dizi + Sezon/Bölüm seçicisi. Ekran görüntüsündeki "Takım: … Oyuncu: …" ipucu "Dizi adı: … Sezon/bölüm: …" oldu.
+- **Tür konsolidasyonu:** 115 → 19. `tur_ham` alt tür olarak korunuyor.
+- **Yeni sekme · Rakip Trafiği:** 15 keyword × ilk 10 organik sonuç (Ahrefs). Intent × domain sınıfı matrisi, domain payları, keyword bazında ilk-10 dağılım şeridi, satıra tıklayınca SERP detayı.
+- Metrik kararı: birincil metrik **tahmini tık** (hacim × pozisyon CTR). Ahrefs `traffic` alanı sıralanan URL'nin toplam trafiği; jenerik URL'de hub'ın tamamını sayıyor ("shrinking izle" → filmmakinesi.to/Yabancı 604.906). O satırlar boş bırakıldı, ikincil sütunda duruyor.
+- **Repo gözden geçirme:** ölü kod temizlendi — `KararTab` ve `HakDisiTab` bileşenleri (tanımlı ve export ediliyordu ama hiçbir sekmede kullanılmıyordu), tüm karar çerçevesi bloğu (`kararVer`, `KOVA_TANIM`, `sezonDisi`, eşik sabitleri), boş faset etiketleri (`milli`, `avrupa`, `guncel`, `anaAd`), `SEVIYELER` içindeki "Spor Dalı"/"Organizasyon" etiketleri, eskimiş `takimDahil` yorumu. tabs.jsx 1.831 → 1.707 satır.
+- Dokuz sekme 375 ve 1440'ta temiz, konsol hatasız.

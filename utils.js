@@ -247,25 +247,20 @@ window.U = (function(){
 
   // ——— TV+ faset yardımcıları ———
   const FACET_ETIKET = {
-    spor:'Kategori', org:'Tür', takim:'Dizi', diziAd:'Dizi Adı', kulup:'Dizi Anahtarı',
+    spor:'Kategori', org:'Tür', turHam:'Alt Tür', takim:'Dizi', diziAd:'Dizi Adı', kulup:'Dizi Anahtarı',
     yil:'Çıkış Yılı', sezonSay:'Sezon Sayısı', durum:'Durum', sezonNo:'Sezon No',
     st:'Sayfa Tipi', it:'Intent', ent:'Varlık Tipi', marka:'Marka Tipi',
     belirsiz:'Belirsiz Ad', dil:'Dil', hak:'Meşru Erişim', resmi:'Apple Resmi',
     mden:'Mantık Denetimi', sinif:'Mevsim Tipi', bucket:'Hacim Aralığı', trend:'Trend',
-    milli:'Milli Takım', avrupa:'Avrupa Kupası', guncel:'Eşleşme Güncelliği', anaAd:'Ana Ad',
   };
   // Kırılım hiyerarşisi: seviye 1 → 2 → 3 (Özdilek'teki Kat 1/2/3 karşılığı)
   const SEVIYELER = [
-    {id:'spor', label:'Spor Dalı'},
-    {id:'org',  label:'Organizasyon'},
+    {id:'spor', label:'Kategori'},
+    {id:'org',  label:'Tür'},
     {id:'st',   label:'Sayfa Tipi'},
   ];
 
   // Faset filtresi: {alan:[değerler]} — boş dizi = filtre yok
-  // takimDahil: bir organizasyon seçildiğinde o yarışmada oynayan kulüplerin
-  // kendi keyword'leri de kapsama girer. Kulüp satırları kendi ülke liginde
-  // durur (Real Madrid La Liga'da), ikincil üyelik alanı avrupa'da işaretlidir;
-  // bayrak açıkken org eşleşmesi bu alanı da kabul eder.
   function applyFacets(rows, f, arama){
     let out = rows;
     for(const [alan, degerler] of Object.entries(f||{})){

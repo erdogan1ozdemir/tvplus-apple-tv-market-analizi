@@ -134,7 +134,7 @@ const KAPSAM_DISI_SPOR = new Set(['E-Spor']);
 const FACET = {
   // Hiyerarşi: kategori (Drama) → tür (Science fiction) → dizi (Severance).
   // Kısa adlar TV+ şablonuyla aynı tutuldu; arayüz bu kısa adları bekliyor.
-  kategori:'spor', tur:'org', dizi:'diziAd', dizi_anahtar:'kulup',
+  kategori:'spor', tur:'org', tur_ham:'turHam', dizi:'diziAd', dizi_anahtar:'kulup',
   cikis_yili:'yil', sezon_sayisi:'sezonSay', durum:'durum', sezon_no:'sezonNo',
   sayfa_tipi:'st', intent_katmani:'it', entity_tipi:'ent', marka_tipi:'marka',
   belirsiz_ad:'belirsiz', dil:'dil', erisim:'hak', apple_resmi:'resmi',
@@ -367,7 +367,12 @@ sporSirali.forEach((s,i)=>{ SPOR_RENK[s] = PALETTE[i%PALETTE.length]; });
 // marka_tipi tüm satırlarda tek değerdi ve hiçbir satırı elemiyordu;
 // varyant_denetim de öyle. Filtre yalnızca mantık denetimine dayanır.
 const jenerik = keywords.filter(k => !k.mden || k.mden==='Geçerli');
+let SERP = [];
+try { SERP = JSON.parse(fs.readFileSync(path.join(__dirname,'..','data','serp','serp.json'),'utf8')); }
+catch(e) { /* SERP taraması yoksa sekme kendini gizler */ }
+
 const DATA = {
+  serp: SERP,
   meta: {
     olusturma: new Date().toISOString().slice(0,10),
     kaynak: 'DataForSEO · Google Ads Search Volume · Türkiye/Türkçe',

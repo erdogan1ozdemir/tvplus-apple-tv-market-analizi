@@ -64,3 +64,28 @@ Karar birimi **dizi** (sporda organizasyon idi; tür bir sayfa değil, rollup ek
 | Sezon dışı taban (6 ay) | 500K | **6K** | 1K/ay |
 
 "Lig bütünlüğü" bölümü sporun ligine özgüydü, kapatıldı; dizi için "sezon bütünlüğü" (sezon sayfası açılıyorsa tüm sezonlar) ayrıca kurulacak.
+
+## SERP trafik metriği · yöntem notu
+Ahrefs `serp-overview`'ün `traffic` alanı, **sıralanan URL'nin toplam organik trafiğidir** — o keyword'den gelen tık değil. Diziye özel bir sayfa için iyi bir yaklaşıklıktır (dizibox.live/pluribus-…-izle/ = 41.496), ama jenerik bir URL sıralandığında hub'ın tamamını sayar: "shrinking izle" sorgusunda filmmakinesi.to/Yabancı 604.906, primevideo.com/detail 434.276 döndü. Bu değerler o keyword'e ait değildir ve kullanılmaz (`null` işaretlendi).
+
+Bu yüzden panoda **birincil metrik tahmini tık**: `keyword aylık hacmi × pozisyon CTR'ı`. Pozisyondan bağımsız, keyword'ler arasında toplanabilir ve neyin ölçüldüğü açıktır. Ahrefs sayfa trafiği ikincil sütun olarak, jenerik URL'ler dışarıda bırakılarak durur.
+
+## SERP taraması · sonuç (15 keyword, ilk 10 organik, Ahrefs TR)
+Taranan 15 keyword 451K/ay hacim taşıyor. Tahmini aylık tık dağılımı:
+
+| Sınıf | Tık | Pay |
+|---|---|---|
+| Korsan | 137.306 | %47 |
+| Agregatör / Bilgi | 110.310 | %38 |
+| Meşru Platform | 44.640 | %15 |
+
+**Asıl bulgu intent ayrımında:**
+- **İzleme** sorguları (180.925 tık): Korsan **%75** · Meşru %15 · Agregatör %10
+- **Navigasyonel** sorgular (111.331 tık): Agregatör/Bilgi **%82** · Meşru %16 · Korsan %2
+
+Yani izleme talebi korsana, çıplak dizi adı aramaları Wikipedia ve IMDb'ye gidiyor. Apple ve Prime her iki tarafta da %15-16'da kalıyor. Domain sıralaması: dizibox.live 54.783 · tr.wikipedia.org 49.106 · hdfilmcehennemi.nl 38.204 · primevideo.com 28.402 · filmmakinesi.to 27.525 · tv.apple.com 16.238.
+
+Uç örnek: çıplak `pluribus` sorgusunda Wikipedia 127.977 sayfa trafiğiyle birinci, Apple 10. sırada 0 trafikle; `pluribus izle` sorgusunda dizibox 41.496 ile birinci, Apple 6. sırada.
+
+## Tür konsolidasyonu
+Wikipedia'nın serbest metin türü 115 kova üretiyordu ve 79'u tek dizilikti — kırılım ekseni olarak işe yaramıyordu. Anahtar kelime kuralıyla **19 türe** indirildi (Suç & Gerilim 553 kw, Bilim Kurgu 354, Komedi 241, Tarihi & Biyografik 226, Drama 213…). Orijinal Wikipedia türü `tur_ham` kolonunda "Alt Tür" olarak saklanıyor.
