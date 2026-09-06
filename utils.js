@@ -11,8 +11,9 @@ window.U = (function(){
     const a = Math.abs(v);
     const basamak = a < 10 ? 2 : a < 100 ? 1 : 0;
     let s = v.toFixed(basamak);
-    if (basamak) s = s.replace(/\.?0+$/, '');   // 1,50 → 1,5 · 2,00 → 2
-    return s.replace('.', ',') + ek;
+    if (basamak) s = s.replace(/\.?0+$/, '');   // 1.50 → 1.5 · 2.00 → 2
+    // Ondalık ayırıcı her çıktıda noktadır: 24.7K, 2.34M (içerik dili standardı).
+    return s + ek;
   }
   function fmtNum(n) {
     if (n == null || isNaN(n)) return '–';
@@ -293,7 +294,7 @@ window.U = (function(){
     return [...m.values()].map(g => zenginlestir(g, toplamR12)).sort((a,b)=>b.r12-a.r12);
   }
 
-  // Grup nesnesine türetilmiş metrikleri ekler. groupBy ve takım kümeleri aynı
+  // Grup nesnesine türetilmiş metrikleri ekler. groupBy ve dizi kümeleri aynı
   // işlevi kullanır; böylece iki kırılım da özdeş alanlara sahip olur ve
   // aynı bileşenlere sorunsuz verilebilir.
   function zenginlestir(g, toplamR12){

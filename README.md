@@ -12,11 +12,17 @@ Apple TV+ orijinal dizi kütüphanesinin Türkiye arama talebi: dizi bazında ha
 Kategori (Drama) → Tür (19 konsolide tür) → Dizi. Wikipedia'nın 115 serbest metin türü kırılım ekseni olarak işe yaramıyordu (79'u tek dizilik); anahtar kelime kuralıyla indirgendi, orijinali `tur_ham` alanında "Alt Tür" olarak duruyor.
 
 ## Rakip Trafiği sekmesi
-15 keyword × ilk 10 organik sonuç (Ahrefs TR). Birincil metrik **tahmini tık** = keyword aylık hacmi × pozisyon CTR'ı; Ahrefs'in `traffic` alanı sıralanan URL'nin toplam trafiği olduğu ve jenerik URL'de hub'ın tamamını saydığı için ikincil sütunda duruyor.
+**145 dizinin tamamı** · her dizi için `{dizi adı} izle` sorgusunun ilk 10 organik sonucu · 1.373 satır, 1.369 tekil sayfa, 97 domain.
 
-Domainler üç sınıfa ayrılır: Meşru Platform (Apple TV, Prime Video) · Korsan · Agregatör/Bilgi (Wikipedia, IMDb, JustWatch). **İzleme sorgularında korsan %75, navigasyonel sorgularda Wikipedia/IMDb %82.**
+İki kaynak birleşiyor:
+- **DataForSEO** · sıralama ve tam sayfa URL'i (`data/serp/izle_serp.jsonl`).
+- **Ahrefs batch-analysis** (`mode=exact`) · o URL'in tahmini aylık organik trafiği (`data/serp/url_trafik.json`). Sayfanın tamamını kapsar, yalnızca bu sorgudan geleni değil. 1.369 URL'in hepsi ölçüldü; 0 değeri ölçüm eksikliği değil, Ahrefs'in o sayfaya organik trafik atfetmediği anlamına gelir.
 
-SERP verisi yenilemek için: `serp-overview` çıktısını `data/serp/ham.jsonl`'a ekle, sonra `python3 scripts/serp_isle.py`.
+Ahrefs'in `serp-overview` çıktısı kullanılmadı: bazı sonuçlarda URL'yi kırpıp hub trafiği döndürüyor (`filmmakinesi.to/Yabancı` → 604.906). Tam URL exact hedef olarak verildiğinde bu sapma ortadan kalkıyor.
+
+Domainler üç sınıfa ayrılır: Meşru Platform (Apple TV, Prime Video, Netflix, TV+) · Korsan · Agregatör/Bilgi (JustWatch, IMDb, Wikipedia). **İlk 10'da görünmenin %55'i korsan, %25'i meşru platform, %19'u agregatör.** Sayfa trafiği toplamlarında platform payı yüksek çıkıyor; bunun bir bölümü dizi sayfası değil genel katalog sayfalarından geliyor (ör. `tvplus.com.tr/dizi-izle`), toplamlar okunurken bu satırlar ayrıca değerlendirilebilir.
+
+SERP verisi yenilemek için: `python3 scripts/dfs_serp.py` (sıralama + URL) → Ahrefs `batch-analysis` ile `data/serp/url_trafik.json` güncelle → `python3 scripts/serp_birlestir.py`.
 
 ## Çalıştırma
 ```bash

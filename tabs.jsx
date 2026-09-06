@@ -1,4 +1,4 @@
-// TV+ Spor Talep Haritası — sekmeler
+// TV+ Apple TV Dizi Talep Haritası — sekmeler
 window.TABS = (function(){
   const h = React.createElement;
   const C = window.C;
@@ -15,7 +15,7 @@ window.TABS = (function(){
   const topP12 = rows => rows.reduce((a,k)=>a+(k.p12||0),0);
 
 
-  // Bir grubun üst kırılımdaki karşılığı: "Süper Lig" -> "Futbol / Süper Lig"
+  // Bir grubun üst kırılımdaki karşılığı: "Bilim Kurgu" -> "Drama / Bilim Kurgu"
   const UST_EKSEN = { org:'spor', st:'spor', ent:'spor', it:'st', mus:'spor',
                       sev:'spor', kulup:'org', cins:'spor', ktm:'ent',
                       takim:'org' };
@@ -368,7 +368,7 @@ window.TABS = (function(){
     return h('div',{className:'tab-content-anim'},
       h(C.Explainer,{title:'Bu rapor ne anlatıyor?',
         sub:'veri kaynağı, dönem tanımı ve okuma notu', icon:'sinyal'},
-        h('p',null,'Türkiye spor arama talebi ', h('strong',null, M.toplamKeyword.toLocaleString('tr-TR')),
+        h('p',null,'Apple TV+ dizi talebi ', h('strong',null, M.toplamKeyword.toLocaleString('tr-TR')),
           ' keyword üzerinden ', h('strong',null, M.aylar.length+' aylık'), ' pencerede (',
           M.aylar[0],' – ',M.aylar[M.aylar.length-1],') haritalanmıştır.'),
         h('p',null, h('strong',null,'Son 12 Ay'),' = ',ROLLING_LABELS[0],' – ',ROLLING_LABELS[11],
@@ -385,7 +385,7 @@ window.TABS = (function(){
 
       // ——— Pazar Özeti hero ———
       h(C.SectionHeader,{icon:'ozet', title:'Pazar Özeti', accent:'coral',
-        desc:'TV+ spor portföyünün Son 12 Ay görünümü, Önceki 12 Ay ile karşılaştırmalı'}),
+        desc:'Apple TV+ dizi kütüphanesinin Son 12 Ay görünümü, Önceki 12 Ay ile karşılaştırmalı'}),
       h('div',{className:'hero-kpi'},
         h('div',{className:'hero-left'},
           h('div',{className:'hero-label'}, takvim ? ('Aylık Ort. Arama · '+yilAd[1]) : 'Aylık Ort. Arama · Son 12 Ay'),
@@ -409,9 +409,9 @@ window.TABS = (function(){
           sub:'YoY +%5 üzeri', chip:'↑', chipClass:'pos'}),
         h(C.Kpi,{label:'Düşen', value:dusen.length.toLocaleString('tr-TR'),
           sub:'YoY −%5 altı', chip:'↓', chipClass:'neg'}),
-        h(C.Kpi,{label:'İzleme Intent\'i', value:fmtOrt(topR12(izleme)),
+        h(C.Kpi,{label:'İZLEME INTENT\'İ', value:fmtOrt(topR12(izleme)),
           sub:izleme.length.toLocaleString('tr-TR')+' keyword · TV+\'ın doğal alanı', accent:true}),
-        h(C.Kpi,{label:'Veri Sayfası Talebi', value:fmtOrt(topR12(veriSayfa)),
+        h(C.Kpi,{label:'VERİ SAYFASI TALEBİ', value:fmtOrt(topR12(veriSayfa)),
           sub:'Google bileşeni cevabı veriyor'})),
 
       // Kapsam eylemleri: seçili kırılım diğer sekmelerde de geçerli olduğu
@@ -507,7 +507,7 @@ window.TABS = (function(){
           h('p',null,'Renk skalası satır içindedir: kırmızı dip, sarı orta, yeşil peak. ' +
             'Nokta işareti satırın zirve ayını gösterir.'),
           h('p',null,'Seviye düğmeleriyle kırılım ekseni, sıralama düğmeleriyle satır sırası ' +
-            'değiştirilebilir; varlık tipi düğmeleri matrisi takım, oyuncu, maç veya lig ' +
+            'değiştirilebilir; varlık tipi düğmeleri matrisi dizi, sezon veya bölüm ' +
             'satırlarıyla sınırlar. Satıra tıklandığında o grubun detayı açılır.'))}),
       eksen && h(SezonTakvimi,{rows, viewMode, baslik:'Sezonsallık',
         gruplarDis: kirilim, eksenDis: eksen,
@@ -542,7 +542,7 @@ window.TABS = (function(){
       h('div',{className:'grid grid-2', style:{marginTop:18}},
         h('div',{className:'card'},
           h('div',{className:'card-title-row'},
-            h('h3',{style:{fontSize:14}},'Spor Dalı YoY · Kazanan & Kaybeden'),
+            h('h3',{style:{fontSize:14}},'Kategori YoY · Kazanan & Kaybeden'),
             h('span',{className:'txt-3',style:{fontSize:10.5}},'Son 12 Ay / Önceki 12 Ay')),
           h(C.BarChart,{height:250, colorBy:'yoy', yFormat:v=>fmtPct(v,0),
             data: kirilim.filter(g=>yoyFor(g,viewMode)!=null).slice(0,12)
@@ -695,7 +695,7 @@ window.TABS = (function(){
 
     // Bir gruba tıklanınca sekme değiştirmek yerine aynı sekmede bir alt
     // kırılıma inilir: kategoride Drama seçilince türler,
-    // orada bir lig seçilince takımlar gelir. Yol tüm sekmelerde ortak
+    // orada bir tür seçilince diziler gelir. Yol tüm sekmelerde ortak
     // olduğu için iz şeridinden geri alınabilir.
     const zincirSira = ZINCIR.indexOf(seviye);
     const altEksen = zincirSira >= 0 && zincirSira + 1 < ZINCIR.length
@@ -811,7 +811,7 @@ window.TABS = (function(){
           onChange:e=>setQ(e.target.value), style:{flex:1, minWidth:180}}),
         h('div',{className:'segmented segmented-saran', title:'Varlık tipine göre daralt'},
           [['','Tümü'],['Dizi','Dizi'],['Sezon','Sezon'],['Bölüm','Bölüm'],
-           ['Lig/Organizasyon','Lig']].map(function(e){
+           ['Bölüm','Bölüm']].map(function(e){
             return h('button',{key:e[0]||'all', className: entHizli===e[0]?'active':'',
               onClick:()=>setEntHizli(e[0])}, e[1],
               h('span',{className:'badge', style:{marginLeft:5}},
@@ -867,7 +867,7 @@ window.TABS = (function(){
       h('div',{className:'card'}, h(C.BarChart,{data:peakDag, height:230, yFormat:fmtNum, colorBy:'flat'})),
       h('div',{className:'grid grid-2', style:{marginTop:18}},
         h('div',{className:'card'},
-          h('div',{className:'card-title-row'}, h('h3',{style:{fontSize:14}},'Spor Dalı YoY')),
+          h('div',{className:'card-title-row'}, h('h3',{style:{fontSize:14}},'Kategori YoY')),
           h(C.BarChart,{height:250, colorBy:'yoy', yFormat:v=>fmtPct(v,0),
             data: sporG.filter(g=>g.ryoy!=null).slice(0,12).map(g=>({label:g.label, value:g.ryoy})),
             onBarClick: d=>onSelectGroup('spor', d.label)})),
@@ -901,12 +901,12 @@ window.TABS = (function(){
         h('p',null,'Konu, oyuncu ve sezon takvimi sorguları bilgi katmanıdır; yayın hakkı gerektirmez ve dizi hub\'ının ' +
           'alt sayfalarını besler. Hakkı olan platform için izleme sayfası doğal üstünlük alanıdır.')),
       h('div',{className:'grid grid-kpi kpi-4'},
-        h(C.Kpi,{label:'İzleme Intent\'i', value:fmtOrt(topR12(izleme)), accent:true,
+        h(C.Kpi,{label:'İZLEME INTENT\'İ', value:fmtOrt(topR12(izleme)), accent:true,
           sub:izleme.length.toLocaleString('tr-TR')+' keyword · bileşen bastırmıyor'}),
-        h(C.Kpi,{label:'Veri Sayfası Talebi', value:fmtOrt(topR12(veri)), sub:'konu · oyuncu · sezon takvimi · aylık ort.'}),
-        h(C.Kpi,{label:'Navigasyonel', value:fmtOrt(topR12(rows.filter(k=>k.it==='Navigasyonel'))),
+        h(C.Kpi,{label:'VERİ SAYFASI TALEBİ', value:fmtOrt(topR12(veri)), sub:'konu · oyuncu · sezon takvimi · aylık ort.'}),
+        h(C.Kpi,{label:'NAVİGASYONEL', value:fmtOrt(topR12(rows.filter(k=>k.it==='Navigasyonel'))),
           sub:'çıplak varlık adı · hub sayfası ister'}),
-        h(C.Kpi,{label:'Maç & Takvim', value:fmtOrt(topR12(rows.filter(k=>k.it==='Maç & Takvim'))),
+        h(C.Kpi,{label:'SEZON & TAKVİM', value:fmtOrt(topR12(rows.filter(k=>k.it==='Sezon & Takvim'))),
           sub:'sezon takvimi sayfası cevaplar'})),
       h(SezonTakvimi,{rows, viewMode, baslik:'Sayfa tipi sezonsallığı',
         inisModu: !!inAlt, onSelectGroup: inAlt || onSelectGroup}),
@@ -937,13 +937,13 @@ window.TABS = (function(){
   }
 
   // ══════════════════════════════════════════ TAKIM & OYUNCU
-  // Takım kümesi: bir takımın kendi aramaları ile o takımın oyuncularının
+  // Dizi kümesi: dizi adının kendi aramaları ile o dizinin sezon ve bölüm
   // aramaları tek çatı altında toplanır. Sayfa açma kararı bu toplama bakar.
-  // Sorgu kuyrukları: "galatasaray maçı ne zaman" gibi çok katmanlı ekler
+  // Sorgu kuyrukları: "severance 2. sezon izle" gibi çok katmanlı ekler
   // tek geçişte inmiyordu, her biri ayrı küme oluyordu.
   // Takım kümesi anahtarı build-data.js'te üretilip k.takim alanında geliyor.
   // alan: 'takim' dizi kümesi
-  // üyeliktir; bir oyuncu hem kulübünün hem milli takımının kümesinde sayılır,
+  // üyeliktir; sezon ve bölüm satırları dizinin kümesinde sayılır,
   // satır çoğaltılmadığı için toplam hacim iki kez sayılmaz.
   function takimKumeleri(rows, alan){
     alan = alan || 'takim';
@@ -1024,7 +1024,7 @@ window.TABS = (function(){
     const varlik = rows.filter(k=>k.ent==='Dizi'||(k.ent==='Sezon'||k.ent==='Bölüm'));
     const kapsamli = kapsam==='takim' ? varlik.filter(k=>k.ent==='Dizi')
                    : kapsam==='oyuncu' ? varlik.filter(k=>(k.ent==='Sezon'||k.ent==='Bölüm')) : varlik;
-    // Kapsam seçimi kümelere de yansır: yalnız takım / yalnız oyuncu seçilince
+    // Kapsam seçimi kümelere de yansır: yalnız dizi adı / yalnız sezon-bölüm seçilince
     // hacimler, chart'lar ve sezonsallık matrisi o kapsamla yeniden hesaplanır.
     const kumeler = React.useMemo(()=>takimKumeleri(kapsamli), [kapsamli]);
     // Dizi kümesi: dizi adı, sezon ve bölüm satırları tek çatıda toplanır.
@@ -1052,7 +1052,7 @@ window.TABS = (function(){
 
       h('div',{className:'grid grid-kpi kpi-4'},
         h(C.Kpi,{label:'Dizi Kümesi', value:fmtNum(kumeler.length), accent:true,
-          sub:'takım + oyuncularının aramaları birlikte'}),
+          sub:'dizi adı + sezon/bölüm aramaları birlikte'}),
         h(C.Kpi,{label:'Dizi Adı Araması', value:fmtOrt(tkTop),
           sub:tkRows.length.toLocaleString('tr-TR')+' keyword'}),
         h(C.Kpi,{label:'Sezon/Bölüm Araması', value:fmtOrt(oyTop),
@@ -1077,13 +1077,13 @@ window.TABS = (function(){
                   title:[g.label,'Dizi adı: '+fmtOrt(g.takimVol)+'/ay','Sezon/bölüm: '+fmtOrt(g.oyuncuVol)+'/ay',
                     'Toplam: '+fmtOrt(g.r12)+'/ay · 12 ay toplamı '+fmtFull(g.r12)].join('\n')};
               }),
-              // Satıra tıklandığında o takımın keyword'leri açılır:
-              // takım aramaları ve oyuncularının aramaları birlikte.
+              // Satıra tıklandığında o dizinin keyword'leri açılır:
+              // dizi adı aramaları ve sezon/bölüm aramaları birlikte.
               onClickCell:(row)=>onNavigateKw({alan:'takim', deger:row.label})})),
           h('div',{className:'txt-3', style:{fontSize:10.5, marginTop:8}},
             kumeler.length.toLocaleString('tr-TR')+' dizi kümesi · satıra tıklayın, o dizinin keywordleri açılır')),
         h(C.SectionHeader,{icon:'liste', title:'Dizi Kümesi Tablosu',
-          desc:'takım araması ve oyuncu araması ayrı kolonlarda',
+          desc:'dizi adı araması ve sezon/bölüm araması ayrı kolonlarda',
           actions: h('button',{className:'chip-btn', style:{padding:'6px 12px',borderRadius:999},
             onClick:()=>downloadCSV('tvplus-takim-kumesi.csv', toCSV(kumeler,[
               {label:'Dizi',key:'label'},{label:'Tür',key:'org'},
@@ -1147,156 +1147,161 @@ window.TABS = (function(){
   }
 
   // ══════════════════════════════════════════ RAKİP TRAFİĞİ
-  // Talebin nereye aktığını gösterir. Birincil metrik tahmini tıktır:
-  // keyword aylık hacmi × pozisyon CTR'ı. Ahrefs'in sayfa trafiği o keyword'e
-  // ait olmadığı için (bkz. bulgular.md) yalnızca ikincil sütunda durur.
+  // 145 dizinin "{dizi} izle" sorgusunda ilk 10 organik sonuç: tam sayfa URL'i,
+  // pozisyon, domain sınıfı ve Ahrefs'in o sayfa için tahmini organik trafiği.
   const SINIF_RENK = {'Korsan':'#D32F2F','Meşru Platform':'#2E7D32','Agregatör / Bilgi':'#4E79A7'};
 
   function RakipTab({rows}){
     const serp = (D().serp)||[];
-    const [intentF, setIntentF] = React.useState('');
-    const [seciliKw, setSeciliKw] = React.useState(null);
+    const [sinifF, setSinifF]   = React.useState('');
+    const [seciliKw, setSecili] = React.useState(null);
+    const [sirala, setSirala]   = React.useState('hacim');
 
     if(!serp.length) return h('div',{className:'tab-content-anim'},
       h(C.EmptyState,{title:'SERP taraması yok',
-        desc:'data/serp/serp.json üretilmemiş. scripts/serp_isle.py çalıştırılmalı.'}));
+        desc:'data/serp/serp.json üretilmemiş. scripts/serp_birlestir.py çalıştırılmalı.'}));
 
-    // Kapsam: üstteki filtreler dizi kümesini daraltıyorsa SERP de daralır
-    const kapsamDizi = new Set(rows.map(k=>k.takim).filter(Boolean));
+    const kapsam = new Set(rows.map(k=>k.takim).filter(Boolean));
     const veri = React.useMemo(()=>serp.filter(s=>
-      (!intentF || s.intent===intentF) && (!kapsamDizi.size || kapsamDizi.has(s.dizi))
-    ),[serp, intentF, rows]);
+      (!kapsam.size || kapsam.has(s.dizi)) && (!sinifF || s.sinif===sinifF)),[serp, sinifF, rows]);
 
-    const kwList = [...new Set(veri.map(s=>s.keyword))]
-      .map(k=>({kw:k, ...veri.find(s=>s.keyword===k),
-                tik: veri.filter(s=>s.keyword===k).reduce((a,s)=>a+s.tahmini_tik,0)}))
-      .sort((a,b)=>b.aylik_hacim-a.aylik_hacim);
+    const siniflar = ['Korsan','Meşru Platform','Agregatör / Bilgi'];
+    // İlk 10'da görünme: kapsam eksiksiz olduğu için asıl gösterge budur
+    const gorunme = siniflar.map(sn=>({sn, n:veri.filter(s=>s.sinif===sn).length}));
+    const toplamG = gorunme.reduce((a,x)=>a+x.n,0) || 1;
 
-    const topla = (arr, alan) => {
-      const m={}; for(const s of arr) m[s[alan]]=(m[s[alan]]||0)+s.tahmini_tik;
-      return Object.entries(m).map(([k,v])=>({label:k, value:v})).sort((a,b)=>b.value-a.value);
-    };
-    const sinifDag = topla(veri,'sinif');
-    const domDag   = topla(veri,'domain');
-    const toplamTik = sinifDag.reduce((a,x)=>a+x.value,0);
+    const domTablo = React.useMemo(()=>{
+      const m={};
+      for(const s of veri){
+        const o = m[s.domain] || (m[s.domain]={dom:s.domain, sinif:s.sinif, n:0, ilk3:0,
+                                              trafik:0, trafikli:0, diziler:new Set()});
+        o.n++; if(s.pozisyon<=3) o.ilk3++;
+        o.diziler.add(s.dizi);
+        if(s.sayfa_trafik!=null){ o.trafik += s.sayfa_trafik; o.trafikli++; }
+      }
+      return Object.values(m).sort((a,b)=>b.n-a.n);
+    },[veri]);
 
-    // Intent × sınıf matrisi: asıl bulgu burada
-    const intentler = [...new Set(serp.map(s=>s.intent))];
-    const siniflar  = ['Korsan','Meşru Platform','Agregatör / Bilgi'];
-    const matris = intentler.map(it=>{
-      const alt = serp.filter(s=>s.intent===it);
-      const t = alt.reduce((a,s)=>a+s.tahmini_tik,0);
-      return {it, t, hucre: siniflar.map(sn=>{
-        const v = alt.filter(s=>s.sinif===sn).reduce((a,s)=>a+s.tahmini_tik,0);
-        return {sn, v, pay: t? v/t : 0};
-      })};
-    });
+    const kwTablo = React.useMemo(()=>{
+      const m={};
+      for(const s of veri){
+        const o = m[s.keyword] || (m[s.keyword]={kw:s.keyword, dizi:s.dizi, tur:s.tur,
+                                                hacim:s.aylik_hacim, sat:[]});
+        o.sat.push(s);
+      }
+      const l = Object.values(m);
+      l.forEach(o=>{ o.sat.sort((a,b)=>a.pozisyon-b.pozisyon);
+        o.pay = siniflar.map(sn=>({sn, n:o.sat.filter(x=>x.sinif===sn).length}));
+        o.ilk3 = o.sat.filter(x=>x.pozisyon<=3).map(x=>x.sinif); });
+      if(sirala==='hacim') l.sort((a,b)=>b.hacim-a.hacim);
+      else if(sirala==='korsan') l.sort((a,b)=>
+        (b.pay.find(p=>p.sn==='Korsan').n) - (a.pay.find(p=>p.sn==='Korsan').n));
+      else l.sort((a,b)=>a.kw.localeCompare(b.kw,'tr'));
+      return l;
+    },[veri, sirala]);
 
-    const detay = seciliKw ? veri.filter(s=>s.keyword===seciliKw).sort((a,b)=>a.pozisyon-b.pozisyon) : null;
+    const secili = seciliKw ? kwTablo.find(k=>k.kw===seciliKw) : null;
 
     return h('div',{className:'tab-content-anim'},
-      h(C.Explainer,{title:'Bu talep kime gidiyor?', icon:'karar', defaultOpen:true},
-        h('p',null,'Her keyword\'ün ilk 10 organik sonucu tarandı. Bir sonucun aldığı tık, ',
-          h('b',null,'keyword\'ün aylık hacmi × o pozisyonun tıklama oranı'),
-          ' ile tahmin ediliyor; Ahrefs\'in sayfa trafiği o keyword\'e ait olmadığı için yalnızca ikincil sütunda duruyor.'),
+      h(C.Explainer,{title:'Bu talep hangi sayfalara gidiyor?', icon:'karar', defaultOpen:true},
+        h('p',null,'145 dizinin ', h('b',null,'"{dizi adı} izle"'), ' sorgusunda ilk 10 organik sonuç tarandı. ',
+          'Her satır tek bir sayfadır: domain değil, tam URL. Sayfa trafiği, Ahrefs\'in o URL için ',
+          'verdiği tahmini aylık organik trafiktir; yalnızca bu sorgudan geleni değil, sayfanın tamamını kapsar.'),
         h('p',null,'Domainler üç sınıfa ayrılıyor: ',
-          h('b',{style:{color:SINIF_RENK['Meşru Platform']}},'Meşru Platform'),' (Apple TV, Prime Video), ',
+          h('b',{style:{color:SINIF_RENK['Meşru Platform']}},'Meşru Platform'),' (Apple TV, Prime Video, Netflix, TV+), ',
           h('b',{style:{color:SINIF_RENK['Korsan']}},'Korsan'),' ve ',
           h('b',{style:{color:SINIF_RENK['Agregatör / Bilgi']}},'Agregatör / Bilgi'),
-          ' (Wikipedia, IMDb, JustWatch). Ayrım, izleme talebiyle bilgi talebinin nereye aktığını ayırmak için.')),
+          ' (JustWatch, IMDb, Wikipedia).'),
+        h('p',{className:'txt-3', style:{fontSize:11.5}},
+          'Kapsam: 145 dizinin tamamı · 1.373 sonuç · 1.369 tekil sayfa. Sayfa trafiği ',
+          h('b',null,'tüm sayfalar için'), ' ölçüldü; 0 değeri ölçüm eksikliği değil, ',
+          'Ahrefs\'in o sayfaya organik trafik atfetmediği anlamına gelir. Bir sayfanın trafiği ',
+          'yalnızca dizi sorgusundan gelmez: genel liste sayfaları (ör. platformların dizi ',
+          'kataloğu) toplamda yüksek görünür, bu satırlar toplamlar okunurken ayrıca değerlendirilebilir.')),
+
+      h('div',{className:'grid grid-kpi kpi-4', style:{marginBottom:16}},
+        gorunme.map(g=>h(C.Kpi,{key:g.sn, label:g.sn.toLocaleUpperCase('tr-TR'), value:fmtNum(g.n),
+          chip:'%'+Math.round(100*g.n/toplamG), chipClass:'neu',
+          sub:'ilk 10\'da görünme', accent:g.sn==='Korsan'})),
+        h(C.Kpi,{label:'TARANAN DİZİ', value:fmtNum(new Set(veri.map(s=>s.dizi)).size),
+          sub:fmtNum(new Set(veri.map(s=>s.keyword)).size)+' sorgu · ilk 10'})),
 
       h('div',{className:'toolbar', style:{marginBottom:14}},
         h('div',{className:'segmented segmented-saran'},
-          [['','Tüm Intent'], ...intentler.map(i=>[i,i])].map(([v,l])=>
-            h('button',{key:v||'all', className:intentF===v?'active':'',
-              onClick:()=>{setIntentF(v); setSeciliKw(null);}}, l))),
-        h('span',{className:'txt-3', style:{fontSize:12, marginLeft:'auto'}},
-          kwList.length+' keyword · '+fmtNum(toplamTik)+' tahmini aylık tık')),
+          [['','Tüm sınıflar'], ...siniflar.map(s=>[s,s])].map(([v,l])=>
+            h('button',{key:v||'all', className:sinifF===v?'active':'',
+              onClick:()=>{setSinifF(v); setSecili(null);}}, l))),
+        h('div',{className:'segmented', style:{marginLeft:'auto'}},
+          [['hacim','Hacim ↓'],['korsan','Korsan yoğunluğu ↓'],['az','A–Z']].map(([v,l])=>
+            h('button',{key:v, className:sirala===v?'active':'', onClick:()=>setSirala(v)}, l)))),
 
-      h('div',{className:'grid grid-kpi kpi-4', style:{marginBottom:16}},
-        sinifDag.map(s=>h(C.Kpi,{key:s.label, label:s.label, value:fmtNum(s.value),
-          chip:'%'+Math.round(100*s.value/(toplamTik||1)), chipClass:'neu',
-          sub:'tahmini aylık tık', accent:s.label==='Korsan'})),
-        h(C.Kpi,{label:'Taranan Keyword', value:fmtNum(kwList.length),
-          sub:fmtNum(kwList.reduce((a,k)=>a+k.aylik_hacim,0))+'/ay hacim'})),
+      h(C.SectionHeader,{icon:'liste', title:'Domain bazında görünürlük',
+        desc:domTablo.length+' domain · ilk 10\'da kaç kez, kaçında ilk 3\'te'}),
+      h('div',{className:'card flush', style:{marginBottom:18}},
+        h('div',{className:'tbl-wrap'},
+          h('table',{className:'tbl'},
+            h('thead',null, h('tr',null,
+              h('th',null,'Domain'), h('th',null,'Sınıf'),
+              h('th',{className:'num'},'İlk 10\'da'), h('th',{className:'num'},'İlk 3\'te'),
+              h('th',{className:'num col-hide-sm'},'DİZİ'),
+              h('th',{className:'num'},'AHREFS SAYFA TRAFİĞİ'))),
+            h('tbody',null, domTablo.slice(0,30).map(d=>h('tr',{key:d.dom},
+              h('td',{className:'kw-cell'}, d.dom),
+              h('td',null, h('span',{className:'pill', style:{
+                background:`color-mix(in srgb, ${SINIF_RENK[d.sinif]} 15%, transparent)`,
+                color:SINIF_RENK[d.sinif], fontWeight:600, whiteSpace:'nowrap'}}, d.sinif)),
+              h('td',{className:'num'}, h('strong',null, fmtNum(d.n))),
+              h('td',{className:'num'}, fmtNum(d.ilk3)),
+              h('td',{className:'num col-hide-sm'}, fmtNum(d.diziler.size)),
+              h('td',{className:'num'}, h('strong',null, fmtNum(d.trafik))))))))),
 
-      h(C.SectionHeader,{icon:'karar', title:'Intent × domain sınıfı',
-        desc:'izleme talebi ile bilgi talebi farklı yerlere gidiyor'}),
-      h('div',{className:'card', style:{marginBottom:18}},
-        matris.map(m=>h('div',{key:m.it, style:{marginBottom:14}},
-          h('div',{style:{display:'flex',justifyContent:'space-between',marginBottom:6,fontSize:13}},
-            h('b',null,m.it),
-            h('span',{className:'txt-3'}, fmtNum(m.t)+' tahmini aylık tık')),
-          h('div',{style:{display:'flex',height:26,borderRadius:6,overflow:'hidden',border:'1px solid var(--line)'}},
-            m.hucre.filter(c=>c.v>0).map(c=>h('div',{key:c.sn,
-              title:c.sn+': '+fmtNum(c.v)+' tık · %'+(100*c.pay).toFixed(1),
-              style:{width:(100*c.pay)+'%', background:SINIF_RENK[c.sn],
-                     display:'flex',alignItems:'center',justifyContent:'center',
-                     color:'#fff',fontSize:11,fontWeight:600}},
-              c.pay>0.08 ? '%'+Math.round(100*c.pay) : ''))),
-          h('div',{className:'txt-3', style:{fontSize:10.5, marginTop:4}},
-            m.hucre.map(c=>c.sn+' '+fmtNum(c.v)).join(' · '))))),
-
-      h(C.SectionHeader,{icon:'liste', title:'Domain bazında tahmini tık',
-        desc:domDag.length+' domain · ilk 10 organik sonuçtan'}),
-      h('div',{className:'card', style:{marginBottom:18}},
-        h(C.ShareBars,{rows:domDag.slice(0,15).map(d=>{
-          const sn = (serp.find(s=>s.domain===d.label)||{}).sinif;
-          return {label:d.label, value:d.value, share:d.value/(toplamTik||1),
-                  color:SINIF_RENK[sn], title:sn};
-        })})),
-
-      h(C.SectionHeader,{icon:'liste', title:'Keyword bazında ilk 10 dağılımı',
-        desc:'satıra tıklayın, o keyword\'ün SERP\'i açılır'}),
+      h(C.SectionHeader,{icon:'liste', title:'Sorgu bazında ilk 10',
+        desc:'satıra tıklayın, o sorgunun 10 sayfası tam URL ile açılır'}),
       h('div',{className:'card flush'},
         h('div',{className:'tbl-wrap'},
           h('table',{className:'tbl'},
             h('thead',null, h('tr',null,
-              h('th',null,'Keyword'), h('th',null,'Dizi'), h('th',null,'Intent'),
-              h('th',{className:'num'},'Aylık Hacim'),
-              h('th',{className:'num'},'Tahmini Tık'),
-              h('th',null,'İlk 10 dağılımı'))),
-            h('tbody',null, kwList.map(k=>{
-              const alt = veri.filter(s=>s.keyword===k.kw);
-              const t = alt.reduce((a,s)=>a+s.tahmini_tik,0);
-              const parca = siniflar.map(sn=>({sn,
-                v:alt.filter(s=>s.sinif===sn).reduce((a,s)=>a+s.tahmini_tik,0)})).filter(x=>x.v>0);
-              return h('tr',{key:k.kw, className:'clickable',
-                onClick:()=>setSeciliKw(seciliKw===k.kw?null:k.kw)},
-                h('td',{className:'kw-cell'}, k.kw),
-                h('td',{className:'cat-cell'}, k.dizi),
-                h('td',null, h('span',{className:'pill neu'}, k.intent)),
-                h('td',{className:'num'}, fmtNum(k.aylik_hacim)),
-                h('td',{className:'num'}, h('strong',null, fmtNum(t))),
-                h('td',{style:{minWidth:150}},
-                  h('div',{style:{display:'flex',height:16,borderRadius:4,overflow:'hidden'}},
-                    parca.map(p=>h('div',{key:p.sn, title:p.sn+' '+fmtNum(p.v),
-                      style:{width:(100*p.v/(t||1))+'%', background:SINIF_RENK[p.sn]}})))));
-            }))))),
+              h('th',null,'Sorgu'), h('th',null,'Tür'),
+              h('th',{className:'num'},'AYLIK HACİM'),
+              h('th',null,'İlk 3'), h('th',null,'İlk 10 dağılımı'))),
+            h('tbody',null, kwTablo.map(k=>h('tr',{key:k.kw,
+              className:'clickable'+(seciliKw===k.kw?' secili':''),
+              onClick:()=>setSecili(seciliKw===k.kw?null:k.kw)},
+              h('td',{className:'kw-cell'}, k.kw),
+              h('td',{className:'cat-cell'}, k.tur),
+              h('td',{className:'num'}, fmtNum(k.hacim)),
+              h('td',null, h('div',{style:{display:'flex',gap:3}},
+                k.ilk3.map((sn,i)=>h('span',{key:i, title:sn,
+                  style:{width:9,height:9,borderRadius:2,background:SINIF_RENK[sn]}})))),
+              h('td',{style:{minWidth:140}},
+                h('div',{style:{display:'flex',height:15,borderRadius:4,overflow:'hidden'}},
+                  k.pay.filter(p=>p.n>0).map(p=>h('div',{key:p.sn,
+                    title:p.sn+' · '+p.n+' sayfa',
+                    style:{width:(100*p.n/k.sat.length)+'%', background:SINIF_RENK[p.sn]}})))))))))),
 
-      detay && h(React.Fragment,null,
-        h(C.SectionHeader,{icon:'liste', title:seciliKw+' · ilk 10 sonuç',
-          actions:h('button',{className:'chip-btn', onClick:()=>setSeciliKw(null)},'Kapat')}),
+      secili && h(React.Fragment,null,
+        h(C.SectionHeader,{icon:'liste', title:secili.kw+' · ilk 10 sayfa',
+          desc:secili.dizi+' · '+fmtNum(secili.hacim)+'/ay',
+          actions:h('button',{className:'chip-btn', onClick:()=>setSecili(null)},'Kapat')}),
         h('div',{className:'card flush'},
           h('div',{className:'tbl-wrap'},
             h('table',{className:'tbl'},
               h('thead',null, h('tr',null,
-                h('th',{className:'num'},'Poz.'), h('th',null,'Domain'), h('th',null,'Sınıf'),
-                h('th',{className:'num'},'Tahmini Tık'),
-                h('th',{className:'num col-hide-sm'},'Ahrefs Sayfa Trafiği'))),
-              h('tbody',null, detay.map((s,i)=>h('tr',{key:i},
+                h('th',{className:'num'},'Poz.'), h('th',null,'Sayfa'),
+                h('th',null,'Sınıf'), h('th',{className:'num'},'AHREFS SAYFA TRAFİĞİ'))),
+              h('tbody',null, secili.sat.map((s,i)=>h('tr',{key:i},
                 h('td',{className:'num'}, s.pozisyon),
-                h('td',{className:'kw-cell'}, s.domain),
+                h('td',{className:'kw-cell', style:{maxWidth:520}},
+                  h('a',{href:s.url, target:'_blank', rel:'noopener noreferrer',
+                    style:{color:'var(--ink)', textDecoration:'none'}},
+                    h('div',{style:{fontWeight:600}}, s.domain),
+                    h('div',{className:'cat-cell', style:{wordBreak:'break-all'}}, s.url))),
                 h('td',null, h('span',{className:'pill', style:{
                   background:`color-mix(in srgb, ${SINIF_RENK[s.sinif]} 15%, transparent)`,
-                  color:SINIF_RENK[s.sinif], fontWeight:600}}, s.sinif)),
-                h('td',{className:'num'}, h('strong',null, fmtNum(s.tahmini_tik))),
-                h('td',{className:'num col-hide-sm'},
-                  s.sayfa_trafik==null ? '–' : fmtNum(s.sayfa_trafik)))))))),
-        h('div',{className:'txt-3', style:{fontSize:10.5, marginTop:8, lineHeight:1.5}},
-          'Ahrefs sayfa trafiği, sıralanan URL\'nin tüm keyword\'lerinden aldığı toplam organik trafiktir; ',
-          'yalnızca bu keyword\'den geleni göstermez. Jenerik URL sıralandığında hub\'ın tamamını saydığı için ',
-          'o satırlar boş bırakılmıştır.')),
+                  color:SINIF_RENK[s.sinif], fontWeight:600, whiteSpace:'nowrap'}}, s.sinif)),
+                h('td',{className:'num'},
+                  s.sayfa_trafik ? h('strong',null, fmtNum(s.sayfa_trafik))
+                                 : h('span',{className:'txt-3'},'0'))))))))),
 
       h(Kaynak,{}));
   }
@@ -1335,7 +1340,7 @@ window.TABS = (function(){
           h('strong',null, KOL.length),' kolon · ',
           h('strong',null, M.aylar.length),' aylık veri noktası'),
         h('button',{className:'chip-btn active', style:{marginLeft:'auto'},
-          onClick:()=>downloadCSV(`tvplus-spor-master-${M.olusturma}.csv`, toCSV(rows, KOL))},
+          onClick:()=>downloadCSV(`appletv-dizi-master-${M.olusturma}.csv`, toCSV(rows, KOL))},
           '⬇ Master listeyi CSV indir')),
       h(C.SectionHeader,{icon:'liste', title:'Önizleme'}),
       h(KeywordTablosu,{rows, setKeywordModal, viewMode, sayfaBoyu:25}),
@@ -1433,7 +1438,7 @@ window.TABS = (function(){
 
   /* ═══════════════════════════════════════════════════════════════════
      KIRILIM SEKMESİ
-     Hızlı bakma sekmesi: Spor Dalı → Organizasyon → Takım zincirinde
+     Hızlı bakma sekmesi: Kategori → Tür → Dizi zincirinde
      aşağı inilir, yalnızca büyüklük gösterilir (trend/sezonsallık yok).
      İki gösterim: karo şeridi (A) ve sütun kırılımı (B). Yol ve
      kontroller ikisinde ortaktır, gösterim değişince yer korunur.
@@ -1443,7 +1448,7 @@ window.TABS = (function(){
   const KIRILIM_SINIR = 24;   // seviye başına ilk gösterilen karo sayısı
 
   // Üç seviyeli ağaç. Her düğümde hacim ve keyword sayısı
-  // [tümü, yalnız takım araması, yalnız oyuncu araması] olarak tutulur.
+  // [tümü, yalnız dizi adı, yalnız sezon/bölüm] olarak tutulur.
   function kirilimAgaci(rows){
     const kok = new Map();
     const bos = ad => ({n:ad, v:[0,0,0], k:[0,0,0], c:new Map()});

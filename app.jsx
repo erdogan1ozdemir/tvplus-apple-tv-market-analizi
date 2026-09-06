@@ -1,4 +1,4 @@
-// TV+ Spor Talep Haritası — kök uygulama
+// TV+ Apple TV Dizi Talep Haritası — kök uygulama
 (function(){
   const h = React.createElement;
   const C = window.C, T = window.TABS;
@@ -58,7 +58,7 @@
     const [keywordModal, setKeywordModal] = React.useState(null);
     const [scrolled, setScrolled] = React.useState(false);
     // Kırılım yolu: Özet'te hangi kapsamda olunduğunu tutar.
-    // Adres çubuğunda "#ozet/Futbol|Süper Lig" biçiminde saklanır ki
+    // Adres çubuğunda "#ozet/Drama|Bilim Kurgu" biçiminde saklanır ki
     // görünüm paylaşılabilsin ve yenilemede korunsun.
     const [yol, setYol] = React.useState(()=>{
       const p = (location.hash.replace('#','').split('/')[1]||'');
@@ -96,8 +96,8 @@
       return ()=>{window.removeEventListener('scroll',onS); window.removeEventListener('hashchange',onH);};
     },[]);
 
-    // Kırılım yolu faset seçicilerde de görünür: kapsam "Futbol › La Liga"
-    // ise Spor Dalı seçicisi Futbol'u, Organizasyon seçicisi La Liga'yı
+    // Kırılım yolu faset seçicilerde de görünür: kapsam "Drama › Bilim Kurgu"
+    // ise Kategori seçicisi Drama'yı, Tür seçicisi Bilim Kurgu'yu
     // seçili gösterir. Ayrı bir state tutulmaz, yol tek kaynak kalır.
     const yolFiltre = React.useMemo(()=>{
       const o={}; for(const a of yol) o[a.eksen] = [a.deger]; return o;
@@ -208,8 +208,8 @@
     const gitSekme = id => { setTab(id); window.scrollTo({top:0, behavior:'smooth'}); };
 
     const S = SEKMELER.find(s=>s.id===tab) || SEKMELER[0];
-    // Kırılım yolu tüm sekmelerin kapsamıdır: Özet'te "Dövüş Sporları ›
-    // Taekwondo" seçiliyse Keyword ve Takım & Oyuncu da o kapsamı gösterir.
+    // Kırılım yolu tüm sekmelerin kapsamıdır: Özet'te "Drama ›
+    // Bilim Kurgu" seçiliyse Keyword ve Dizi & Sezon da o kapsamı gösterir.
     // İz şeridinden bir adım geri alınarak her yerde birlikte kaldırılır.
     const ortak = { rows: kapsamRows, tumRows: rows, viewMode, setKeywordModal,
       onSelectGroup, onNavigateKw, gitSekme, secili, setSecili, seviye, setSeviye,

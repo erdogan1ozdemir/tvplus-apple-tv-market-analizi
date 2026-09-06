@@ -3,7 +3,7 @@
 window.BRAND = {
   name: "TV+",
   title: "Apple TV Dizi Talep Haritası",
-  subtitle: "Turkcell TV+ · Apple TV+ Orijinal Dizi Kütüphanesi · Türkiye",
+  subtitle: "TURKCELL TV+ · APPLE TV+ ORİJİNAL DİZİ KÜTÜPHANESİ · TÜRKİYE",
   accent: "#FFC900",
   accentDeep: "#E5B400",
   dark: "#141414",
