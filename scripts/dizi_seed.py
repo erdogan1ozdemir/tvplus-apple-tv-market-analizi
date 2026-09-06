@@ -9,7 +9,14 @@ diziye ait olmayan hacim portföye girer.
 
 Çıktı: data/raw/seed_diziler.csv · faset kolonlarıyla, hacim kolonları boş.
 """
-import csv, json, re, unicodedata
+import csv, json, re, sys, unicodedata
+
+# --yalniz "Ad1|Ad2" verilirse yalnız o diziler için seed üretilir (katalog eki sonrası
+# yeni dizileri ayrı çekmek için); --cikti çıktı yolunu değiştirir.
+def _arg(ad, vars_=None):
+    return sys.argv[sys.argv.index(ad)+1] if ad in sys.argv else vars_
+YALNIZ = set((_arg("--yalniz") or "").split("|")) - {""}
+CIKTI  = _arg("--cikti", "data/raw/seed_diziler.csv")
 
 TR_BUYUK = str.maketrans({"İ":"i","I":"ı","Ş":"ş","Ğ":"ğ","Ü":"ü","Ö":"ö","Ç":"ç"})
 # Dizi adları İngilizce: Türkçe I→ı kuralı uygulanmaz ("Invasion" → "ınvasion" olmasın).
@@ -20,6 +27,7 @@ def temizle(s):
     return " ".join(s.split())
 
 KATALOG = json.load(open("data/arastirma/dizi_katalog.json", encoding="utf-8"))["diziler"]
+if YALNIZ: KATALOG = [w for w in KATALOG if w["dizi"] in YALNIZ]
 
 # Ortak kelime olan ya da tek başına başka anlam taşıyan dizi adları: çıplak
 # biçim çekilmez, yalnızca niteleyicili varyantlar alınır.
@@ -112,7 +120,7 @@ for w in KATALOG:
             })
 
 kol = list(satir[0].keys())
-with open("data/raw/seed_diziler.csv", "w", encoding="utf-8", newline="") as f:
+with open(CIKTI, "w", encoding="utf-8", newline="") as f:
     wr = csv.DictWriter(f, fieldnames=kol); wr.writeheader(); wr.writerows(satir)
 
 from collections import Counter

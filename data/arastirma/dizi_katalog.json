@@ -1,6 +1,6 @@
 {
- "kaynak": "Apple resmi (varlik) + Wikipedia (tur/sezon/durum) · 2026-09-01",
- "adet": 211,
+ "kaynak": "Apple resmi (varlik) + Wikipedia (tur/sezon/durum) · 2026-09-01 + 2026-09-06 doğrulama turu (7 dizi eklendi)",
+ "adet": 218,
  "diziler": [
   {
    "dizi": "For All Mankind",
@@ -2322,6 +2322,83 @@
    "apple_resmi": true,
    "apple_baslik": "Carpool Karaoke: The Series",
    "durum_tr": "Bitti"
+  },
+  {
+   "dizi": "Neuromancer",
+   "tur": "Cyberpunk science fiction",
+   "yil": 2027,
+   "sezon": 1,
+   "durum": "Upcoming (premieres 22 Jan 2027)",
+   "kategori": "Drama",
+   "apple_resmi": true,
+   "apple_baslik": "Neuromancer",
+   "durum_tr": "Yakında"
+  },
+  {
+   "dizi": "Last Seen",
+   "tur": "Thriller",
+   "yil": 2026,
+   "sezon": 1,
+   "durum": "Season 1 released",
+   "kategori": "Drama",
+   "apple_resmi": true,
+   "apple_baslik": "Last Seen",
+   "durum_tr": "Devam"
+  },
+  {
+   "dizi": "You Would Do It Too",
+   "tur": "Spanish-language thriller",
+   "yil": 2024,
+   "sezon": 1,
+   "durum": "Season 1 released",
+   "kategori": "Non-English",
+   "apple_resmi": true,
+   "apple_baslik": "Tú También lo Harías",
+   "durum_tr": "Bitti"
+  },
+  {
+   "dizi": "The Secret Lives of Animals",
+   "tur": "Nature documentary",
+   "yil": 2024,
+   "sezon": 1,
+   "durum": "Season 1 released",
+   "kategori": "Docuseries",
+   "apple_resmi": true,
+   "apple_baslik": "The Secret Lives of Animals",
+   "durum_tr": "Bitti"
+  },
+  {
+   "dizi": "Unconditional",
+   "tur": "Documentary",
+   "yil": 2026,
+   "sezon": 1,
+   "durum": "Season 1 released",
+   "kategori": "Docuseries",
+   "apple_resmi": true,
+   "apple_baslik": "Unconditional",
+   "durum_tr": "Bitti"
+  },
+  {
+   "dizi": "Oprah Talks COVID-19",
+   "tur": "Interview series",
+   "yil": 2020,
+   "sezon": 1,
+   "durum": "Season 1 released",
+   "kategori": "Docuseries",
+   "apple_resmi": true,
+   "apple_baslik": "Oprah Talks COVID-19",
+   "durum_tr": "Bitti"
+  },
+  {
+   "dizi": "Small Prophets",
+   "tur": "Comedy fantasy",
+   "yil": 2026,
+   "sezon": 1,
+   "durum": "Season 1 (BBC yapımı, Apple TV küresel hakları)",
+   "kategori": "Comedy",
+   "apple_resmi": true,
+   "apple_baslik": "Small Prophets",
+   "durum_tr": "Devam"
   }
  ]
 }
