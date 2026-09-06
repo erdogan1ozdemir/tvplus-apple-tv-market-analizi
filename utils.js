@@ -266,24 +266,12 @@ window.U = (function(){
   // kendi keyword'leri de kapsama girer. Kulüp satırları kendi ülke liginde
   // durur (Real Madrid La Liga'da), ikincil üyelik alanı avrupa'da işaretlidir;
   // bayrak açıkken org eşleşmesi bu alanı da kabul eder.
-  function applyFacets(rows, f, arama, takimDahil){
+  function applyFacets(rows, f, arama){
     let out = rows;
     for(const [alan, degerler] of Object.entries(f||{})){
       if(!degerler || !degerler.length) continue;
       const s = new Set(degerler);
-      if(takimDahil && alan==='org'){
-        // Kulüp ikincil üyeliğiyle kapsama giriyorsa satır o yarışmaya taşınır.
-        // Yalnızca eşleştirip bıraksaydık kulübün kendi ligi de (Real Madrid
-        // için La Liga) seçili organizasyonun yanında listelenirdi.
-        const yeni = [];
-        for(const r of out){
-          if(s.has(r.org)) yeni.push(r);
-          else if(s.has(r.avrupa)) yeni.push({...r, org:r.avrupa});
-        }
-        out = yeni;
-      } else {
-        out = out.filter(r => s.has(r[alan]));
-      }
+      out = out.filter(r => s.has(r[alan]));
     }
     if(arama && arama.trim()){
       const q = arama.trim().toLowerCase();
@@ -292,20 +280,8 @@ window.U = (function(){
     return out;
   }
 
-  // Organizasyon ekseninde, takım katmanı dahil bayrağı açıkken bir yarışmada
-  // oynayan kulüplerin satırları o yarışmanın altında da sayılır. Kulüp kendi
-  // ülke liginde kalmaya devam eder; bu yüzden satır çoğaltılır, taşınmaz.
-  // Bayrak U üzerinde tutulur, çünkü groupBy her sekmeden çağrılıyor ve
-  // eksenin nereden geldiğini bilmesi gerekmiyor.
-  function orgGenislet(rows){
-    const ek = [];
-    for(const k of rows) if(k.avrupa && k.avrupa !== k.org) ek.push({...k, org:k.avrupa});
-    return ek.length ? rows.concat(ek) : rows;
-  }
-
   // Grupla: herhangi bir faset ekseninde, rolling + takvim metrikleriyle
   function groupBy(rows, alan, altAlan){
-    if(alan==='org' && window.U && window.U.takimDahil) rows = orgGenislet(rows);
     const m = new Map();
     for(const k of rows){
       const v = k[alan]; if(v===undefined || v==='') continue;
@@ -473,7 +449,7 @@ window.U = (function(){
     ROLLING_LABELS, P12_LABELS, ymLabel,
     ROLLING_Q_LABELS, CALENDAR_Q_LABELS, quarterOptions, qLabel,
     quarterSums, peakQuarterIdx,
-    fmtNum, fmtOrt, fmtFull, fmtPct, orgGenislet, serialToMonthIdx, serialToRollingLabel, trendClass,
+    fmtNum, fmtOrt, fmtFull, fmtPct, serialToMonthIdx, serialToRollingLabel, trendClass,
     aggregateMonthly, aggregateRolling, rollingOf, prevRollingOf,
     hmColor, hmText,
     toCSV, downloadCSV, debounce, sparkPath, quarterName,
