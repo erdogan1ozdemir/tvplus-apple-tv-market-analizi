@@ -17,4 +17,5 @@
 - Karar birimi organizasyondan diziye alındı; eşikler dizi dağılımından yeniden türetildi. Lig bütünlüğü bölümü kapatıldı (sezon bütünlüğü ayrıca kurulacak).
 - Açık: sezon bütünlüğü bölümü, 196 dizide erişim faseti "Doğrulanacak", responsive denetim, artifact yayını.
 - Kalibre edilmiş kovalar (dizi bazında, aylık ort.): Hub 6 (233K) · Landing 15 (57,5K) · Etkinlik Ölçekli·Sürekli Açık 23 (581K) · Etkinlik Ölçekli 7 (10,6K) · Veri Sayfası 2 (12,8K) · Şimdilik Değil 147 (29,1K).
-- Responsive: on sekme 375 ve 1440'ta temiz (`.tbl th.num` nowrap eklendi). Konsol hatasız. Artifact HTML üretildi.
+- Responsive: on sekme 375 ve 1440'ta temiz (`.tbl th.num` nowrap eklendi). Konsol hatasız.
+- Artifact üretimi ilk denemede başarısız oldu: üretici React/Babel'i `.artifact/` altındaki yerel kopyalardan gömüyor, klasör gitignore'da olduğu için TV+'tan gelmemişti. Vendor dosyaları kopyalandı, artifact üretildi.

@@ -17,4 +17,6 @@ node scripts/build-data.js     # data/raw/hacim_diziler.csv → data/dashboard.j
 PORT=3100 node server.js       # http://localhost:3100
 ```
 
+Artifact (tek dosya HTML): `node scripts/build-artifact.js` — React/ReactDOM yerel kopyaları `.artifact/react.js` ve `.artifact/react-dom.js` gerekir (gitignore'da; TV+ deposundan kopyalanır).
+
 Araştırma günlüğü: `data/arastirma/bulgular.md`. Gidişat: `appletv-claude.md`.

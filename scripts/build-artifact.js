@@ -40,7 +40,7 @@ const parcalar = [
 
 // Artifact kökünde data-palette/data-theme stamp'i yok; JS ile uygulanıyor (app.jsx yapıyor).
 const out = parcalar.join('\n');
-const hedef = path.join(R, '.artifact', 'tvplus-spor-talep-haritasi.html');
+const hedef = path.join(R, '.artifact', 'appletv-dizi-talep-haritasi.html');
 fs.writeFileSync(hedef, out, 'utf8');
 const mb = (Buffer.byteLength(out) / 1048576).toFixed(2);
 console.log(`Çıktı: ${path.relative(R, hedef)}  (${mb} MB)`);
