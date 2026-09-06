@@ -1408,8 +1408,8 @@ window.TABS = (function(){
         if(!satirlar.length) return null;
         const ust = satirlar[0];
         return h(React.Fragment,null,
-          h(C.SectionHeader,{icon:'karne', title:'Paylaşımlı Takım & Oyuncu Katmanı',
-            desc:'bu katman lig başına değil, spor dalı genelinde bir kez kurulur'}),
+          h(C.SectionHeader,{icon:'karne', title:'Kategori Bazlı Dizi & Oyuncu Katmanı',
+            desc:'bu katman dizi başına değil, kategori genelinde bir kez kurulur'}),
           h('div',{className:'insight-bar', style:{marginTop:0}},
             h('span',null,
               h('strong',null, ust.spor), ' dikeyinde takım ve oyuncu sayfaları ',
