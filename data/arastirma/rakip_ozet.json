@@ -1,0 +1,154 @@
+[
+ {
+  "dizi": "Silo",
+  "mesru": 3008,
+  "korsan": 10539,
+  "toplam": 13547,
+  "kaynaklar": {
+   "filmmakinesi": 1936,
+   "dizibox": 8603,
+   "primevideo": 1948,
+   "apple": 1060
+  }
+ },
+ {
+  "dizi": "Ted Lasso",
+  "mesru": 2890,
+  "korsan": 5305,
+  "toplam": 8195,
+  "kaynaklar": {
+   "filmmakinesi": 3380,
+   "dizibox": 1925,
+   "primevideo": 1674,
+   "apple": 1216
+  }
+ },
+ {
+  "dizi": "Foundation",
+  "mesru": 816,
+  "korsan": 6170,
+  "toplam": 6986,
+  "kaynaklar": {
+   "filmmakinesi": 3944,
+   "dizibox": 2226,
+   "apple": 816
+  }
+ },
+ {
+  "dizi": "The Crowded Room",
+  "mesru": 1123,
+  "korsan": 4167,
+  "toplam": 5290,
+  "kaynaklar": {
+   "dizibox": 4167,
+   "primevideo": 685,
+   "apple": 438
+  }
+ },
+ {
+  "dizi": "The Buccaneers",
+  "mesru": 2591,
+  "korsan": 913,
+  "toplam": 3504,
+  "kaynaklar": {
+   "dizibox": 913,
+   "primevideo": 2150,
+   "apple": 441
+  }
+ },
+ {
+  "dizi": "Severance",
+  "mesru": 455,
+  "korsan": 2114,
+  "toplam": 2569,
+  "kaynaklar": {
+   "dizibox": 2114,
+   "apple": 455
+  }
+ },
+ {
+  "dizi": "Pluribus",
+  "mesru": 0,
+  "korsan": 1938,
+  "toplam": 1938,
+  "kaynaklar": {
+   "dizibox": 1938
+  }
+ },
+ {
+  "dizi": "The Hunt",
+  "mesru": 0,
+  "korsan": 1758,
+  "toplam": 1758,
+  "kaynaklar": {
+   "hdfilmcehennemi": 1758
+  }
+ },
+ {
+  "dizi": "Shrinking",
+  "mesru": 269,
+  "korsan": 1259,
+  "toplam": 1528,
+  "kaynaklar": {
+   "dizibox": 1259,
+   "apple": 269
+  }
+ },
+ {
+  "dizi": "Cape Fear",
+  "mesru": 480,
+  "korsan": 597,
+  "toplam": 1077,
+  "kaynaklar": {
+   "dizibox": 597,
+   "apple": 480
+  }
+ },
+ {
+  "dizi": "Disclaimer",
+  "mesru": 203,
+  "korsan": 686,
+  "toplam": 889,
+  "kaynaklar": {
+   "dizibox": 686,
+   "apple": 203
+  }
+ },
+ {
+  "dizi": "Invasion",
+  "mesru": 134,
+  "korsan": 539,
+  "toplam": 673,
+  "kaynaklar": {
+   "dizibox": 539,
+   "apple": 134
+  }
+ },
+ {
+  "dizi": "The Morning Show",
+  "mesru": 0,
+  "korsan": 499,
+  "toplam": 499,
+  "kaynaklar": {
+   "dizibox": 499
+  }
+ },
+ {
+  "dizi": "For All Mankind",
+  "mesru": 0,
+  "korsan": 435,
+  "toplam": 435,
+  "kaynaklar": {
+   "dizibox": 435
+  }
+ },
+ {
+  "dizi": "Slow Horses",
+  "mesru": 138,
+  "korsan": 0,
+  "toplam": 138,
+  "kaynaklar": {
+   "apple": 138
+  }
+ }
+]

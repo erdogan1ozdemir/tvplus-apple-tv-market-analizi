@@ -1,0 +1,55 @@
+{
+ "kaynak": "ahrefs primevideo tr 2026-09-01 ilk 400",
+ "toplam_trafik": 3754790,
+ "apple_dizi_trafik": 6457,
+ "eslesmeler": [
+  {
+   "keyword": "the buccaneers",
+   "dizi": "The Buccaneers",
+   "volume": 7600,
+   "traffic": 2150,
+   "pos": 1,
+   "url": "https://www.primevideo.com/-/tr/detail/0M8IYZF7QL7JBIPQ415RFLI8Z4"
+  },
+  {
+   "keyword": "silo dizi",
+   "dizi": "Silo",
+   "volume": 3600,
+   "traffic": 1018,
+   "pos": 1,
+   "url": "https://www.primevideo.com/detail"
+  },
+  {
+   "keyword": "ted lasso izle",
+   "dizi": "Ted Lasso",
+   "volume": 8400,
+   "traffic": 934,
+   "pos": 4,
+   "url": "https://www.primevideo.com/-/tr/detail/0GRVXC3UYWEV9PRBX1S4167AJR"
+  },
+  {
+   "keyword": "silo izle",
+   "dizi": "Silo",
+   "volume": 12000,
+   "traffic": 930,
+   "pos": 6,
+   "url": "https://www.primevideo.com/-/tr/detail/0GKY3CQGOYOPDSE76BWMJN5CK3"
+  },
+  {
+   "keyword": "ted lasso",
+   "dizi": "Ted Lasso",
+   "volume": 13000,
+   "traffic": 740,
+   "pos": 4,
+   "url": "https://www.primevideo.com/-/tr/detail/0GRVXC3UYWEV9PRBX1S4167AJR"
+  },
+  {
+   "keyword": "the crowded room izle",
+   "dizi": "The Crowded Room",
+   "volume": 5300,
+   "traffic": 685,
+   "pos": 5,
+   "url": "https://www.primevideo.com/detail"
+  }
+ ]
+}

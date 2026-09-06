@@ -1,0 +1,11 @@
+{
+  "name": "tvplus-spor-talep-haritasi",
+  "version": "1.0.0",
+  "private": true,
+  "description": "TV+ spor talep haritasi ve sayfa mimarisi dashboard'u",
+  "scripts": {
+    "build": "node scripts/build-data.js",
+    "start": "node server.js"
+  },
+  "engines": { "node": ">=18" }
+}

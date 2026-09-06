@@ -1,0 +1,31 @@
+{
+ "kaynak": "ahrefs filmmakinesi tr 2026-09-01 ilk 400",
+ "toplam_trafik": 3095785,
+ "apple_dizi_trafik": 9260,
+ "eslesmeler": [
+  {
+   "keyword": "foundation izle",
+   "dizi": "Foundation",
+   "volume": 12000,
+   "traffic": 3944,
+   "pos": 1,
+   "url": "https://filmmakinesi.to/dizi/foundation-izle-2021-fm12/"
+  },
+  {
+   "keyword": "ted lasso izle",
+   "dizi": "Ted Lasso",
+   "volume": 8400,
+   "traffic": 3380,
+   "pos": 1,
+   "url": "https://filmmakinesi.to/dizi/ted-lasso-izle-2020/"
+  },
+  {
+   "keyword": "silo izle",
+   "dizi": "Silo",
+   "volume": 12000,
+   "traffic": 1936,
+   "pos": 2,
+   "url": "https://filmmakinesi.to/dizi/silo-izle-2023-fm14/"
+  }
+ ]
+}
