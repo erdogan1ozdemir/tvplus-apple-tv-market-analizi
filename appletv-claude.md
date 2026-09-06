@@ -19,3 +19,5 @@
 - Kalibre edilmiş kovalar (dizi bazında, aylık ort.): Hub 6 (233K) · Landing 15 (57,5K) · Etkinlik Ölçekli·Sürekli Açık 23 (581K) · Etkinlik Ölçekli 7 (10,6K) · Veri Sayfası 2 (12,8K) · Şimdilik Değil 147 (29,1K).
 - Responsive: on sekme 375 ve 1440'ta temiz (`.tbl th.num` nowrap eklendi). Konsol hatasız.
 - Artifact üretimi ilk denemede başarısız oldu: üretici React/Babel'i `.artifact/` altındaki yerel kopyalardan gömüyor, klasör gitignore'da olduğu için TV+'tan gelmemişti. Vendor dosyaları kopyalandı, artifact üretildi.
+- Artifact yayınlandı (downloads yeteneği bildirildi, CSV indirme çalışıyor): https://claude.ai/code/artifact/e5c64ca9-16bb-4af6-8b6a-9371ab70ddd2
+- Açık kalanlar: sezon bütünlüğü bölümü (lig bütünlüğünün dizi karşılığı) · 196 dizide erişim faseti "Doğrulanacak" (rakip örneklemi ilk 400 kw ile sınırlı) · Apple'ın `/tr/` yerine `/cy/` sıralanması rapor için önemli bulgu.
