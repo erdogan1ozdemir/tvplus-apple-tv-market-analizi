@@ -118,14 +118,19 @@ window.TABS = (function(){
     };
     const gruplar = React.useMemo(()=>{
       // Özet'te kırılım yolu ekseni belirler; gruplar dışarıdan hazır gelir.
-      let g = gruplarDis || groupBy(rowsF, seviye);
+      // Varlık tipi süzgeci hazır gruplardan sonra gelir: Özet gruplarını
+      // dışarıda hesapladığı için (gruplarDis) süzgeç uygulandığında yeniden
+      // gruplamak gerekir, yoksa düğme durum değiştirir ama matris değişmez.
+      let g = (gruplarDis && !entFiltre)
+        ? gruplarDis
+        : kirilimGruplari(rowsF, eksenDis || seviye);
       if(sirala==='yoyUp')   g = [...g].sort((a,b)=>(b.ryoy??-9)-(a.ryoy??-9));
       else if(sirala==='yoyDown') g = [...g].sort((a,b)=>(a.ryoy??9)-(b.ryoy??9));
       else if(sirala==='az') g = [...g].sort((a,b)=>a.label.localeCompare(b.label,'tr'));
       return g;
       // false groupBy'ın içinde okunuyor; React göremediği için bağımlılığa
       // açıkça yazılmalı, yoksa bayrak değişince önbellekteki gruplar dönüyor.
-    },[rowsF, seviye, sirala, gruplarDis]);
+    },[rowsF, seviye, sirala, gruplarDis, entFiltre, eksenDis]);
 
     const takvim = viewMode==='calendar';
     const etiketler = takvim ? TR_MONTHS : ROLLING_LABELS;
@@ -1349,13 +1354,24 @@ window.TABS = (function(){
 
   // ══════════════════════════════════════════ KEYWORD MODAL
   const MODAL_FASET_GRUP = [
-    ['Sınıflandırma',            ['spor','org','st','it','ent']],
-    ['Organizasyon Özellikleri', ['mus','sev','per','tak']],
-    ['Kapsam',                   ['cins','km','tb','cog','yer','turk']],
-    ['TV+ & Kaynak',             ['hak','kurum','ktm','kulup']],
-    ['Veri Denetimi',            ['mden','anaAd','odog']],
-    ['Sorgu Özellikleri',        ['dil','uzn','bucket','sinif','trend']],
+    ['Sınıflandırma',    ['spor','org','turHam','st','it','ent']],
+    ['Dizi',             ['diziAd','kulup','yil','sezonSay','durum','sezonNo']],
+    ['Erişim & Kaynak',  ['hak','resmi','marka','belirsiz']],
+    ['Sorgu Özellikleri',['dil','bucket','sinif','trend','mden']],
   ];
+  // Veride hiç değeri olmayan alan gösterilmez: dikey değiştiğinde artakalan
+  // fasetler ("mus", "cog", "turk" gibi) detay panelinde boş satır olarak
+  // kalıyordu. Süzgeç bir kez hesaplanır.
+  let _dolu = null;
+  function doluAlanlar(){
+    if(_dolu) return _dolu;
+    const rows = D().keywords || [];
+    _dolu = new Set();
+    for(const alanlar of MODAL_FASET_GRUP.map(g=>g[1]))
+      for(const a of alanlar)
+        if(rows.some(r=>r[a]!=null && r[a]!=='')) _dolu.add(a);
+    return _dolu;
+  }
 
   function KeywordModal({kw, viewMode, onClose}){
     const M = D().meta;
@@ -1422,7 +1438,8 @@ window.TABS = (function(){
       h('h4',{style:{fontSize:13, margin:'20px 0 10px'}},'Öznitelikler'),
       h('div',{className:'faset-tablo'},
         MODAL_FASET_GRUP.map(function(gr){
-          const baslik = gr[0], alanlar = gr[1];
+          const baslik = gr[0], alanlar = gr[1].filter(a=>doluAlanlar().has(a));
+          if(!alanlar.length) return null;
           return h('div',{key:baslik, className:'faset-grup'},
             h('div',{className:'faset-grup-baslik'}, baslik),
             h('dl',{className:'faset-liste'},

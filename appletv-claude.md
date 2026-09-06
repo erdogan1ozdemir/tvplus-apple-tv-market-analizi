@@ -60,3 +60,14 @@
 - Erişim faseti: 145 dizinin faseti SERP'ten doldurulabilir (138 Meşru Görünür, 7 Yalnız Korsan); ancak o 7'nin tamamı ad belirsizliği vakası, otomatik doldurma öncesi ayrıştırılmalı.
 - Katalogdaki 11 dizi hiç veri döndürmedi (Shining Girls, The Big Cigar, Lincoln's Dilemma vb.).
 
+### Denetim kararlarının uygulanması ve arayüz düzeltmeleri
+- **Kapsam dışı bırakma (yıkıcı değil):** `data/denetim/kapsam_disi.json` + `scripts/kapsam_disi_uygula.py`. Satır silinmiyor, `mantik_denetim` kolonuna gerekçe yazılıyor, build kapsam dışı bırakıyor. 70 keyword · 37.140/ay çıkarıldı. Kapsam 2.211 → 2.141 keyword, aylık talep 937.240 → 900.100.
+  - Tüm küme: curses, the hunt, dear, ghostwriter, home (157 satır).
+  - Yalnız çıplak ad: dickinson, neuromancer, shantaram, bearbrick, circuit breakers, duck goose, born to be wild, harriet the spy, pachinko, lessons in chemistry, invasion, the mosquito coast, love you to death, long way home (14 satır). Diğer 8 belirsiz adın çıplak formu zaten hiç çekilmemişti.
+  - Losing Alice kapsamda kaldı (kullanıcı SERP kontrolü: tüm sonuçlar dizi sayfası).
+- **"+dizi" karşılığı:** çıplak formu çıkarılan dizilerde gerçek talep — pachinko 2.600, lessons in chemistry 1.460, dickinson 1.430, neuromancer 630, shantaram 390. Buna karşılık bearbrick 20, circuit breakers 30, duck goose 10: Apple dizisi olmalarına rağmen Türkiye'de dizi talebi yok, hacmin tamamı diğer anlamdı.
+- **Çıplak ad SERP çekimi (onaylı, 30 sorgu, 0,07 USD):** çift intent varsayımı **doğrulanmadı**. 30 çıplak adın hiçbirinde SERP izleme baskın değil; 18'i bilgi (Wikipedia, IMDb, Beyazperde, Ekşi), 12'si karışık. Korsan siteler ilk 10'da en fazla 1-2 sonuçla görünüyor. Navigasyonel etiketi yerinde; asıl ayrım navigasyonel-bilgi.
+- **Erişim faseti kapatıldı:** `scripts/erisim_uygula.py` fasetı SERP kanıtından dolduruyor (adı birebir eşleşen meşru platform sayfası varsa Meşru Görünür). Doğrulanacak 1.783 kw / 303K → **173 kw / 1.960** (%0,2). Yalnız Korsan çıkan üç dizi gerçek: the changeling, physical, long way home — Apple TV bu sorgularda TR'de sıralanmıyor.
+- **Arayüz · Özet varlık tipi düğmeleri çalışmıyordu:** Özet matrisi gruplarını dışarıda hesaplıyor (`gruplarDis`), süzgeç yerel `rowsF` üzerinde kalıyordu; düğme durum değiştiriyor ama matris değişmiyordu. Süzgeç etkinken gruplar yeniden hesaplanıyor.
+- **Arayüz · keyword detayı:** spor deposundan kalan boş fasetler (mus, sev, per, tak, cins, km, tb, cog, yer, turk, kurum, ktm, anaAd, odog, uzn) panelde boş satır olarak duruyordu. Grup tanımı dizi dikeyine göre yeniden yazıldı; ayrıca veride hiç değeri olmayan alan artık gösterilmiyor, böylece bu hata sınıfı bir daha oluşmuyor.
+
