@@ -607,9 +607,9 @@ window.TABS = (function(){
         h('table',{className:'tbl'},
           h('thead',null,h('tr',null,
             th('Keyword','kw'),
-            !kompakt && th('Spor Dalı','spor'),
-            !kompakt && th('Organizasyon','org'),
-            !kompakt && th('Takım','takim', false, 'Takım satırında kendi adı, oyuncu satırında kulübü'),
+            !kompakt && th('Kategori','spor'),
+            !kompakt && th('Tür','org'),
+            !kompakt && th('Dizi','takim', false, 'Takım satırında kendi adı, oyuncu satırında kulübü'),
             !kompakt && th('Varlık','ent'),
             th(yil[0]+' Ort.','a24', true, yil[0]+' aylık ortalama arama hacmi'),
             th(yil[1]+' Ort.','a25', true, yil[1]+' aylık ortalama arama hacmi'),
@@ -676,9 +676,9 @@ window.TABS = (function(){
   ];
 
   const KW_CSV = [
-    {label:'Keyword',key:'kw'},{label:'Spor Dalı',key:'spor'},{label:'Organizasyon',key:'org'},
+    {label:'Keyword',key:'kw'},{label:'Kategori',key:'spor'},{label:'Tür',key:'org'},
     {label:'Sayfa Tipi',key:'st'},{label:'Intent',key:'it'},{label:'Varlık Tipi',key:'ent'},
-    {label:'Takım',key:'takim'},{label:'Oyuncu Kulübü',key:'kulup'},{label:'Yayın Hakkı',key:'hak'},
+    {label:'Dizi',key:'takim'},{label:'Oyuncu Kulübü',key:'kulup'},{label:'Yayın Hakkı',key:'hak'},
     {label:'2024 Ort.',key:'a24'},{label:'2025 Ort.',key:'a25'},{label:'2026 YTD Ort.',key:'a26'},
     ...CSV_HACIM,
     {label:'YoY %',get:r=>r.ryoy==null?'':(r.ryoy*100).toFixed(1)},
@@ -819,7 +819,7 @@ window.TABS = (function(){
           })),
         h('span',{className:'txt-3', style:{fontSize:13}}, fmtNum(veri.length)+' keyword'),
         h(C.CopyButton,{getData:()=>({
-          headers:['Keyword','Spor Dalı','Organizasyon','Sayfa Tipi','Önceki 12 Ay','Son 12 Ay','YoY %','Bucket','Peak Ay'],
+          headers:['Keyword','Kategori','Tür','Sayfa Tipi','Önceki 12 Ay','Son 12 Ay','YoY %','Bucket','Peak Ay'],
           rows: veri.map(r=>{ const roll=U.rollingOf(r);
             return [r.kw, r.spor||'', r.org||'', r.st||'', r.p12, r.r12,
               ((r.ryoy||0)*100).toFixed(2)+'%', r.bucket||'', ROLLING_LABELS[roll.indexOf(Math.max(...roll))]||'']; })
@@ -1137,8 +1137,8 @@ window.TABS = (function(){
           desc:'takım araması ve oyuncu araması ayrı kolonlarda',
           actions: h('button',{className:'chip-btn', style:{padding:'6px 12px',borderRadius:999},
             onClick:()=>downloadCSV('tvplus-takim-kumesi.csv', toCSV(kumeler,[
-              {label:'Takım',key:'label'},{label:'Organizasyon',key:'org'},
-              {label:'Spor Dalı',key:'spor'},
+              {label:'Dizi',key:'label'},{label:'Tür',key:'org'},
+              {label:'Kategori',key:'spor'},
               {label:'Takım Araması Aylık Ort.', get:r=>Math.round((r.takimVol||0)/12)},
               {label:'Takım KW',key:'takimKw'},
               {label:'Oyuncu Araması Aylık Ort.', get:r=>Math.round((r.oyuncuVol||0)/12)},
@@ -1153,7 +1153,7 @@ window.TABS = (function(){
           h('div',{className:'tbl-wrap'},
             h('table',{className:'tbl'},
               h('thead',null,h('tr',null,
-                h('th',null,'Takım'), h('th',null,'Organizasyon'),
+                h('th',null,'Dizi'), h('th',null,'Tür'),
                 h('th',{className:'num'},'Takım Araması Ort.'),
                 h('th',{className:'num'},'Oyuncu Araması Ort.'),
                 h('th',{className:'num'},'Toplam Ort.'),
@@ -1213,7 +1213,7 @@ window.TABS = (function(){
       h('div',{className:'grid grid-kpi kpi-4'},
         h(C.Kpi,{label:'Meşru Erişim Dışı Talep', value:fmtOrt(topR12(disi)), accent:true,
           sub:`toplam talebin %${(100*topR12(disi)/toplam).toFixed(1)}'i`}),
-        h(C.Kpi,{label:'Organizasyon', value:orgG.length}),
+        h(C.Kpi,{label:'Tür', value:orgG.length}),
         h(C.Kpi,{label:'Keyword', value:fmtNum(disi.length)}),
         h(C.Kpi,{label:'İzleme Talebi', value:fmtOrt(topR12(disi.filter(k=>k.it==='İzleme')))})),
       h(SezonTakvimi,{rows:disi, viewMode, baslik:'Meşru erişim dışı talep sezonsallığı', takimDahil,
@@ -1424,8 +1424,8 @@ window.TABS = (function(){
             h('div',{className:'tbl-wrap'},
               h('table',{className:'tbl'},
                 h('thead',null,h('tr',null,
-                  h('th',null,'Spor Dalı'),
-                  h('th',{className:'num'},'Organizasyon'),
+                  h('th',null,'Kategori'),
+                  h('th',{className:'num'},'Tür'),
                   h('th',{className:'num'},'Takım KW'),
                   h('th',{className:'num'},'Takım Talebi Ort.'),
                   h('th',{className:'num'},'Oyuncu KW'),
@@ -1481,7 +1481,7 @@ window.TABS = (function(){
           }),
           h('button',{className:'chip-btn', style:{padding:'0 12px'},
           onClick:()=>downloadCSV('tvplus-karar.csv',
-          toCSV(orgRows,[{label:'Organizasyon',key:'label'},{label:'Spor Dalı',key:'spor'},
+          toCSV(orgRows,[{label:'Tür',key:'label'},{label:'Kategori',key:'spor'},
             {label:'Öneri',key:'karar'}, ...CSV_HACIM,
             {label:'YoY %',get:r=>r.ryoy==null?'':(r.ryoy*100).toFixed(1)},
             {label:'Mevsim Tipi',key:'sezType'},
@@ -1495,7 +1495,7 @@ window.TABS = (function(){
         h('div',{className:'tbl-wrap'},
           h('table',{className:'tbl'},
             h('thead',null,h('tr',null,
-              h('th',null,'Organizasyon'),
+              h('th',null,'Tür'),
               h('th',null,'Öneri'),
               h('th',{className:'num'}, (viewMode==='calendar' ? (D().meta.yillar[0]||'Önceki Yıl') : 'Önceki 12 Ay')+' Ort.'),
               h('th',{className:'num'}, (viewMode==='calendar' ? (D().meta.yillar[1]||'Son Yıl') : 'Son 12 Ay')+' Ort.'),
@@ -1590,7 +1590,7 @@ window.TABS = (function(){
                 h('thead',null, h('tr',null,
                   h('th',null,'Lig'),
                   h('th',null,'Karar'),
-                  h('th',{className:'num'},'Takım'),
+                  h('th',{className:'num'},'Dizi'),
                   h('th',{className:'num'},'Kendi talebiyle'),
                   h('th',{className:'num'},'Lig bütünlüğü'),
                   h('th',{className:'num'},'Bütünlük Hacmi Ort.'),
@@ -1811,7 +1811,7 @@ window.TABS = (function(){
      İki gösterim: karo şeridi (A) ve sütun kırılımı (B). Yol ve
      kontroller ikisinde ortaktır, gösterim değişince yer korunur.
      ═══════════════════════════════════════════════════════════════════ */
-  const KIRILIM_SEVIYE = [['spor','Spor Dalı'],['org','Organizasyon'],['takim','Takım']];
+  const KIRILIM_SEVIYE = [['spor','Kategori'],['org','Tür'],['takim','Dizi']];
   const KIRILIM_ESIK = [0, 10000, 50000, 250000, 1e6, 5e6, 25e6];
   const KIRILIM_SINIR = 24;   // seviye başına ilk gösterilen karo sayısı
 
