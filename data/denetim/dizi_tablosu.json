@@ -1,0 +1,2072 @@
+[
+ {
+  "dizi": "Pluribus",
+  "kategori": "Drama",
+  "tur": "Science fiction",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 29,
+  "hacim": 312870,
+  "izleme": 128530
+ },
+ {
+  "dizi": "Silo",
+  "kategori": "Drama",
+  "tur": "Dystopian science fiction",
+  "yil": 2023,
+  "sezon": 3,
+  "kw": 34,
+  "hacim": 75760,
+  "izleme": 39400
+ },
+ {
+  "dizi": "Severance",
+  "kategori": "Drama",
+  "tur": "Science fiction thriller",
+  "yil": 2022,
+  "sezon": 2,
+  "kw": 31,
+  "hacim": 57470,
+  "izleme": 16510
+ },
+ {
+  "dizi": "Ted Lasso",
+  "kategori": "Comedy",
+  "tur": "Sports comedy drama",
+  "yil": 2020,
+  "sezon": 4,
+  "kw": 37,
+  "hacim": 48740,
+  "izleme": 15660
+ },
+ {
+  "dizi": "See",
+  "kategori": "Drama",
+  "tur": "Science fiction",
+  "yil": 2019,
+  "sezon": 3,
+  "kw": 33,
+  "hacim": 44890,
+  "izleme": 32830
+ },
+ {
+  "dizi": "Chief of War",
+  "kategori": "Drama",
+  "tur": "Historical drama",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 28,
+  "hacim": 39020,
+  "izleme": 18410
+ },
+ {
+  "dizi": "Shrinking",
+  "kategori": "Comedy",
+  "tur": "Comedy drama",
+  "yil": 2023,
+  "sezon": 3,
+  "kw": 34,
+  "hacim": 23100,
+  "izleme": 5980
+ },
+ {
+  "dizi": "Slow Horses",
+  "kategori": "Drama",
+  "tur": "Spy thriller",
+  "yil": 2022,
+  "sezon": 5,
+  "kw": 39,
+  "hacim": 22110,
+  "izleme": 7360
+ },
+ {
+  "dizi": "The Last Frontier",
+  "kategori": "Drama",
+  "tur": "Action drama",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 25,
+  "hacim": 21720,
+  "izleme": 8440
+ },
+ {
+  "dizi": "The Buccaneers",
+  "kategori": "Drama",
+  "tur": "Period drama",
+  "yil": 2023,
+  "sezon": 2,
+  "kw": 29,
+  "hacim": 19840,
+  "izleme": 5350
+ },
+ {
+  "dizi": "Monarch: Legacy of Monsters",
+  "kategori": "Drama",
+  "tur": "Monster action",
+  "yil": 2023,
+  "sezon": 2,
+  "kw": 29,
+  "hacim": 17460,
+  "izleme": 7100
+ },
+ {
+  "dizi": "Foundation",
+  "kategori": "Drama",
+  "tur": "Science fiction",
+  "yil": 2021,
+  "sezon": 3,
+  "kw": 34,
+  "hacim": 14580,
+  "izleme": 10570
+ },
+ {
+  "dizi": "Invasion",
+  "kategori": "Drama",
+  "tur": "Science fiction",
+  "yil": 2021,
+  "sezon": 3,
+  "kw": 7,
+  "hacim": 13500,
+  "izleme": 12510
+ },
+ {
+  "dizi": "Tehran",
+  "kategori": "Co-production",
+  "tur": "Spy thriller",
+  "yil": 2020,
+  "sezon": 3,
+  "kw": 31,
+  "hacim": 12850,
+  "izleme": 3390
+ },
+ {
+  "dizi": "For All Mankind",
+  "kategori": "Drama",
+  "tur": "Alternate history science fiction",
+  "yil": 2019,
+  "sezon": 5,
+  "kw": 35,
+  "hacim": 12420,
+  "izleme": 3010
+ },
+ {
+  "dizi": "Your Friends & Neighbors",
+  "kategori": "Drama",
+  "tur": "Black comedy crime drama",
+  "yil": 2025,
+  "sezon": 2,
+  "kw": 6,
+  "hacim": 10050,
+  "izleme": 120
+ },
+ {
+  "dizi": "Black Bird",
+  "kategori": "Drama",
+  "tur": "True crime drama miniseries",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 23,
+  "hacim": 9640,
+  "izleme": 8130
+ },
+ {
+  "dizi": "Cape Fear",
+  "kategori": "Drama",
+  "tur": "Psychological thriller miniseries",
+  "yil": 2026,
+  "sezon": 1,
+  "kw": 24,
+  "hacim": 8900,
+  "izleme": 5760
+ },
+ {
+  "dizi": "Losing Alice",
+  "kategori": "Co-production",
+  "tur": "Erotic thriller",
+  "yil": 2021,
+  "sezon": 1,
+  "kw": 7,
+  "hacim": 8250,
+  "izleme": 130
+ },
+ {
+  "dizi": "Curses!",
+  "kategori": "Kids Animation",
+  "tur": "Adventure horror",
+  "yil": 2023,
+  "sezon": 2,
+  "kw": 7,
+  "hacim": 8190,
+  "izleme": 60
+ },
+ {
+  "dizi": "Dark Matter",
+  "kategori": "Drama",
+  "tur": "Science fiction",
+  "yil": 2024,
+  "sezon": 2,
+  "kw": 30,
+  "hacim": 7530,
+  "izleme": 4420
+ },
+ {
+  "dizi": "Pachinko",
+  "kategori": "Drama",
+  "tur": "Period drama",
+  "yil": 2022,
+  "sezon": 2,
+  "kw": 27,
+  "hacim": 7000,
+  "izleme": 1500
+ },
+ {
+  "dizi": "Presumed Innocent",
+  "kategori": "Drama",
+  "tur": "Legal drama",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 9,
+  "hacim": 6880,
+  "izleme": 160
+ },
+ {
+  "dizi": "The Hunt",
+  "kategori": "Non-English",
+  "tur": "Thriller",
+  "yil": 2026,
+  "sezon": 1,
+  "kw": 17,
+  "hacim": 6660,
+  "izleme": 5680
+ },
+ {
+  "dizi": "The Crowded Room",
+  "kategori": "Drama",
+  "tur": "Psychological thriller miniseries",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 25,
+  "hacim": 6630,
+  "izleme": 1660
+ },
+ {
+  "dizi": "Defending Jacob",
+  "kategori": "Drama",
+  "tur": "Legal drama miniseries",
+  "yil": 2020,
+  "sezon": 1,
+  "kw": 23,
+  "hacim": 6400,
+  "izleme": 2320
+ },
+ {
+  "dizi": "Lucky",
+  "kategori": "Drama",
+  "tur": "Crime thriller miniseries",
+  "yil": 2026,
+  "sezon": 1,
+  "kw": 21,
+  "hacim": 6290,
+  "izleme": 3450
+ },
+ {
+  "dizi": "The Morning Show",
+  "kategori": "Drama",
+  "tur": "Drama",
+  "yil": 2019,
+  "sezon": 4,
+  "kw": 30,
+  "hacim": 5860,
+  "izleme": 1430
+ },
+ {
+  "dizi": "The Studio",
+  "kategori": "Comedy",
+  "tur": "Workplace comedy",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 21,
+  "hacim": 5580,
+  "izleme": 4580
+ },
+ {
+  "dizi": "Disclaimer",
+  "kategori": "Drama",
+  "tur": "Thriller miniseries",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 23,
+  "hacim": 5560,
+  "izleme": 3900
+ },
+ {
+  "dizi": "Hijack",
+  "kategori": "Drama",
+  "tur": "Thriller",
+  "yil": 2023,
+  "sezon": 2,
+  "kw": 26,
+  "hacim": 4820,
+  "izleme": 3870
+ },
+ {
+  "dizi": "Dear...",
+  "kategori": "Docuseries",
+  "tur": "Celebrity",
+  "yil": 2020,
+  "sezon": 2,
+  "kw": 9,
+  "hacim": 4600,
+  "izleme": 160
+ },
+ {
+  "dizi": "WeCrashed",
+  "kategori": "Drama",
+  "tur": "Drama miniseries",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 25,
+  "hacim": 4500,
+  "izleme": 1280
+ },
+ {
+  "dizi": "Lessons in Chemistry",
+  "kategori": "Drama",
+  "tur": "Period drama miniseries",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 22,
+  "hacim": 4360,
+  "izleme": 1180
+ },
+ {
+  "dizi": "Murderbot",
+  "kategori": "Comedy",
+  "tur": "Science fiction action comedy",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 24,
+  "hacim": 4070,
+  "izleme": 1310
+ },
+ {
+  "dizi": "Down Cemetery Road",
+  "kategori": "Drama",
+  "tur": "Thriller",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 16,
+  "hacim": 3460,
+  "izleme": 1250
+ },
+ {
+  "dizi": "Dickinson",
+  "kategori": "Comedy",
+  "tur": "Period comedy",
+  "yil": 2019,
+  "sezon": 3,
+  "kw": 25,
+  "hacim": 3330,
+  "izleme": 1030
+ },
+ {
+  "dizi": "Masters of the Air",
+  "kategori": "Drama",
+  "tur": "War drama miniseries",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 18,
+  "hacim": 3320,
+  "izleme": 730
+ },
+ {
+  "dizi": "Roar",
+  "kategori": "Drama",
+  "tur": "Feminist drama anthology",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 18,
+  "hacim": 2720,
+  "izleme": 1650
+ },
+ {
+  "dizi": "Neuromancer",
+  "kategori": "Drama",
+  "tur": "Cyberpunk science fiction",
+  "yil": 2027,
+  "sezon": 1,
+  "kw": 8,
+  "hacim": 2530,
+  "izleme": 200
+ },
+ {
+  "dizi": "Prehistoric Planet",
+  "kategori": "Docuseries",
+  "tur": "Natural history",
+  "yil": 2022,
+  "sezon": 3,
+  "kw": 19,
+  "hacim": 2480,
+  "izleme": 1070
+ },
+ {
+  "dizi": "Little America",
+  "kategori": "Comedy",
+  "tur": "Comedy drama anthology",
+  "yil": 2020,
+  "sezon": 2,
+  "kw": 22,
+  "hacim": 2000,
+  "izleme": 1490
+ },
+ {
+  "dizi": "The Last Thing He Told Me",
+  "kategori": "Drama",
+  "tur": "Thriller",
+  "yil": 2023,
+  "sezon": 2,
+  "kw": 15,
+  "hacim": 1980,
+  "izleme": 420
+ },
+ {
+  "dizi": "Sugar",
+  "kategori": "Drama",
+  "tur": "Mystery drama",
+  "yil": 2024,
+  "sezon": 2,
+  "kw": 20,
+  "hacim": 1840,
+  "izleme": 1070
+ },
+ {
+  "dizi": "Servant",
+  "kategori": "Drama",
+  "tur": "Psychological horror",
+  "yil": 2019,
+  "sezon": 4,
+  "kw": 27,
+  "hacim": 1580,
+  "izleme": 840
+ },
+ {
+  "dizi": "Shantaram",
+  "kategori": "Drama",
+  "tur": "Adventure drama",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 19,
+  "hacim": 1390,
+  "izleme": 210
+ },
+ {
+  "dizi": "Manhunt",
+  "kategori": "Drama",
+  "tur": "Political drama miniseries",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 17,
+  "hacim": 1390,
+  "izleme": 780
+ },
+ {
+  "dizi": "Maximum Pleasure Guaranteed",
+  "kategori": "Comedy",
+  "tur": "Comedy thriller",
+  "yil": 2026,
+  "sezon": 1,
+  "kw": 12,
+  "hacim": 1340,
+  "izleme": 460
+ },
+ {
+  "dizi": "Stick",
+  "kategori": "Comedy",
+  "tur": "Sports comedy",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 16,
+  "hacim": 1320,
+  "izleme": 1150
+ },
+ {
+  "dizi": "Amazing Stories",
+  "kategori": "Drama",
+  "tur": "Science fiction anthology",
+  "yil": 2020,
+  "sezon": 1,
+  "kw": 19,
+  "hacim": 1300,
+  "izleme": 1040
+ },
+ {
+  "dizi": "Bad Sisters",
+  "kategori": "Drama",
+  "tur": "Dark comedy thriller",
+  "yil": 2022,
+  "sezon": 2,
+  "kw": 18,
+  "hacim": 1300,
+  "izleme": 1100
+ },
+ {
+  "dizi": "Star City",
+  "kategori": "Drama",
+  "tur": "Alternate history science fiction",
+  "yil": 2026,
+  "sezon": 1,
+  "kw": 15,
+  "hacim": 1140,
+  "izleme": 540
+ },
+ {
+  "dizi": "WondLa",
+  "kategori": "Kids Animation",
+  "tur": "Science fiction fantasy",
+  "yil": 2024,
+  "sezon": 3,
+  "kw": 19,
+  "hacim": 1140,
+  "izleme": 360
+ },
+ {
+  "dizi": "Bearbrick",
+  "kategori": "Kids Animation",
+  "tur": "Musical comedy",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 3,
+  "hacim": 1020,
+  "izleme": 20
+ },
+ {
+  "dizi": "Dope Thief",
+  "kategori": "Drama",
+  "tur": "Crime drama miniseries",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 12,
+  "hacim": 970,
+  "izleme": 170
+ },
+ {
+  "dizi": "Palm Royale",
+  "kategori": "Comedy",
+  "tur": "Period comedy",
+  "yil": 2024,
+  "sezon": 2,
+  "kw": 14,
+  "hacim": 940,
+  "izleme": 230
+ },
+ {
+  "dizi": "Circuit Breakers",
+  "kategori": "Kids",
+  "tur": "Science fiction anthology",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 5,
+  "hacim": 910,
+  "izleme": 10
+ },
+ {
+  "dizi": "Small Prophets",
+  "kategori": "Comedy",
+  "tur": "Comedy fantasy",
+  "yil": 2026,
+  "sezon": 1,
+  "kw": 11,
+  "hacim": 910,
+  "izleme": 250
+ },
+ {
+  "dizi": "Five Days at Memorial",
+  "kategori": "Drama",
+  "tur": "Medical drama miniseries",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 11,
+  "hacim": 890,
+  "izleme": 350
+ },
+ {
+  "dizi": "Constellation",
+  "kategori": "Drama",
+  "tur": "Psychological thriller",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 22,
+  "hacim": 890,
+  "izleme": 580
+ },
+ {
+  "dizi": "Smoke",
+  "kategori": "Drama",
+  "tur": "Crime drama",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 15,
+  "hacim": 880,
+  "izleme": 600
+ },
+ {
+  "dizi": "Platonic",
+  "kategori": "Comedy",
+  "tur": "Comedy",
+  "yil": 2023,
+  "sezon": 2,
+  "kw": 17,
+  "hacim": 850,
+  "izleme": 480
+ },
+ {
+  "dizi": "Criminal Record",
+  "kategori": "Drama",
+  "tur": "Crime thriller",
+  "yil": 2024,
+  "sezon": 2,
+  "kw": 17,
+  "hacim": 740,
+  "izleme": 550
+ },
+ {
+  "dizi": "Mr. Scorsese",
+  "kategori": "Docuseries",
+  "tur": "Filmmaking miniseries",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 6,
+  "hacim": 730,
+  "izleme": 230
+ },
+ {
+  "dizi": "Drops of God",
+  "kategori": "Co-production",
+  "tur": "Drama",
+  "yil": 2023,
+  "sezon": 2,
+  "kw": 15,
+  "hacim": 700,
+  "izleme": 510
+ },
+ {
+  "dizi": "Lady in the Lake",
+  "kategori": "Drama",
+  "tur": "Drama thriller miniseries",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 15,
+  "hacim": 700,
+  "izleme": 140
+ },
+ {
+  "dizi": "The Savant",
+  "kategori": "Drama",
+  "tur": "Drama miniseries",
+  "yil": 2026,
+  "sezon": 1,
+  "kw": 10,
+  "hacim": 690,
+  "izleme": 530
+ },
+ {
+  "dizi": "Mythic Quest",
+  "kategori": "Comedy",
+  "tur": "Workplace comedy",
+  "yil": 2020,
+  "sezon": 4,
+  "kw": 11,
+  "hacim": 690,
+  "izleme": 130
+ },
+ {
+  "dizi": "Ghostwriter",
+  "kategori": "Kids",
+  "tur": "Family mystery",
+  "yil": 2019,
+  "sezon": 3,
+  "kw": 10,
+  "hacim": 680,
+  "izleme": 60
+ },
+ {
+  "dizi": "Swagger",
+  "kategori": "Drama",
+  "tur": "Sports drama",
+  "yil": 2021,
+  "sezon": 2,
+  "kw": 14,
+  "hacim": 660,
+  "izleme": 550
+ },
+ {
+  "dizi": "Home",
+  "kategori": "Docuseries",
+  "tur": "Architecture",
+  "yil": 2020,
+  "sezon": 2,
+  "kw": 13,
+  "hacim": 650,
+  "izleme": 540
+ },
+ {
+  "dizi": "Liaison",
+  "kategori": "Non-English",
+  "tur": "Thriller",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 12,
+  "hacim": 630,
+  "izleme": 160
+ },
+ {
+  "dizi": "Bad Monkey",
+  "kategori": "Comedy",
+  "tur": "Crime comedy",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 15,
+  "hacim": 610,
+  "izleme": 140
+ },
+ {
+  "dizi": "Harriet the Spy",
+  "kategori": "Kids Animation",
+  "tur": "Mystery",
+  "yil": 2021,
+  "sezon": 2,
+  "kw": 9,
+  "hacim": 600,
+  "izleme": 170
+ },
+ {
+  "dizi": "Duck & Goose",
+  "kategori": "Kids Animation",
+  "tur": "Education",
+  "yil": 2022,
+  "sezon": 2,
+  "kw": 2,
+  "hacim": 600,
+  "izleme": 10
+ },
+ {
+  "dizi": "Born to Be Wild",
+  "kategori": "Docuseries",
+  "tur": "Nature",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 7,
+  "hacim": 560,
+  "izleme": 60
+ },
+ {
+  "dizi": "Before",
+  "kategori": "Drama",
+  "tur": "Psychological thriller miniseries",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 14,
+  "hacim": 560,
+  "izleme": 340
+ },
+ {
+  "dizi": "The Essex Serpent",
+  "kategori": "Drama",
+  "tur": "Period drama miniseries",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 9,
+  "hacim": 550,
+  "izleme": 90
+ },
+ {
+  "dizi": "Schmigadoon!",
+  "kategori": "Comedy",
+  "tur": "Musical comedy",
+  "yil": 2021,
+  "sezon": 2,
+  "kw": 8,
+  "hacim": 540,
+  "izleme": 90
+ },
+ {
+  "dizi": "Surface",
+  "kategori": "Drama",
+  "tur": "Psychological thriller",
+  "yil": 2022,
+  "sezon": 2,
+  "kw": 14,
+  "hacim": 520,
+  "izleme": 250
+ },
+ {
+  "dizi": "The New Look",
+  "kategori": "Drama",
+  "tur": "Historical drama",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 11,
+  "hacim": 520,
+  "izleme": 120
+ },
+ {
+  "dizi": "Calls",
+  "kategori": "Co-production",
+  "tur": "Mystery thriller",
+  "yil": 2021,
+  "sezon": 1,
+  "kw": 11,
+  "hacim": 500,
+  "izleme": 400
+ },
+ {
+  "dizi": "The Mosquito Coast",
+  "kategori": "Drama",
+  "tur": "Action thriller",
+  "yil": 2021,
+  "sezon": 2,
+  "kw": 13,
+  "hacim": 490,
+  "izleme": 80
+ },
+ {
+  "dizi": "Trying",
+  "kategori": "Comedy",
+  "tur": "Comedy",
+  "yil": 2020,
+  "sezon": 5,
+  "kw": 14,
+  "hacim": 470,
+  "izleme": 270
+ },
+ {
+  "dizi": "Loot",
+  "kategori": "Comedy",
+  "tur": "Comedy",
+  "yil": 2022,
+  "sezon": 3,
+  "kw": 20,
+  "hacim": 460,
+  "izleme": 310
+ },
+ {
+  "dizi": "La Maison",
+  "kategori": "Non-English",
+  "tur": "Drama",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 8,
+  "hacim": 400,
+  "izleme": 350
+ },
+ {
+  "dizi": "Prime Target",
+  "kategori": "Drama",
+  "tur": "Thriller",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 15,
+  "hacim": 370,
+  "izleme": 240
+ },
+ {
+  "dizi": "Hello Tomorrow!",
+  "kategori": "Drama",
+  "tur": "Science fiction comedy drama",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 8,
+  "hacim": 340,
+  "izleme": 40
+ },
+ {
+  "dizi": "The Changeling",
+  "kategori": "Drama",
+  "tur": "Horror fantasy",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 11,
+  "hacim": 330,
+  "izleme": 250
+ },
+ {
+  "dizi": "Lisey's Story",
+  "kategori": "Drama",
+  "tur": "Romance horror miniseries",
+  "yil": 2021,
+  "sezon": 1,
+  "kw": 1,
+  "hacim": 320,
+  "izleme": 0
+ },
+ {
+  "dizi": "Carême",
+  "kategori": "Non-English",
+  "tur": "Period drama",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 10,
+  "hacim": 320,
+  "izleme": 230
+ },
+ {
+  "dizi": "Me",
+  "kategori": "Kids",
+  "tur": "Science fiction",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 12,
+  "hacim": 320,
+  "izleme": 190
+ },
+ {
+  "dizi": "KPopped",
+  "kategori": "Reality",
+  "tur": "Music competition",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 8,
+  "hacim": 320,
+  "izleme": 120
+ },
+ {
+  "dizi": "Dr. Brain",
+  "kategori": "Non-English",
+  "tur": "Science fiction thriller",
+  "yil": 2021,
+  "sezon": 1,
+  "kw": 13,
+  "hacim": 310,
+  "izleme": 130
+ },
+ {
+  "dizi": "Time Bandits",
+  "kategori": "Comedy",
+  "tur": "Fantasy adventure comedy",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 13,
+  "hacim": 300,
+  "izleme": 240
+ },
+ {
+  "dizi": "The Wild Ones",
+  "kategori": "Docuseries",
+  "tur": "Nature",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 5,
+  "hacim": 300,
+  "izleme": 20
+ },
+ {
+  "dizi": "Imperfect Women",
+  "kategori": "Drama",
+  "tur": "Psychological thriller miniseries",
+  "yil": 2026,
+  "sezon": 1,
+  "kw": 4,
+  "hacim": 290,
+  "izleme": 90
+ },
+ {
+  "dizi": "Widow's Bay",
+  "kategori": "Comedy",
+  "tur": "Horror comedy",
+  "yil": 2026,
+  "sezon": 1,
+  "kw": 2,
+  "hacim": 270,
+  "izleme": 10
+ },
+ {
+  "dizi": "Physical",
+  "kategori": "Comedy",
+  "tur": "Dark comedy",
+  "yil": 2021,
+  "sezon": 3,
+  "kw": 10,
+  "hacim": 260,
+  "izleme": 160
+ },
+ {
+  "dizi": "Suspicion",
+  "kategori": "Drama",
+  "tur": "Political thriller",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 11,
+  "hacim": 240,
+  "izleme": 130
+ },
+ {
+  "dizi": "Sunny",
+  "kategori": "Comedy",
+  "tur": "Dark comedy",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 12,
+  "hacim": 240,
+  "izleme": 160
+ },
+ {
+  "dizi": "Long Way Home",
+  "kategori": "Docuseries",
+  "tur": "Travel miniseries",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 7,
+  "hacim": 240,
+  "izleme": 70
+ },
+ {
+  "dizi": "Acapulco",
+  "kategori": "Comedy",
+  "tur": "Comedy",
+  "yil": 2021,
+  "sezon": 4,
+  "kw": 11,
+  "hacim": 230,
+  "izleme": 100
+ },
+ {
+  "dizi": "Stillwater",
+  "kategori": "Kids Animation",
+  "tur": "Animated comedy",
+  "yil": 2020,
+  "sezon": 5,
+  "kw": 11,
+  "hacim": 220,
+  "izleme": 150
+ },
+ {
+  "dizi": "The Afterparty",
+  "kategori": "Comedy",
+  "tur": "Murder mystery comedy",
+  "yil": 2022,
+  "sezon": 2,
+  "kw": 9,
+  "hacim": 220,
+  "izleme": 150
+ },
+ {
+  "dizi": "Extrapolations",
+  "kategori": "Drama",
+  "tur": "Drama anthology miniseries",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 10,
+  "hacim": 210,
+  "izleme": 110
+ },
+ {
+  "dizi": "Love You to Death",
+  "kategori": "Non-English",
+  "tur": "Romantic comedy",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 8,
+  "hacim": 210,
+  "izleme": 40
+ },
+ {
+  "dizi": "Echo 3",
+  "kategori": "Drama",
+  "tur": "Action thriller",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 12,
+  "hacim": 200,
+  "izleme": 140
+ },
+ {
+  "dizi": "Truth Be Told",
+  "kategori": "Drama",
+  "tur": "Legal drama",
+  "yil": 2019,
+  "sezon": 3,
+  "kw": 11,
+  "hacim": 180,
+  "izleme": 80
+ },
+ {
+  "dizi": "Jane",
+  "kategori": "Kids",
+  "tur": "Live-action animated family drama",
+  "yil": 2023,
+  "sezon": 3,
+  "kw": 9,
+  "hacim": 180,
+  "izleme": 90
+ },
+ {
+  "dizi": "Now and Then",
+  "kategori": "Non-English",
+  "tur": "Thriller",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 9,
+  "hacim": 170,
+  "izleme": 110
+ },
+ {
+  "dizi": "The Shrink Next Door",
+  "kategori": "Drama",
+  "tur": "Psychological drama miniseries",
+  "yil": 2021,
+  "sezon": 1,
+  "kw": 8,
+  "hacim": 160,
+  "izleme": 40
+ },
+ {
+  "dizi": "Franklin",
+  "kategori": "Drama",
+  "tur": "Biographical drama miniseries",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 9,
+  "hacim": 160,
+  "izleme": 100
+ },
+ {
+  "dizi": "Strange Planet",
+  "kategori": "Adult Animation",
+  "tur": "Science fiction comedy",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 6,
+  "hacim": 150,
+  "izleme": 20
+ },
+ {
+  "dizi": "Long Way Up",
+  "kategori": "Docuseries",
+  "tur": "Travel miniseries",
+  "yil": 2020,
+  "sezon": 1,
+  "kw": 6,
+  "hacim": 150,
+  "izleme": 50
+ },
+ {
+  "dizi": "The Reluctant Traveler",
+  "kategori": "Docuseries",
+  "tur": "Travel",
+  "yil": 2023,
+  "sezon": 3,
+  "kw": 8,
+  "hacim": 130,
+  "izleme": 30
+ },
+ {
+  "dizi": "Home Before Dark",
+  "kategori": "Drama",
+  "tur": "Mystery drama",
+  "yil": 2020,
+  "sezon": 2,
+  "kw": 8,
+  "hacim": 130,
+  "izleme": 80
+ },
+ {
+  "dizi": "The Snoopy Show",
+  "kategori": "Kids Animation",
+  "tur": "Animated comedy",
+  "yil": 2021,
+  "sezon": 3,
+  "kw": 7,
+  "hacim": 130,
+  "izleme": 50
+ },
+ {
+  "dizi": "Frog and Toad",
+  "kategori": "Kids Animation",
+  "tur": "Fantasy",
+  "yil": 2023,
+  "sezon": 2,
+  "kw": 6,
+  "hacim": 130,
+  "izleme": 10
+ },
+ {
+  "dizi": "Government Cheese",
+  "kategori": "Comedy",
+  "tur": "Comedy drama",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 6,
+  "hacim": 120,
+  "izleme": 30
+ },
+ {
+  "dizi": "The Last Days of Ptolemy Grey",
+  "kategori": "Drama",
+  "tur": "Drama miniseries",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 7,
+  "hacim": 110,
+  "izleme": 20
+ },
+ {
+  "dizi": "Mr. Corman",
+  "kategori": "Comedy",
+  "tur": "Comedy drama",
+  "yil": 2021,
+  "sezon": 1,
+  "kw": 5,
+  "hacim": 110,
+  "izleme": 20
+ },
+ {
+  "dizi": "Unconditional",
+  "kategori": "Docuseries",
+  "tur": "Documentary",
+  "yil": 2026,
+  "sezon": 1,
+  "kw": 7,
+  "hacim": 110,
+  "izleme": 70
+ },
+ {
+  "dizi": "Land of Women",
+  "kategori": "Comedy",
+  "tur": "Comedy drama",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 8,
+  "hacim": 100,
+  "izleme": 60
+ },
+ {
+  "dizi": "Sago Mini Friends",
+  "kategori": "Kids Animation",
+  "tur": "Educational",
+  "yil": 2022,
+  "sezon": 3,
+  "kw": 6,
+  "hacim": 100,
+  "izleme": 10
+ },
+ {
+  "dizi": "Twisted Yoga",
+  "kategori": "Docuseries",
+  "tur": "True crime miniseries",
+  "yil": 2026,
+  "sezon": 1,
+  "kw": 4,
+  "hacim": 100,
+  "izleme": 30
+ },
+ {
+  "dizi": "Amber Brown",
+  "kategori": "Kids",
+  "tur": "Family comedy",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 6,
+  "hacim": 80,
+  "izleme": 20
+ },
+ {
+  "dizi": "The Line",
+  "kategori": "Docuseries",
+  "tur": "True crime miniseries",
+  "yil": 2021,
+  "sezon": 1,
+  "kw": 5,
+  "hacim": 80,
+  "izleme": 70
+ },
+ {
+  "dizi": "The Enfield Poltergeist",
+  "kategori": "Docuseries",
+  "tur": "Supernatural miniseries",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 5,
+  "hacim": 80,
+  "izleme": 30
+ },
+ {
+  "dizi": "Where's Wanda?",
+  "kategori": "Non-English",
+  "tur": "Dark comedy",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 1,
+  "hacim": 70,
+  "izleme": 0
+ },
+ {
+  "dizi": "City on Fire",
+  "kategori": "Drama",
+  "tur": "Crime drama",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 7,
+  "hacim": 70,
+  "izleme": 50
+ },
+ {
+  "dizi": "The Big Door Prize",
+  "kategori": "Comedy",
+  "tur": "Comedy",
+  "yil": 2023,
+  "sezon": 2,
+  "kw": 8,
+  "hacim": 70,
+  "izleme": 40
+ },
+ {
+  "dizi": "Midnight Family",
+  "kategori": "Non-English",
+  "tur": "Medical drama",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 6,
+  "hacim": 70,
+  "izleme": 30
+ },
+ {
+  "dizi": "Central Park",
+  "kategori": "Adult Animation",
+  "tur": "Musical animated sitcom",
+  "yil": 2020,
+  "sezon": 3,
+  "kw": 9,
+  "hacim": 70,
+  "izleme": 30
+ },
+ {
+  "dizi": "Tiny World",
+  "kategori": "Docuseries",
+  "tur": "Nature",
+  "yil": 2020,
+  "sezon": 2,
+  "kw": 5,
+  "hacim": 70,
+  "izleme": 60
+ },
+ {
+  "dizi": "Cowboy Cartel",
+  "kategori": "Docuseries",
+  "tur": "True crime miniseries",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 6,
+  "hacim": 70,
+  "izleme": 30
+ },
+ {
+  "dizi": "The Sisters Grimm",
+  "kategori": "Kids Animation",
+  "tur": "Mystery fantasy",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 4,
+  "hacim": 60,
+  "izleme": 20
+ },
+ {
+  "dizi": "Little Voice",
+  "kategori": "Drama",
+  "tur": "Musical drama",
+  "yil": 2020,
+  "sezon": 1,
+  "kw": 6,
+  "hacim": 60,
+  "izleme": 40
+ },
+ {
+  "dizi": "Becoming You",
+  "kategori": "Docuseries",
+  "tur": "Developmental psychology",
+  "yil": 2020,
+  "sezon": 1,
+  "kw": 4,
+  "hacim": 60,
+  "izleme": 30
+ },
+ {
+  "dizi": "Make or Break",
+  "kategori": "Docuseries",
+  "tur": "Sports",
+  "yil": 2022,
+  "sezon": 2,
+  "kw": 6,
+  "hacim": 60,
+  "izleme": 0
+ },
+ {
+  "dizi": "Omnivore",
+  "kategori": "Docuseries",
+  "tur": "Food",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 6,
+  "hacim": 60,
+  "izleme": 30
+ },
+ {
+  "dizi": "You Would Do It Too",
+  "kategori": "Non-English",
+  "tur": "Spanish-language thriller",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 6,
+  "hacim": 60,
+  "izleme": 20
+ },
+ {
+  "dizi": "Women in Blue",
+  "kategori": "Non-English",
+  "tur": "Crime drama",
+  "yil": 2024,
+  "sezon": 2,
+  "kw": 7,
+  "hacim": 50,
+  "izleme": 20
+ },
+ {
+  "dizi": "Berlin ER",
+  "kategori": "Co-production",
+  "tur": "Medical drama",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 6,
+  "hacim": 50,
+  "izleme": 20
+ },
+ {
+  "dizi": "Knife Edge: Chasing Michelin Stars",
+  "kategori": "Docuseries",
+  "tur": "Restaurant industry",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 5,
+  "hacim": 50,
+  "izleme": 20
+ },
+ {
+  "dizi": "Dear Edward",
+  "kategori": "Drama",
+  "tur": "Drama",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 6,
+  "hacim": 50,
+  "izleme": 20
+ },
+ {
+  "dizi": "Side Quest",
+  "kategori": "Comedy",
+  "tur": "Workplace comedy anthology",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 5,
+  "hacim": 50,
+  "izleme": 20
+ },
+ {
+  "dizi": "Best Foot Forward",
+  "kategori": "Kids",
+  "tur": "Family comedy",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 5,
+  "hacim": 50,
+  "izleme": 20
+ },
+ {
+  "dizi": "Earth at Night in Color",
+  "kategori": "Docuseries",
+  "tur": "Nature",
+  "yil": 2020,
+  "sezon": 2,
+  "kw": 5,
+  "hacim": 50,
+  "izleme": 20
+ },
+ {
+  "dizi": "They Call Me Magic",
+  "kategori": "Docuseries",
+  "tur": "Sports",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 6,
+  "hacim": 50,
+  "izleme": 20
+ },
+ {
+  "dizi": "Monster Factory",
+  "kategori": "Docuseries",
+  "tur": "Sports miniseries",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 4,
+  "hacim": 50,
+  "izleme": 0
+ },
+ {
+  "dizi": "The Super Models",
+  "kategori": "Docuseries",
+  "tur": "Fashion miniseries",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 5,
+  "hacim": 50,
+  "izleme": 30
+ },
+ {
+  "dizi": "My Brother the Minotaur",
+  "kategori": "Kids Animation",
+  "tur": "Mystery fantasy",
+  "yil": 2026,
+  "sezon": 1,
+  "kw": 4,
+  "hacim": 40,
+  "izleme": 10
+ },
+ {
+  "dizi": "Last Seen",
+  "kategori": "Drama",
+  "tur": "Thriller",
+  "yil": 2026,
+  "sezon": 1,
+  "kw": 5,
+  "hacim": 40,
+  "izleme": 30
+ },
+ {
+  "dizi": "Yo Gabba GabbaLand!",
+  "kategori": "Kids",
+  "tur": "Children's puppetry",
+  "yil": 2024,
+  "sezon": 2,
+  "kw": 4,
+  "hacim": 30,
+  "izleme": 10
+ },
+ {
+  "dizi": "Camp Snoopy",
+  "kategori": "Kids Animation",
+  "tur": "Comedy",
+  "yil": 2024,
+  "sezon": 2,
+  "kw": 3,
+  "hacim": 30,
+  "izleme": 10
+ },
+ {
+  "dizi": "High Desert",
+  "kategori": "Comedy",
+  "tur": "Comedy",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 5,
+  "hacim": 30,
+  "izleme": 10
+ },
+ {
+  "dizi": "Still Up",
+  "kategori": "Comedy",
+  "tur": "Comedy",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 5,
+  "hacim": 30,
+  "izleme": 20
+ },
+ {
+  "dizi": "Snoopy in Space",
+  "kategori": "Kids Animation",
+  "tur": "Adventure",
+  "yil": 2019,
+  "sezon": 2,
+  "kw": 6,
+  "hacim": 30,
+  "izleme": 10
+ },
+ {
+  "dizi": "El Deafo",
+  "kategori": "Kids Animation",
+  "tur": "Family miniseries",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 3,
+  "hacim": 30,
+  "izleme": 10
+ },
+ {
+  "dizi": "Not a Box",
+  "kategori": "Kids Animation",
+  "tur": "Educational",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 3,
+  "hacim": 30,
+  "izleme": 20
+ },
+ {
+  "dizi": "The Big Conn",
+  "kategori": "Docuseries",
+  "tur": "True crime miniseries",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 3,
+  "hacim": 30,
+  "izleme": 20
+ },
+ {
+  "dizi": "Messi Meets America",
+  "kategori": "Docuseries",
+  "tur": "Sports",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 5,
+  "hacim": 30,
+  "izleme": 10
+ },
+ {
+  "dizi": "Vietnam: The War That Changed America",
+  "kategori": "Docuseries",
+  "tur": "History miniseries",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 4,
+  "hacim": 30,
+  "izleme": 20
+ },
+ {
+  "dizi": "Carpool Karaoke: The Series",
+  "kategori": "Variety",
+  "tur": "Reality",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 5,
+  "hacim": 30,
+  "izleme": 0
+ },
+ {
+  "dizi": "The Secret Lives of Animals",
+  "kategori": "Docuseries",
+  "tur": "Nature documentary",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 4,
+  "hacim": 30,
+  "izleme": 10
+ },
+ {
+  "dizi": "Helpsters",
+  "kategori": "Kids",
+  "tur": "Educational puppetry",
+  "yil": 2019,
+  "sezon": 3,
+  "kw": 5,
+  "hacim": 20,
+  "izleme": 10
+ },
+ {
+  "dizi": "Puppy Place",
+  "kategori": "Kids",
+  "tur": "Family adventure",
+  "yil": 2021,
+  "sezon": 2,
+  "kw": 3,
+  "hacim": 20,
+  "izleme": 10
+ },
+ {
+  "dizi": "Fraggle Rock: Back to the Rock",
+  "kategori": "Kids",
+  "tur": "Children's puppetry",
+  "yil": 2022,
+  "sezon": 2,
+  "kw": 5,
+  "hacim": 20,
+  "izleme": 0
+ },
+ {
+  "dizi": "Slumberkins",
+  "kategori": "Kids",
+  "tur": "Children's puppetry",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 3,
+  "hacim": 20,
+  "izleme": 10
+ },
+ {
+  "dizi": "Doug Unplugs",
+  "kategori": "Kids Animation",
+  "tur": "Adventure",
+  "yil": 2020,
+  "sezon": 2,
+  "kw": 4,
+  "hacim": 20,
+  "izleme": 10
+ },
+ {
+  "dizi": "Get Rolling with Otis",
+  "kategori": "Kids Animation",
+  "tur": "Adventure",
+  "yil": 2021,
+  "sezon": 2,
+  "kw": 3,
+  "hacim": 20,
+  "izleme": 0
+ },
+ {
+  "dizi": "Eva the Owlet",
+  "kategori": "Kids Animation",
+  "tur": "Adventure",
+  "yil": 2023,
+  "sezon": 2,
+  "kw": 4,
+  "hacim": 20,
+  "izleme": 0
+ },
+ {
+  "dizi": "Goldie",
+  "kategori": "Kids Animation",
+  "tur": "Comedy",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 2,
+  "hacim": 20,
+  "izleme": 20
+ },
+ {
+  "dizi": "Visible: Out on Television",
+  "kategori": "Docuseries",
+  "tur": "LGBT culture miniseries",
+  "yil": 2020,
+  "sezon": 1,
+  "kw": 2,
+  "hacim": 20,
+  "izleme": 10
+ },
+ {
+  "dizi": "Greatness Code",
+  "kategori": "Docuseries",
+  "tur": "Sports",
+  "yil": 2020,
+  "sezon": 2,
+  "kw": 3,
+  "hacim": 20,
+  "izleme": 0
+ },
+ {
+  "dizi": "The Me You Can't See",
+  "kategori": "Docuseries",
+  "tur": "Mental health",
+  "yil": 2021,
+  "sezon": 1,
+  "kw": 5,
+  "hacim": 20,
+  "izleme": 10
+ },
+ {
+  "dizi": "Watch the Sound with Mark Ronson",
+  "kategori": "Docuseries",
+  "tur": "Music",
+  "yil": 2021,
+  "sezon": 1,
+  "kw": 2,
+  "hacim": 20,
+  "izleme": 0
+ },
+ {
+  "dizi": "Super League: The War for Football",
+  "kategori": "Docuseries",
+  "tur": "Sports miniseries",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 3,
+  "hacim": 20,
+  "izleme": 10
+ },
+ {
+  "dizi": "Real Madrid: Until the End",
+  "kategori": "Docuseries",
+  "tur": "Sports miniseries",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 5,
+  "hacim": 20,
+  "izleme": 10
+ },
+ {
+  "dizi": "Wanted: The Escape of Carlos Ghosn",
+  "kategori": "Docuseries",
+  "tur": "True crime miniseries",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 3,
+  "hacim": 20,
+  "izleme": 10
+ },
+ {
+  "dizi": "The Dynasty: New England Patriots",
+  "kategori": "Docuseries",
+  "tur": "Sports miniseries",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 3,
+  "hacim": 20,
+  "izleme": 10
+ },
+ {
+  "dizi": "Earthsounds",
+  "kategori": "Docuseries",
+  "tur": "Nature",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 2,
+  "hacim": 20,
+  "izleme": 10
+ },
+ {
+  "dizi": "Hollywood Con Queen",
+  "kategori": "Docuseries",
+  "tur": "True crime miniseries",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 3,
+  "hacim": 20,
+  "izleme": 0
+ },
+ {
+  "dizi": "Margo's Got Money Troubles",
+  "kategori": "Comedy",
+  "tur": "Comedy drama",
+  "yil": 2026,
+  "sezon": 1,
+  "kw": 1,
+  "hacim": 10,
+  "izleme": 0
+ },
+ {
+  "dizi": "Fraggle Rock: Rock On!",
+  "kategori": "Kids",
+  "tur": "Puppetry",
+  "yil": 2020,
+  "sezon": 1,
+  "kw": 1,
+  "hacim": 10,
+  "izleme": 0
+ },
+ {
+  "dizi": "Hello, Jack! The Kindness Show",
+  "kategori": "Kids",
+  "tur": "Children's educational",
+  "yil": 2021,
+  "sezon": 2,
+  "kw": 2,
+  "hacim": 10,
+  "izleme": 0
+ },
+ {
+  "dizi": "Lovely Little Farm",
+  "kategori": "Kids",
+  "tur": "Live-action animated family comedy",
+  "yil": 2022,
+  "sezon": 2,
+  "kw": 4,
+  "hacim": 10,
+  "izleme": 0
+ },
+ {
+  "dizi": "Life by Ella",
+  "kategori": "Kids",
+  "tur": "Family drama",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 4,
+  "hacim": 10,
+  "izleme": 0
+ },
+ {
+  "dizi": "Wolfboy and the Everything Factory",
+  "kategori": "Kids Animation",
+  "tur": "Fantasy",
+  "yil": 2021,
+  "sezon": 2,
+  "kw": 4,
+  "hacim": 10,
+  "izleme": 0
+ },
+ {
+  "dizi": "Pretzel and the Puppies",
+  "kategori": "Kids Animation",
+  "tur": "Animation",
+  "yil": 2022,
+  "sezon": 2,
+  "kw": 4,
+  "hacim": 10,
+  "izleme": 0
+ },
+ {
+  "dizi": "1971: The Year That Music Changed Everything",
+  "kategori": "Docuseries",
+  "tur": "Music miniseries",
+  "yil": 2021,
+  "sezon": 1,
+  "kw": 3,
+  "hacim": 10,
+  "izleme": 0
+ },
+ {
+  "dizi": "The Long Game: Bigger Than Basketball",
+  "kategori": "Docuseries",
+  "tur": "Sports",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 1,
+  "hacim": 10,
+  "izleme": 0
+ },
+ {
+  "dizi": "Gutsy",
+  "kategori": "Docuseries",
+  "tur": "Culture",
+  "yil": 2022,
+  "sezon": 1,
+  "kw": 3,
+  "hacim": 10,
+  "izleme": 10
+ },
+ {
+  "dizi": "Boom! Boom! The World vs. Boris Becker",
+  "kategori": "Docuseries",
+  "tur": "Sports miniseries",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 2,
+  "hacim": 10,
+  "izleme": 0
+ },
+ {
+  "dizi": "John Lennon: Murder Without a Trial",
+  "kategori": "Docuseries",
+  "tur": "True crime miniseries",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 1,
+  "hacim": 10,
+  "izleme": 0
+ },
+ {
+  "dizi": "STEVE! (martin) a documentary in 2 pieces",
+  "kategori": "Docuseries",
+  "tur": "Biography miniseries",
+  "yil": 2024,
+  "sezon": 1,
+  "kw": 1,
+  "hacim": 10,
+  "izleme": 0
+ },
+ {
+  "dizi": "Onside: Major League Soccer",
+  "kategori": "Docuseries",
+  "tur": "Sports miniseries",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 2,
+  "hacim": 10,
+  "izleme": 0
+ },
+ {
+  "dizi": "Fight for Glory: 2024 World Series",
+  "kategori": "Docuseries",
+  "tur": "Sports miniseries",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 2,
+  "hacim": 10,
+  "izleme": 0
+ },
+ {
+  "dizi": "Number One on the Call Sheet",
+  "kategori": "Docuseries",
+  "tur": "Entertainment miniseries",
+  "yil": 2025,
+  "sezon": 1,
+  "kw": 2,
+  "hacim": 10,
+  "izleme": 0
+ },
+ {
+  "dizi": "The Dynasty: UConn Huskies",
+  "kategori": "Docuseries",
+  "tur": "Sports miniseries",
+  "yil": 2026,
+  "sezon": 1,
+  "kw": 2,
+  "hacim": 10,
+  "izleme": 0
+ },
+ {
+  "dizi": "The Oprah Conversation",
+  "kategori": "Variety",
+  "tur": "Talk show",
+  "yil": 2020,
+  "sezon": 1,
+  "kw": 1,
+  "hacim": 10,
+  "izleme": 0
+ },
+ {
+  "dizi": "The Problem with Jon Stewart",
+  "kategori": "Variety",
+  "tur": "News talk show",
+  "yil": 2021,
+  "sezon": 2,
+  "kw": 5,
+  "hacim": 10,
+  "izleme": 0
+ },
+ {
+  "dizi": "Oprah Talks COVID-19",
+  "kategori": "Docuseries",
+  "tur": "Interview series",
+  "yil": 2020,
+  "sezon": 1,
+  "kw": 1,
+  "hacim": 10,
+  "izleme": 0
+ },
+ {
+  "dizi": "Pinecone & Pony",
+  "kategori": "Kids Animation",
+  "tur": "Adventure",
+  "yil": 2022,
+  "sezon": 2,
+  "kw": 1,
+  "hacim": 0,
+  "izleme": 0
+ },
+ {
+  "dizi": "Big Beasts",
+  "kategori": "Docuseries",
+  "tur": "Nature",
+  "yil": 2023,
+  "sezon": 1,
+  "kw": 2,
+  "hacim": 0,
+  "izleme": 0
+ },
+ {
+  "dizi": "Oprah's Book Club",
+  "kategori": "Variety",
+  "tur": "Book club",
+  "yil": 2019,
+  "sezon": 1,
+  "kw": 1,
+  "hacim": 0,
+  "izleme": 0
+ }
+]

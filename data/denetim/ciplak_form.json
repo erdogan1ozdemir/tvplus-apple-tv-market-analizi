@@ -1,0 +1,919 @@
+[
+ {
+  "dizi": "Pluribus",
+  "anahtar": "pluribus",
+  "ciplak": 165000,
+  "niteleyicili": 147870,
+  "oran": 1.12
+ },
+ {
+  "dizi": "Severance",
+  "anahtar": "severance",
+  "ciplak": 33100,
+  "niteleyicili": 24370,
+  "oran": 1.36
+ },
+ {
+  "dizi": "Ted Lasso",
+  "anahtar": "ted lasso",
+  "ciplak": 27100,
+  "niteleyicili": 21640,
+  "oran": 1.25
+ },
+ {
+  "dizi": "Chief of War",
+  "anahtar": "chief of war",
+  "ciplak": 18100,
+  "niteleyicili": 20920,
+  "oran": 0.87
+ },
+ {
+  "dizi": "Shrinking",
+  "anahtar": "shrinking",
+  "ciplak": 14800,
+  "niteleyicili": 8300,
+  "oran": 1.78
+ },
+ {
+  "dizi": "Slow Horses",
+  "anahtar": "slow horses",
+  "ciplak": 12100,
+  "niteleyicili": 10010,
+  "oran": 1.21
+ },
+ {
+  "dizi": "The Buccaneers",
+  "anahtar": "the buccaneers",
+  "ciplak": 12100,
+  "niteleyicili": 7740,
+  "oran": 1.56
+ },
+ {
+  "dizi": "The Last Frontier",
+  "anahtar": "the last frontier",
+  "ciplak": 12100,
+  "niteleyicili": 9620,
+  "oran": 1.26
+ },
+ {
+  "dizi": "Your Friends & Neighbors",
+  "anahtar": "your friends neighbors",
+  "ciplak": 9900,
+  "niteleyicili": 150,
+  "oran": 66.0
+ },
+ {
+  "dizi": "For All Mankind",
+  "anahtar": "for all mankind",
+  "ciplak": 8100,
+  "niteleyicili": 4320,
+  "oran": 1.88
+ },
+ {
+  "dizi": "Monarch: Legacy of Monsters",
+  "anahtar": "monarch legacy of monsters",
+  "ciplak": 8100,
+  "niteleyicili": 9360,
+  "oran": 0.87
+ },
+ {
+  "dizi": "Losing Alice",
+  "anahtar": "losing alice",
+  "ciplak": 8100,
+  "niteleyicili": 150,
+  "oran": 54.0
+ },
+ {
+  "dizi": "Curses!",
+  "anahtar": "curses",
+  "ciplak": 8100,
+  "niteleyicili": 90,
+  "oran": 90.0
+ },
+ {
+  "dizi": "Presumed Innocent",
+  "anahtar": "presumed innocent",
+  "ciplak": 6600,
+  "niteleyicili": 280,
+  "oran": 23.57
+ },
+ {
+  "dizi": "Pachinko",
+  "anahtar": "pachinko",
+  "ciplak": 4400,
+  "niteleyicili": 2600,
+  "oran": 1.69
+ },
+ {
+  "dizi": "The Crowded Room",
+  "anahtar": "the crowded room",
+  "ciplak": 4400,
+  "niteleyicili": 2230,
+  "oran": 1.97
+ },
+ {
+  "dizi": "Dear...",
+  "anahtar": "dear",
+  "ciplak": 4400,
+  "niteleyicili": 200,
+  "oran": 22.0
+ },
+ {
+  "dizi": "The Morning Show",
+  "anahtar": "the morning show",
+  "ciplak": 3600,
+  "niteleyicili": 2260,
+  "oran": 1.59
+ },
+ {
+  "dizi": "Defending Jacob",
+  "anahtar": "defending jacob",
+  "ciplak": 3600,
+  "niteleyicili": 2800,
+  "oran": 1.29
+ },
+ {
+  "dizi": "WeCrashed",
+  "anahtar": "wecrashed",
+  "ciplak": 2900,
+  "niteleyicili": 1600,
+  "oran": 1.81
+ },
+ {
+  "dizi": "Lessons in Chemistry",
+  "anahtar": "lessons in chemistry",
+  "ciplak": 2900,
+  "niteleyicili": 1460,
+  "oran": 1.99
+ },
+ {
+  "dizi": "Murderbot",
+  "anahtar": "murderbot",
+  "ciplak": 2400,
+  "niteleyicili": 1670,
+  "oran": 1.44
+ },
+ {
+  "dizi": "Masters of the Air",
+  "anahtar": "masters of the air",
+  "ciplak": 2400,
+  "niteleyicili": 920,
+  "oran": 2.61
+ },
+ {
+  "dizi": "Down Cemetery Road",
+  "anahtar": "down cemetery road",
+  "ciplak": 1900,
+  "niteleyicili": 1560,
+  "oran": 1.22
+ },
+ {
+  "dizi": "Dickinson",
+  "anahtar": "dickinson",
+  "ciplak": 1900,
+  "niteleyicili": 1430,
+  "oran": 1.33
+ },
+ {
+  "dizi": "Neuromancer",
+  "anahtar": "neuromancer",
+  "ciplak": 1900,
+  "niteleyicili": 630,
+  "oran": 3.02
+ },
+ {
+  "dizi": "The Last Thing He Told Me",
+  "anahtar": "the last thing he told me",
+  "ciplak": 1300,
+  "niteleyicili": 680,
+  "oran": 1.91
+ },
+ {
+  "dizi": "Prehistoric Planet",
+  "anahtar": "prehistoric planet",
+  "ciplak": 1300,
+  "niteleyicili": 1180,
+  "oran": 1.1
+ },
+ {
+  "dizi": "Shantaram",
+  "anahtar": "shantaram",
+  "ciplak": 1000,
+  "niteleyicili": 390,
+  "oran": 2.56
+ },
+ {
+  "dizi": "Bearbrick",
+  "anahtar": "bearbrick",
+  "ciplak": 1000,
+  "niteleyicili": 20,
+  "oran": 50.0
+ },
+ {
+  "dizi": "Circuit Breakers",
+  "anahtar": "circuit breakers",
+  "ciplak": 880,
+  "niteleyicili": 30,
+  "oran": 29.33
+ },
+ {
+  "dizi": "Dope Thief",
+  "anahtar": "dope thief",
+  "ciplak": 720,
+  "niteleyicili": 250,
+  "oran": 2.88
+ },
+ {
+  "dizi": "Maximum Pleasure Guaranteed",
+  "anahtar": "maximum pleasure guaranteed",
+  "ciplak": 590,
+  "niteleyicili": 750,
+  "oran": 0.79
+ },
+ {
+  "dizi": "Palm Royale",
+  "anahtar": "palm royale",
+  "ciplak": 590,
+  "niteleyicili": 350,
+  "oran": 1.69
+ },
+ {
+  "dizi": "Ghostwriter",
+  "anahtar": "ghostwriter",
+  "ciplak": 590,
+  "niteleyicili": 90,
+  "oran": 6.56
+ },
+ {
+  "dizi": "Duck & Goose",
+  "anahtar": "duck goose",
+  "ciplak": 590,
+  "niteleyicili": 10,
+  "oran": 59.0
+ },
+ {
+  "dizi": "WondLa",
+  "anahtar": "wondla",
+  "ciplak": 590,
+  "niteleyicili": 550,
+  "oran": 1.07
+ },
+ {
+  "dizi": "Small Prophets",
+  "anahtar": "small prophets",
+  "ciplak": 590,
+  "niteleyicili": 320,
+  "oran": 1.84
+ },
+ {
+  "dizi": "Born to Be Wild",
+  "anahtar": "born to be wild",
+  "ciplak": 480,
+  "niteleyicili": 80,
+  "oran": 6.0
+ },
+ {
+  "dizi": "Five Days at Memorial",
+  "anahtar": "five days at memorial",
+  "ciplak": 480,
+  "niteleyicili": 410,
+  "oran": 1.17
+ },
+ {
+  "dizi": "Lady in the Lake",
+  "anahtar": "lady in the lake",
+  "ciplak": 480,
+  "niteleyicili": 220,
+  "oran": 2.18
+ },
+ {
+  "dizi": "Mythic Quest",
+  "anahtar": "mythic quest",
+  "ciplak": 480,
+  "niteleyicili": 210,
+  "oran": 2.29
+ },
+ {
+  "dizi": "Mr. Scorsese",
+  "anahtar": "mr scorsese",
+  "ciplak": 480,
+  "niteleyicili": 250,
+  "oran": 1.92
+ },
+ {
+  "dizi": "Bad Monkey",
+  "anahtar": "bad monkey",
+  "ciplak": 390,
+  "niteleyicili": 220,
+  "oran": 1.77
+ },
+ {
+  "dizi": "The Essex Serpent",
+  "anahtar": "the essex serpent",
+  "ciplak": 390,
+  "niteleyicili": 160,
+  "oran": 2.44
+ },
+ {
+  "dizi": "Schmigadoon!",
+  "anahtar": "schmigadoon",
+  "ciplak": 390,
+  "niteleyicili": 150,
+  "oran": 2.6
+ },
+ {
+  "dizi": "Harriet the Spy",
+  "anahtar": "harriet the spy",
+  "ciplak": 390,
+  "niteleyicili": 210,
+  "oran": 1.86
+ },
+ {
+  "dizi": "Invasion",
+  "anahtar": "invasion",
+  "ciplak": 320,
+  "niteleyicili": 13180,
+  "oran": 0.02
+ },
+ {
+  "dizi": "The Mosquito Coast",
+  "anahtar": "the mosquito coast",
+  "ciplak": 320,
+  "niteleyicili": 170,
+  "oran": 1.88
+ },
+ {
+  "dizi": "Lisey's Story",
+  "anahtar": "lisey s story",
+  "ciplak": 320,
+  "niteleyicili": 0,
+  "oran": 320.0
+ },
+ {
+  "dizi": "The New Look",
+  "anahtar": "the new look",
+  "ciplak": 320,
+  "niteleyicili": 200,
+  "oran": 1.6
+ },
+ {
+  "dizi": "Widow's Bay",
+  "anahtar": "widow s bay",
+  "ciplak": 260,
+  "niteleyicili": 10,
+  "oran": 26.0
+ },
+ {
+  "dizi": "Hello Tomorrow!",
+  "anahtar": "hello tomorrow",
+  "ciplak": 260,
+  "niteleyicili": 80,
+  "oran": 3.25
+ },
+ {
+  "dizi": "The Wild Ones",
+  "anahtar": "the wild ones",
+  "ciplak": 260,
+  "niteleyicili": 40,
+  "oran": 6.5
+ },
+ {
+  "dizi": "Imperfect Women",
+  "anahtar": "imperfect women",
+  "ciplak": 170,
+  "niteleyicili": 120,
+  "oran": 1.42
+ },
+ {
+  "dizi": "KPopped",
+  "anahtar": "kpopped",
+  "ciplak": 170,
+  "niteleyicili": 150,
+  "oran": 1.13
+ },
+ {
+  "dizi": "Dr. Brain",
+  "anahtar": "dr brain",
+  "ciplak": 140,
+  "niteleyicili": 170,
+  "oran": 0.82
+ },
+ {
+  "dizi": "Love You to Death",
+  "anahtar": "love you to death",
+  "ciplak": 140,
+  "niteleyicili": 70,
+  "oran": 2.0
+ },
+ {
+  "dizi": "Long Way Home",
+  "anahtar": "long way home",
+  "ciplak": 140,
+  "niteleyicili": 100,
+  "oran": 1.4
+ },
+ {
+  "dizi": "Strange Planet",
+  "anahtar": "strange planet",
+  "ciplak": 110,
+  "niteleyicili": 40,
+  "oran": 2.75
+ },
+ {
+  "dizi": "Frog and Toad",
+  "anahtar": "frog and toad",
+  "ciplak": 110,
+  "niteleyicili": 20,
+  "oran": 5.5
+ },
+ {
+  "dizi": "The Shrink Next Door",
+  "anahtar": "the shrink next door",
+  "ciplak": 90,
+  "niteleyicili": 70,
+  "oran": 1.29
+ },
+ {
+  "dizi": "Long Way Up",
+  "anahtar": "long way up",
+  "ciplak": 90,
+  "niteleyicili": 60,
+  "oran": 1.5
+ },
+ {
+  "dizi": "Where's Wanda?",
+  "anahtar": "where s wanda",
+  "ciplak": 70,
+  "niteleyicili": 0,
+  "oran": 70.0
+ },
+ {
+  "dizi": "The Reluctant Traveler",
+  "anahtar": "the reluctant traveler",
+  "ciplak": 70,
+  "niteleyicili": 60,
+  "oran": 1.17
+ },
+ {
+  "dizi": "The Last Days of Ptolemy Grey",
+  "anahtar": "the last days of ptolemy grey",
+  "ciplak": 70,
+  "niteleyicili": 40,
+  "oran": 1.75
+ },
+ {
+  "dizi": "Mr. Corman",
+  "anahtar": "mr corman",
+  "ciplak": 70,
+  "niteleyicili": 40,
+  "oran": 1.75
+ },
+ {
+  "dizi": "Government Cheese",
+  "anahtar": "government cheese",
+  "ciplak": 70,
+  "niteleyicili": 50,
+  "oran": 1.4
+ },
+ {
+  "dizi": "Twisted Yoga",
+  "anahtar": "twisted yoga",
+  "ciplak": 70,
+  "niteleyicili": 30,
+  "oran": 2.33
+ },
+ {
+  "dizi": "Amber Brown",
+  "anahtar": "amber brown",
+  "ciplak": 50,
+  "niteleyicili": 30,
+  "oran": 1.67
+ },
+ {
+  "dizi": "The Snoopy Show",
+  "anahtar": "the snoopy show",
+  "ciplak": 50,
+  "niteleyicili": 80,
+  "oran": 0.62
+ },
+ {
+  "dizi": "Sago Mini Friends",
+  "anahtar": "sago mini friends",
+  "ciplak": 50,
+  "niteleyicili": 50,
+  "oran": 1.0
+ },
+ {
+  "dizi": "Make or Break",
+  "anahtar": "make or break",
+  "ciplak": 50,
+  "niteleyicili": 10,
+  "oran": 5.0
+ },
+ {
+  "dizi": "Monster Factory",
+  "anahtar": "monster factory",
+  "ciplak": 50,
+  "niteleyicili": 0,
+  "oran": 50.0
+ },
+ {
+  "dizi": "The Enfield Poltergeist",
+  "anahtar": "the enfield poltergeist",
+  "ciplak": 50,
+  "niteleyicili": 30,
+  "oran": 1.67
+ },
+ {
+  "dizi": "The Sisters Grimm",
+  "anahtar": "the sisters grimm",
+  "ciplak": 30,
+  "niteleyicili": 30,
+  "oran": 1.0
+ },
+ {
+  "dizi": "Midnight Family",
+  "anahtar": "midnight family",
+  "ciplak": 30,
+  "niteleyicili": 40,
+  "oran": 0.75
+ },
+ {
+  "dizi": "Becoming You",
+  "anahtar": "becoming you",
+  "ciplak": 30,
+  "niteleyicili": 30,
+  "oran": 1.0
+ },
+ {
+  "dizi": "You Would Do It Too",
+  "anahtar": "you would do it too",
+  "ciplak": 30,
+  "niteleyicili": 30,
+  "oran": 1.0
+ },
+ {
+  "dizi": "My Brother the Minotaur",
+  "anahtar": "my brother the minotaur",
+  "ciplak": 20,
+  "niteleyicili": 20,
+  "oran": 1.0
+ },
+ {
+  "dizi": "Knife Edge: Chasing Michelin Stars",
+  "anahtar": "knife edge chasing michelin stars",
+  "ciplak": 20,
+  "niteleyicili": 30,
+  "oran": 0.67
+ },
+ {
+  "dizi": "Best Foot Forward",
+  "anahtar": "best foot forward",
+  "ciplak": 20,
+  "niteleyicili": 30,
+  "oran": 0.67
+ },
+ {
+  "dizi": "Snoopy in Space",
+  "anahtar": "snoopy in space",
+  "ciplak": 20,
+  "niteleyicili": 10,
+  "oran": 2.0
+ },
+ {
+  "dizi": "El Deafo",
+  "anahtar": "el deafo",
+  "ciplak": 20,
+  "niteleyicili": 10,
+  "oran": 2.0
+ },
+ {
+  "dizi": "Greatness Code",
+  "anahtar": "greatness code",
+  "ciplak": 20,
+  "niteleyicili": 0,
+  "oran": 20.0
+ },
+ {
+  "dizi": "They Call Me Magic",
+  "anahtar": "they call me magic",
+  "ciplak": 20,
+  "niteleyicili": 30,
+  "oran": 0.67
+ },
+ {
+  "dizi": "Cowboy Cartel",
+  "anahtar": "cowboy cartel",
+  "ciplak": 20,
+  "niteleyicili": 50,
+  "oran": 0.4
+ },
+ {
+  "dizi": "The Secret Lives of Animals",
+  "anahtar": "the secret lives of animals",
+  "ciplak": 20,
+  "niteleyicili": 10,
+  "oran": 2.0
+ },
+ {
+  "dizi": "Margo's Got Money Troubles",
+  "anahtar": "margo s got money troubles",
+  "ciplak": 10,
+  "niteleyicili": 0,
+  "oran": 10.0
+ },
+ {
+  "dizi": "Yo Gabba GabbaLand!",
+  "anahtar": "yo gabba gabbaland",
+  "ciplak": 10,
+  "niteleyicili": 20,
+  "oran": 0.5
+ },
+ {
+  "dizi": "Camp Snoopy",
+  "anahtar": "camp snoopy",
+  "ciplak": 10,
+  "niteleyicili": 20,
+  "oran": 0.5
+ },
+ {
+  "dizi": "Helpsters",
+  "anahtar": "helpsters",
+  "ciplak": 10,
+  "niteleyicili": 10,
+  "oran": 1.0
+ },
+ {
+  "dizi": "Fraggle Rock: Rock On!",
+  "anahtar": "fraggle rock rock on",
+  "ciplak": 10,
+  "niteleyicili": 0,
+  "oran": 10.0
+ },
+ {
+  "dizi": "Puppy Place",
+  "anahtar": "puppy place",
+  "ciplak": 10,
+  "niteleyicili": 10,
+  "oran": 1.0
+ },
+ {
+  "dizi": "Hello, Jack! The Kindness Show",
+  "anahtar": "hello jack the kindness show",
+  "ciplak": 10,
+  "niteleyicili": 0,
+  "oran": 10.0
+ },
+ {
+  "dizi": "Fraggle Rock: Back to the Rock",
+  "anahtar": "fraggle rock back to the rock",
+  "ciplak": 10,
+  "niteleyicili": 10,
+  "oran": 1.0
+ },
+ {
+  "dizi": "Lovely Little Farm",
+  "anahtar": "lovely little farm",
+  "ciplak": 10,
+  "niteleyicili": 0,
+  "oran": 10.0
+ },
+ {
+  "dizi": "Life by Ella",
+  "anahtar": "life by ella",
+  "ciplak": 10,
+  "niteleyicili": 0,
+  "oran": 10.0
+ },
+ {
+  "dizi": "Slumberkins",
+  "anahtar": "slumberkins",
+  "ciplak": 10,
+  "niteleyicili": 10,
+  "oran": 1.0
+ },
+ {
+  "dizi": "Doug Unplugs",
+  "anahtar": "doug unplugs",
+  "ciplak": 10,
+  "niteleyicili": 10,
+  "oran": 1.0
+ },
+ {
+  "dizi": "Wolfboy and the Everything Factory",
+  "anahtar": "wolfboy and the everything factory",
+  "ciplak": 10,
+  "niteleyicili": 0,
+  "oran": 10.0
+ },
+ {
+  "dizi": "Get Rolling with Otis",
+  "anahtar": "get rolling with otis",
+  "ciplak": 10,
+  "niteleyicili": 10,
+  "oran": 1.0
+ },
+ {
+  "dizi": "Pretzel and the Puppies",
+  "anahtar": "pretzel and the puppies",
+  "ciplak": 10,
+  "niteleyicili": 0,
+  "oran": 10.0
+ },
+ {
+  "dizi": "Eva the Owlet",
+  "anahtar": "eva the owlet",
+  "ciplak": 10,
+  "niteleyicili": 10,
+  "oran": 1.0
+ },
+ {
+  "dizi": "Visible: Out on Television",
+  "anahtar": "visible out on television",
+  "ciplak": 10,
+  "niteleyicili": 10,
+  "oran": 1.0
+ },
+ {
+  "dizi": "Earth at Night in Color",
+  "anahtar": "earth at night in color",
+  "ciplak": 10,
+  "niteleyicili": 40,
+  "oran": 0.25
+ },
+ {
+  "dizi": "1971: The Year That Music Changed Everything",
+  "anahtar": "1971 the year that music changed everything",
+  "ciplak": 10,
+  "niteleyicili": 0,
+  "oran": 10.0
+ },
+ {
+  "dizi": "The Me You Can't See",
+  "anahtar": "the me you can t see",
+  "ciplak": 10,
+  "niteleyicili": 10,
+  "oran": 1.0
+ },
+ {
+  "dizi": "Watch the Sound with Mark Ronson",
+  "anahtar": "watch the sound with mark ronson",
+  "ciplak": 10,
+  "niteleyicili": 10,
+  "oran": 1.0
+ },
+ {
+  "dizi": "The Long Game: Bigger Than Basketball",
+  "anahtar": "the long game bigger than basketball",
+  "ciplak": 10,
+  "niteleyicili": 0,
+  "oran": 10.0
+ },
+ {
+  "dizi": "The Big Conn",
+  "anahtar": "the big conn",
+  "ciplak": 10,
+  "niteleyicili": 20,
+  "oran": 0.5
+ },
+ {
+  "dizi": "Super League: The War for Football",
+  "anahtar": "super league the war for football",
+  "ciplak": 10,
+  "niteleyicili": 10,
+  "oran": 1.0
+ },
+ {
+  "dizi": "Real Madrid: Until the End",
+  "anahtar": "real madrid until the end",
+  "ciplak": 10,
+  "niteleyicili": 10,
+  "oran": 1.0
+ },
+ {
+  "dizi": "Boom! Boom! The World vs. Boris Becker",
+  "anahtar": "boom boom the world vs boris becker",
+  "ciplak": 10,
+  "niteleyicili": 0,
+  "oran": 10.0
+ },
+ {
+  "dizi": "Wanted: The Escape of Carlos Ghosn",
+  "anahtar": "wanted the escape of carlos ghosn",
+  "ciplak": 10,
+  "niteleyicili": 10,
+  "oran": 1.0
+ },
+ {
+  "dizi": "The Super Models",
+  "anahtar": "the super models",
+  "ciplak": 10,
+  "niteleyicili": 40,
+  "oran": 0.25
+ },
+ {
+  "dizi": "Messi Meets America",
+  "anahtar": "messi meets america",
+  "ciplak": 10,
+  "niteleyicili": 20,
+  "oran": 0.5
+ },
+ {
+  "dizi": "John Lennon: Murder Without a Trial",
+  "anahtar": "john lennon murder without a trial",
+  "ciplak": 10,
+  "niteleyicili": 0,
+  "oran": 10.0
+ },
+ {
+  "dizi": "The Dynasty: New England Patriots",
+  "anahtar": "the dynasty new england patriots",
+  "ciplak": 10,
+  "niteleyicili": 10,
+  "oran": 1.0
+ },
+ {
+  "dizi": "Earthsounds",
+  "anahtar": "earthsounds",
+  "ciplak": 10,
+  "niteleyicili": 10,
+  "oran": 1.0
+ },
+ {
+  "dizi": "STEVE! (martin) a documentary in 2 pieces",
+  "anahtar": "steve martin a documentary in 2 pieces",
+  "ciplak": 10,
+  "niteleyicili": 0,
+  "oran": 10.0
+ },
+ {
+  "dizi": "Hollywood Con Queen",
+  "anahtar": "hollywood con queen",
+  "ciplak": 10,
+  "niteleyicili": 10,
+  "oran": 1.0
+ },
+ {
+  "dizi": "Vietnam: The War That Changed America",
+  "anahtar": "vietnam the war that changed america",
+  "ciplak": 10,
+  "niteleyicili": 20,
+  "oran": 0.5
+ },
+ {
+  "dizi": "Onside: Major League Soccer",
+  "anahtar": "onside major league soccer",
+  "ciplak": 10,
+  "niteleyicili": 0,
+  "oran": 10.0
+ },
+ {
+  "dizi": "Fight for Glory: 2024 World Series",
+  "anahtar": "fight for glory 2024 world series",
+  "ciplak": 10,
+  "niteleyicili": 0,
+  "oran": 10.0
+ },
+ {
+  "dizi": "Number One on the Call Sheet",
+  "anahtar": "number one on the call sheet",
+  "ciplak": 10,
+  "niteleyicili": 0,
+  "oran": 10.0
+ },
+ {
+  "dizi": "The Dynasty: UConn Huskies",
+  "anahtar": "the dynasty uconn huskies",
+  "ciplak": 10,
+  "niteleyicili": 0,
+  "oran": 10.0
+ },
+ {
+  "dizi": "The Oprah Conversation",
+  "anahtar": "the oprah conversation",
+  "ciplak": 10,
+  "niteleyicili": 0,
+  "oran": 10.0
+ },
+ {
+  "dizi": "The Problem with Jon Stewart",
+  "anahtar": "the problem with jon stewart",
+  "ciplak": 10,
+  "niteleyicili": 0,
+  "oran": 10.0
+ },
+ {
+  "dizi": "Carpool Karaoke: The Series",
+  "anahtar": "carpool karaoke the series",
+  "ciplak": 10,
+  "niteleyicili": 20,
+  "oran": 0.5
+ },
+ {
+  "dizi": "Oprah Talks COVID-19",
+  "anahtar": "oprah talks covid-19",
+  "ciplak": 10,
+  "niteleyicili": 0,
+  "oran": 10.0
+ }
+]

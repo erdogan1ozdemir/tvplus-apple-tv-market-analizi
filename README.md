@@ -26,7 +26,8 @@ SERP verisi yenilemek için: `python3 scripts/dfs_serp.py` (sıralama + URL) →
 
 ## Çalıştırma
 ```bash
-node scripts/build-data.js     # data/raw/hacim_diziler.csv → data/dashboard.js
+python3 scripts/tur_konsolide.py data/raw/hacim_*.csv   # ham tür → 19 Türkçe tür
+node scripts/build-data.js     # data/raw/hacim_*.csv → data/dashboard.js
 PORT=3100 node server.js       # http://localhost:3100
 ```
 
