@@ -1274,9 +1274,10 @@
    "sezon": 1,
    "durum": "Ended 2025",
    "kategori": "Non-English",
-   "apple_resmi": false,
-   "apple_baslik": "",
-   "durum_tr": "Bitti"
+   "apple_resmi": true,
+   "apple_baslik": "Now & Then",
+   "durum_tr": "Bitti",
+   "not": "Apple resmi adı \"Now & Then\"; keyword anahtarı \"now and then\" olarak bırakıldı (veri bağı bozulmasın)."
   },
   {
    "dizi": "Liaison",

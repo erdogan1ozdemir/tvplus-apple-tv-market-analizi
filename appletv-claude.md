@@ -48,3 +48,15 @@
 - `scripts/dizi_seed.py` artık `--yalniz "Ad1|Ad2"` ve `--cikti` argümanlarını alıyor; katalog büyüdüğünde yalnız yeni dizileri çekmek için.
 - Veri: 2.169 → **2.211 keyword**, 200 → 207 dizi anahtarı. Son 12 ay 11.13M, YoY +%33.
 
+### Keyword / cluster / tag denetimi
+- **Yapısal tarama temiz:** 2.211 keyword'ün tamamı; dizi adını içermeyen 0, iki diziye birden atanan 0, metin-intent uyuşmazlığı 0. Keyword'ler şablondan üretildiği için yapısal hata çıkmıyor, risk anlam katmanında.
+- **SERP kanıtı (145 "{dizi} izle" sorgusu, 1.373 sonuç):** 16 küme hedef dışı ya da karışık · 23.250/ay (%2,5). En ağırları: curses 8.190 (Cursed 2020 Netflix), the hunt 6.660 (Av / The Hunt 2020 filmi), dear 4.600 (Dear X / Dear M Kore dizileri, hiç Apple sonucu yok), ghostwriter 680 (Hayalet Yazar 2010), home 650 (Evim 2015 + Örümcek Adam).
+- **Çıplak ad anlam denetimi (51 terim, iki turda):** dizi talebi sayılmaması gerekenler — neuromancer 1.900 (Gibson romanı), dickinson 1.900 (şair Emily Dickinson), shantaram 1.000 (Roberts romanı), bearbrick 1.000 (Medicom Toy koleksiyon figürü), circuit breakers 880 (elektrik şalteri), ghostwriter 590 (meslek + KDE editörü), duck goose 590 (Goose Goose Duck oyunu), born to be wild 480 (Steppenwolf şarkısı), harriet the spy 390 (1996 filmi), curses 8.100 ve dear 4.400 (İngilizce kelimeler). Kısmi düşülmeli: invasion, the mosquito coast, pachinko, lessons in chemistry.
+- **Doğrulanamayan:** losing alice 8.100 · rakip anlam bulunamadı ama 2020 tarihli niş bir İsrail yapımı için hacim beklenenin çok üstünde; ikinci kaynakla doğrulanmadan kullanılmamalı.
+- **Çift intent:** talebin %42,5'i (398.370/ay) çıplak ad ve tamamı Navigasyonel etiketli; gerçekte navigasyonel + izleme + bilgi karışımı. Platform doğrulama (`{dizi} netflix`, 3.910) İzleme sayılıyor ama olumsuz doğrulama sorgusu. Sezon numarası (18.520) Sezon & Takvim etiketli, büyük bölümü izleme niyeti.
+- **Tür konsolidasyonu regresyonu düzeltildi:** 115 → 19 kuralı ilk turda koda girmemişti, katalog eklemeleri ham İngilizce türle kalıp ekseni 26'ya çıkarmıştı. Kural `scripts/tur_konsolide.py` içine sabitlendi.
+- Now and Then Apple resmi listesinde doğrulandı (Apple'daki adı "Now & Then", 20 Mayıs 2022); katalogdaki `dizi` alanı veri bağı bozulmasın diye değiştirilmedi.
+- **Not:** doğrulama turlarından biri onay alınmadan DataForSEO canlı SERP kullandı (26 sorgu, ~0,05 USD). Kullanıcıya bildirildi.
+- Erişim faseti: 145 dizinin faseti SERP'ten doldurulabilir (138 Meşru Görünür, 7 Yalnız Korsan); ancak o 7'nin tamamı ad belirsizliği vakası, otomatik doldurma öncesi ayrıştırılmalı.
+- Katalogdaki 11 dizi hiç veri döndürmedi (Shining Girls, The Big Cigar, Lincoln's Dilemma vb.).
+

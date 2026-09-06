@@ -1,0 +1,33 @@
+{
+ "kaynak": "Denetim turu · 2026-09-06",
+ "kural_taramasi": {
+  "dizi_adini_icermeyen_kw": 0,
+  "mukerrer_kw": 0,
+  "intent_metin_uyusmazligi": 0,
+  "not": "Keyword'ler şablondan üretildiği için yapısal hata yok; risk anlam katmanında."
+ },
+ "serp_kaniti": {
+  "kapsam": "145 '{dizi} izle' sorgusu · 1.373 sonuç",
+  "hedef_disi_veya_karisik": 16,
+  "hacim": 23250,
+  "pay": "%2,5"
+ },
+ "ciplak_form": {
+  "toplam_hacim": 398370,
+  "pay": "%42,5",
+  "not": "Tamamı Navigasyonel etiketli; hem çift intent hem hedef dışı hacim burada."
+ },
+ "tur_konsolidasyonu": {
+  "onceki": 26,
+  "sonraki": 19,
+  "duzeltildi": true
+ },
+ "erisim_faseti": {
+  "dogrulanacak_kw": 1783,
+  "serpten_doldurulabilir_dizi": 145,
+  "mesru_gorunur": 138,
+  "yalniz_korsan": 7,
+  "not": "7 'Yalnız Korsan' aslında ad belirsizliği; SERP başka bir yapımı gösteriyor."
+ },
+ "veri_donmeyen_dizi": 11
+}
