@@ -31,10 +31,10 @@ wb = Workbook(); wb.remove(wb.active)
 # ——— Master liste
 sayfa_yaz(wb.create_sheet("Master Liste"),
   ["Keyword","Dizi","Kategori","Tür","Alt Tür","Sayfa Tipi","Intent","Varlık Tipi",
-   "Marka Tipi","Dil","Meşru Erişim","Çıkış Yılı","Sezon Sayısı","Durum",
+   "Marka Tipi","Dil","Çıkış Yılı","Sezon Sayısı","Durum",
    "Aylık Hacim","Son 12 Ay","Önceki 12 Ay","YoY %"],
   [[r["keyword"], r["dizi"], r["kategori"], r["tur"], r.get("tur_ham",""), r["sayfa_tipi"],
-    r["intent_katmani"], r["entity_tipi"], r["marka_tipi"], r["dil"], r["erisim"],
+    r["intent_katmani"], r["entity_tipi"], r["marka_tipi"], r["dil"],
     r["cikis_yili"], r["sezon_sayisi"], r["durum"], V(r), top(r, SON12), top(r, ONC12),
     round(100*(top(r,SON12)-top(r,ONC12))/top(r,ONC12), 1) if top(r, ONC12) else ""]
    for r in sorted(kapsam, key=lambda x: -V(x))], SAY, {"Keyword": 42})
@@ -54,8 +54,7 @@ def kume(ad, alan, ek=None):
 
 kume("Dizi", "dizi"); kume("Kategori", "kategori"); kume("Tür", "tur")
 kume("Sayfa Tipi", "sayfa_tipi"); kume("Intent", "intent_katmani")
-kume("Varlık Tipi", "entity_tipi"); kume("Meşru Erişim", "erisim")
-kume("Marka Tipi", "marka_tipi")
+kume("Varlık Tipi", "entity_tipi"); kume("Marka Tipi", "marka_tipi")
 
 # ——— Dizi × sayfa tipi çapraz tablosu
 tipler = sorted({r["sayfa_tipi"] for r in kapsam})

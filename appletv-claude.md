@@ -115,4 +115,6 @@
 - **Keyword sekmesinde mükerrer "Bölüm" etiketi:** varlık tipi seçicisi elle yazılmış bir listeden geliyordu ve spor→dizi çevirisinden kalan ikinci bir `['Bölüm','Bölüm']` girdisi vardı (React'te de aynı `key`). Seçenekler artık veriden üretiliyor (`facetDegerleri.ent`), sıra varlık hiyerarşisine göre sabitleniyor: Dizi → Sezon → Bölüm. Elle liste tutulmadığı için bu hata bir daha oluşmaz.
 - **Kırılım ekseni şeridinden "Meşru Erişim" kaldırıldı** (hem Gruplar hem Sayfa Tipi & Intent). Üç değerli ve biri baskın olduğu için kırılım ekseni olarak bilgi taşımıyordu; faset ana filtrede ve keyword detayında duruyor.
 - Master Liste CSV sütun listesindeki spor kalıntısı faset adları (`mus`, `sev`, `cins`, `km`, `tb`, `cog`, `yer`, `turk`, `per`, `tak`, `kurum`, `uzn`, `ktm`) temizlendi; yerlerine bu dikeyin gerçek fasetleri yazıldı (alt tür, marka tipi, dizi adı, çıkış yılı, sezon sayısı, durum, sezon no).
+- Excel'lerden erişim fasetiyle ilgili her şey çıkarıldı: "Meşru Erişim" küme sayfası ve Master Liste'deki aynı adlı sütun. Faset panoda duruyor, teslim dosyalarında yer almıyor. Arama hacmi dosyası 12 → 11 sayfa.
+- Rakip dosyasının Yöntem sayfasında "Jenerik Sayfa Trafiği" tanımı örnekle güçlendirildi (nowtv.com.tr/film-izle vakası).
 
