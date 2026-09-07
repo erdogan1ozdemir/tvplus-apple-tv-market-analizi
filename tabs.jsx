@@ -731,7 +731,7 @@ window.TABS = (function(){
         // kaydırıyordu; bu seçici satır kırabilen bir varyant kullanır.
         h('div',{className:'segmented segmented-saran'},
           Object.entries(FACET_ETIKET).filter(([id])=>
-            ['spor','org','takim','st','it','ent','hak','mus','sev','cins','cog','ktm','sinif','bucket'].includes(id)
+            ['spor','org','takim','st','it','ent','marka','sinif','bucket'].includes(id)
           ).map(([id,lab])=>h('button',{key:id, className: seviye===id?'active':'',
             onClick:()=>{setSeviye(id); setSecili(null);}}, lab))),
         h('div',{style:{marginLeft:'auto', display:'flex', gap:6, alignItems:'center'}},
@@ -741,7 +741,7 @@ window.TABS = (function(){
               border:'1px solid var(--line)', background:'var(--bg-card)', color:'var(--ink)'}},
             h('option',{value:''},'Yok'),
             Object.entries(FACET_ETIKET).filter(([id])=>id!==seviye &&
-              ['spor','org','st','it','ent','hak','mus','cins','ktm'].includes(id))
+              ['spor','org','st','it','ent','marka'].includes(id))
               .map(([id,lab])=>h('option',{key:id, value:id}, lab))),
           h('button',{className:'chip-btn',
             onClick:()=>downloadCSV(`tvplus-${seviye}.csv`, toCSV(gruplar,[
@@ -823,8 +823,15 @@ window.TABS = (function(){
         h('input',{className:'input input-search', placeholder:'Keyword ara…', value:q,
           onChange:e=>setQ(e.target.value), style:{flex:1, minWidth:180}}),
         h('div',{className:'segmented segmented-saran', title:'Varlık tipine göre daralt'},
-          [['','Tümü'],['Dizi','Dizi'],['Sezon','Sezon'],['Bölüm','Bölüm'],
-           ['Bölüm','Bölüm']].map(function(e){
+          // Seçenekler veriden gelir (elle yazılan listede mükerrer girdi oluşuyordu),
+          // sıra varlık hiyerarşisine göre sabitlenir: dizi → sezon → bölüm.
+          [['','Tümü']].concat(
+            (D().facetDegerleri.ent||[]).slice()
+              .sort((a,b)=>{ const s=['Dizi','Sezon','Bölüm'];
+                const i=s.indexOf(a), j=s.indexOf(b);
+                return (i<0?99:i)-(j<0?99:j) || String(a).localeCompare(String(b),'tr'); })
+              .map(v=>[v,v])
+          ).map(function(e){
             return h('button',{key:e[0]||'all', className: entHizli===e[0]?'active':'',
               onClick:()=>setEntHizli(e[0])}, e[1],
               h('span',{className:'badge', style:{marginLeft:5}},
@@ -933,7 +940,7 @@ window.TABS = (function(){
         h('div',{className:'filter-panel-label'}, h('strong',null,'Kırılım')),
         h('div',{className:'segmented segmented-saran'},
           Object.entries(FACET_ETIKET).filter(([id])=>
-            ['spor','org','takim','st','it','ent','hak','marka','sinif','bucket'].includes(id)
+            ['spor','org','takim','st','it','ent','marka','sinif','bucket'].includes(id)
           ).map(([id,lab])=>h('button',{key:id, className: eksen===id?'active':'',
             onClick:()=>setEksen(id)}, lab))),
         h('div',{style:{marginLeft:'auto', display:'flex', gap:6, alignItems:'center'}},
@@ -943,7 +950,7 @@ window.TABS = (function(){
               border:'1px solid var(--line)', background:'var(--bg-card)', color:'var(--ink)'}},
             h('option',{value:''},'Yok'),
             Object.entries(FACET_ETIKET).filter(([id])=>id!==eksen &&
-              ['spor','org','st','it','ent','hak','marka'].includes(id))
+              ['spor','org','st','it','ent','marka'].includes(id))
               .map(([id,lab])=>h('option',{key:id, value:id}, lab))),
           h('button',{className:'chip-btn',
             onClick:()=>downloadCSV(`appletv-${eksen}.csv`, toCSV(matrisGrup,[
@@ -1427,8 +1434,8 @@ window.TABS = (function(){
       {label:'Peak Ay',get:r=>r.rpeakSerial?serialToRollingLabel(r.rpeakSerial):''},
       {label:'Peak Çeyrek',get:r=>qLabel(((viewMode==='calendar'?r.pq:r.rpq)||[]).indexOf(1), viewMode)},
       ...Object.entries(FACET_ETIKET).filter(([id])=>
-        ['spor','org','st','it','ent','hak','mus','sev','cins','km','tb','cog','yer',
-         'turk','per','tak','kurum','dil','uzn','ktm','kulup'].includes(id))
+        ['spor','org','turHam','st','it','ent','marka','hak','dil',
+         'diziAd','yil','sezonSay','durum','sezonNo'].includes(id))
         .map(([id,lab])=>({label:lab, key:id})),
       
       ...D().months2024.map((m,i)=>({label:m, get:r=>r.m24[i]})),
