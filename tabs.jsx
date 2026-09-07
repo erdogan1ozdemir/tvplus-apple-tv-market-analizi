@@ -899,6 +899,12 @@ window.TABS = (function(){
     // Bir grup seçilince aynı sekmede yol uzar, sekme değişmez. Matris, karne
     // kartları ve grup tablosu aynı işleyiciyi paylaşır.
     const inAlt = inisKur(yol, setYol);
+    // Kırılım ekseni Gruplar sekmesindeki şeritle aynı biçimde seçilir;
+    // varsayılan eksen bu sekmenin konusu olan sayfa tipidir.
+    const [eksen, setEksen] = React.useState('st');
+    const [altEksen, setAltEksen] = React.useState('');
+    const matrisGrup = React.useMemo(()=>groupBy(rows, eksen, altEksen||null),
+      [rows, eksen, altEksen]);
     const stG = groupBy(rows,'st'), itG = groupBy(rows,'it'), entG = groupBy(rows,'ent');
     const izleme = rows.filter(k=>k.it==='İzleme');
     const veri = rows.filter(k=>['Konu','Oyuncular','Sezon Bilgi','Sezon Takvim'].includes(k.st));
@@ -917,7 +923,30 @@ window.TABS = (function(){
           sub:'çıplak varlık adı · hub sayfası ister'}),
         h(C.Kpi,{label:'SEZON & TAKVİM', value:fmtOrt(topR12(rows.filter(k=>k.it==='Sezon & Takvim'))),
           sub:'sezon takvimi sayfası cevaplar'})),
+      h('div',{className:'filter-panel', style:{marginBottom:14, marginTop:14}},
+        h('div',{className:'filter-panel-label'}, h('strong',null,'Kırılım')),
+        h('div',{className:'segmented segmented-saran'},
+          Object.entries(FACET_ETIKET).filter(([id])=>
+            ['spor','org','takim','st','it','ent','hak','marka','sinif','bucket'].includes(id)
+          ).map(([id,lab])=>h('button',{key:id, className: eksen===id?'active':'',
+            onClick:()=>setEksen(id)}, lab))),
+        h('div',{style:{marginLeft:'auto', display:'flex', gap:6, alignItems:'center'}},
+          h('span',{className:'txt-3', style:{fontSize:11}},'Alt kırılım'),
+          h('select',{value:altEksen, onChange:e=>setAltEksen(e.target.value),
+            style:{fontSize:12, padding:'5px 8px', borderRadius:8,
+              border:'1px solid var(--line)', background:'var(--bg-card)', color:'var(--ink)'}},
+            h('option',{value:''},'Yok'),
+            Object.entries(FACET_ETIKET).filter(([id])=>id!==eksen &&
+              ['spor','org','st','it','ent','hak','marka'].includes(id))
+              .map(([id,lab])=>h('option',{key:id, value:id}, lab))),
+          h('button',{className:'chip-btn',
+            onClick:()=>downloadCSV(`appletv-${eksen}.csv`, toCSV(matrisGrup,[
+              {label:FACET_ETIKET[eksen],key:'label'}, ...CSV_HACIM,
+              {label:'YoY %',get:r=>r.ryoy==null?'':(r.ryoy*100).toFixed(1)},
+              {label:'Keyword',key:'kwCount'}]))},
+            h('span',{className:'btn-ikon'}, h(C.Ikon,{ad:'indir', size:13})), 'CSV'))),
       h(SezonTakvimi,{rows, viewMode, baslik:'Sayfa tipi sezonsallığı',
+        gruplarDis: matrisGrup, eksenDis: eksen,
         inisModu: !!inAlt, onSelectGroup: inAlt || onSelectGroup}),
       h(C.SectionHeader,{icon:'karne', title:'Sayfa tipi karnesi',
         desc:'her sayfa tipi kendi ölçeğinde · Son 12 Ay'}),
@@ -1559,7 +1588,7 @@ window.TABS = (function(){
     return diz(kok);
   }
 
-  function KirilimTab({rows, onNavigateKw}){
+  function KirilimTab({rows, onNavigateKw, setFacet}){
     const [gorunum, setGorunum] = React.useState(function(){
       try { return localStorage.getItem('tvplus.kirilim.gorunum') || 'karo'; }
       catch(e){ return 'karo'; }
@@ -1616,11 +1645,25 @@ window.TABS = (function(){
     // Bir düğüme tıklandığında: alt kırılımı varsa in, yoksa keyword'lere git.
     // Zaten seçili olan düğüme tekrar tıklamak seçimi kaldırır ve o seviye
     // yeniden tüm kayıtlarıyla listelenir.
+    // Kırılımda seçilen her seviye üstteki filtre şeridine de yazılır ve
+    // birikir: dizi seçilince takim faseti, sayfa tipi seçilince st faseti
+    // kurulur. Böylece Keyword sekmesine geçildiğinde kapsam aynen taşınır.
+    // Seçim kaldırılınca o seviye ve altındaki fasetler birlikte temizlenir.
+    function fasetYaz(seviye, deger){
+      if(!setFacet) return;
+      for(let i=seviye; i<KIRILIM_SEVIYE.length; i++)
+        setFacet(KIRILIM_SEVIYE[i][0], i===seviye ? deger : null);
+    }
     function tikla(seviye, dugum){
-      if(yol[seviye] === dugum.n){ setYol(yol.slice(0, seviye)); return; }
-      if(seviye>=2 || !dugum.c.length){
-        const alan = KIRILIM_SEVIYE[Math.min(seviye,2)][0];
-        onNavigateKw({alan, deger:dugum.n});
+      if(yol[seviye] === dugum.n){
+        setYol(yol.slice(0, seviye));
+        fasetYaz(seviye, null);
+        return;
+      }
+      fasetYaz(seviye, dugum.n);
+      if(seviye>=KIRILIM_SEVIYE.length-1 || !dugum.c.length){
+        onNavigateKw({alan:KIRILIM_SEVIYE[Math.min(seviye,KIRILIM_SEVIYE.length-1)][0],
+                      deger:dugum.n});
         return;
       }
       setYol(yol.slice(0, seviye).concat(dugum.n));
@@ -1764,7 +1807,8 @@ window.TABS = (function(){
 
           (yol.length>0 || q || esik>0 || kapsam>0) &&
             h('button',{className:'chip-btn sessiz',
-              onClick:()=>{ setYol([]); setQ(''); setEsik(0); setKapsam(0); }},
+              onClick:()=>{ setYol([]); setQ(''); setEsik(0); setKapsam(0);
+                            KIRILIM_SEVIYE.forEach(([a])=>setFacet && setFacet(a, null)); }},
               h('span',{className:'btn-ikon'},'✕'), 'Sıfırla')),
 
         h('div',{className:'kr-iz'},

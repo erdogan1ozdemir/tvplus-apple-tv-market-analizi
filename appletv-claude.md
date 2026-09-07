@@ -94,3 +94,14 @@
   - Kalan sınır: ad belirsizliği taşıyan kümelerde sayfa düzeyinde sızıntı sürebiliyor (ör. "now and then" için Netflix'in 1995 filmi sayfası). Bu kümeler zaten denetimde "karışık" işaretli.
 - Doğrulama: dört kaynak dosya `node --check`ten geçti, VM sandbox'ta modüllerin tamamı hatasız yüklendi, yeni hesaplar (dizi tablosu, kırılım ağacı) gerçek veri üzerinde çalıştırılıp doğrulandı. Tarayıcıda tıklayarak doğrulama yine yapılamadı: önizleme sunucusu eski proje kökünde kalıyor, artifact çapraz-origin iframe'de ve panel kararlı biçimde görünür olmuyor.
 
+## 2026-09-07
+- **Kırılım tıklaması artık filtre kuruyor ve birikiyor.** Diziye tıklayınca `takim`, sayfa tipine tıklayınca `st`, intent'e tıklayınca `it` faseti üst filtre şeridine yazılıyor. Seçim kaldırılınca o seviye ve altındaki fasetler birlikte temizleniyor; "Sıfırla" hepsini siliyor. Keyword sekmesine geçildiğinde kapsam aynen taşınıyor.
+- **Sayfa Tipi & Intent sekmesine kırılım şeridi eklendi** (Gruplar sekmesindekiyle aynı): 10 eksen düğmesi + alt kırılım seçici + CSV. Matris seçilen eksene göre yeniden gruplanıyor.
+- **Varyasyon çekimi (onaylı, 1,53 USD).** Kullanıcının sorusu üzerine mevcut şablon kontrol edildi: `{dizi} izle`, `{dizi} dizi izle`, `{dizi} dizibox`, `{dizi} dizipal` **zaten vardı**; eksik olan korsan site çeşitliliğiydi (200 dizi için yalnızca iki site).
+  - SERP'te görülen 65 korsan domainden marka kökü çıkarıldı; sınıflandırıcının varsayılanı "Korsan" olduğu için listeye düşen korsan olmayanlar (kitap yayıncısı, oyun mağazası, beyaz eşya markası, haber sitesi) elendi → **41 marka**.
+  - Aileler: korsan marka (41) · bölüm (tüm bölümleri, son bölüm, bölümleri, kaç bölüm) · platform (blutv, exxen, disney plus, prime video, tod, gain) · kalite (hd izle, 1080p izle, türkçe altyazılı izle). Bilgi ve takvim aileleri kullanıcı kararıyla çekilmedi.
+  - `scripts/varyasyon_seed.py` mevcut CSV'lerdeki keyword'leri eleyerek 11.336 satır üretti; 11.328 gönderildi, **297'si veri döndü · 8.190/ay**.
+  - En hacimliler: `pluribus kaç bölüm` 1.900 · `pluribus türkçe altyazılı izle` 590 · `pluribus hd izle` 260. Korsan marka bazında: hdfilmcehennemi 520 · dizilla 180 · dizigom 160 · yabancidizi 100.
+  - Sonuç: korsan marka ailesi beklenenden zayıf (41 markanın yalnızca 9'unda hacim var, toplam 1.120/ay). Türkiye'de kullanıcılar site adıyla değil dizi adıyla arıyor; talep `{dizi} izle` ailesinde toplanıyor.
+- Kapsam: 2.138 → **2.425 keyword** · 900.080 → **908.100/ay**. Excel çıktıları yenilendi.
+
