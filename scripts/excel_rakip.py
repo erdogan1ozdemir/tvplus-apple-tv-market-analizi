@@ -45,14 +45,14 @@ domain = sorted(dm.values(), key=lambda x: -x["n"])
 wb = Workbook(); wb.remove(wb.active)
 
 SAY = {"Sorgu Hacmi","İzleme Odaklı Trafik","Korsan","Meşru Platform","Agregatör",
-       "İlk 3 Trafiği","Jenerik Sayfa Trafiği","Taranan Sayfa","Pozisyon",
+       "İlk 3 Trafiği","Taranan Sayfa","Pozisyon",
        "Ahrefs Sayfa Trafiği","İlk 10'da","İlk 3'te","Dizi Sayısı","Aylık Hacim"}
 
 sayfa_yaz(wb.create_sheet("Dizi Bazında Trafik"),
     ["Dizi","Sorgu","Kategori","Tür","Sorgu Hacmi","İzleme Odaklı Trafik","Korsan",
-     "Meşru Platform","Agregatör","İlk 3 Trafiği","Jenerik Sayfa Trafiği","Taranan Sayfa"],
+     "Meşru Platform","Agregatör","İlk 3 Trafiği","Taranan Sayfa"],
     [[x["dizi"], x["kw"], x["kategori"], x["tur"], x["hacim"], x["izleme"], x["korsan"],
-      x["mesru"], x["agregat"], x["ilk3"], x["jenerik"], x["sayfa"]] for x in dizi], SAY)
+      x["mesru"], x["agregat"], x["ilk3"], x["sayfa"]] for x in dizi], SAY)
 
 sayfa_yaz(wb.create_sheet("Tüm SERP Sonuçları"),
     ["Dizi","Sorgu","Aylık Hacim","Pozisyon","Domain","Sayfa URL","Sayfa Başlığı",
@@ -82,13 +82,11 @@ not_sayfasi(wb.create_sheet("Yöntem"), [
                     "yalnızca bu sorgudan geleni değil, sayfanın tamamını kapsar. Üst sınır okuması verir."),
  ("İzleme odaklı trafik", "Korsan + meşru platform sayfalarının toplamı. Agregatör ve bilgi siteleri "
                           "(JustWatch, IMDb, Wikipedia) izleme sayfası sunmadığı için ayrı sütundadır."),
- ("Jenerik Sayfa Trafiği", "Aramanın ilk 10'una giren ama dizinin kendi sayfası OLMAYAN sonuçların "
-                   "trafiği. İki kaynağı var: (1) platformların genel katalog sayfaları — 'now and then izle' "
-                   "sorgusunda nowtv.com.tr/film-izle 10. sırada çıkıyor ve kendi 8.266 trafiğini getiriyor; "
-                   "(2) aynı adı taşıyan başka yapımlar — aynı sorguda Now & Later (2011) filminin sayfası. "
-                   "Bu trafik dizinin izleme talebine yazılamaz, o yüzden İzleme Odaklı Trafik'e girmez; "
-                   "kaç trafiğin bu şekilde elendiğini görebilmek için ayrı sütunda tutulur. "
-                   "Satır bazında 'Tüm SERP Sonuçları' sayfasında Kapsam sütununda işaretlidir."),
+ ("Kapsam dışı sonuçlar", "Aramanın ilk 10'una dizinin kendi sayfası olmayan sonuçlar da giriyor: "
+                   "platformların genel katalog sayfaları (nowtv.com.tr/film-izle gibi, kendi bütün "
+                   "trafiğini getirir) ve aynı adı taşıyan başka yapımlar. Bu satırların trafiği dizi "
+                   "toplamlarına katılmaz; 'Tüm SERP Sonuçları' sayfasında Kapsam sütununda "
+                   "'Jenerik / başka yapım' olarak işaretlidir."),
  ("Sınır", "Ad belirsizliği taşıyan dizilerde sayfa düzeyinde sızıntı sürebilir; ör. 'now and then' "
            "sorgusunda 1995 tarihli aynı adlı filmin platform sayfası ilk 10'a giriyor."),
  ("Kaynak", "Kaynak: DataForSEO (sıralama) · Ahrefs (sayfa trafiği)"),
