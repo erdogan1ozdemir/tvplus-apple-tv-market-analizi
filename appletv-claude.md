@@ -104,4 +104,10 @@
   - En hacimliler: `pluribus kaç bölüm` 1.900 · `pluribus türkçe altyazılı izle` 590 · `pluribus hd izle` 260. Korsan marka bazında: hdfilmcehennemi 520 · dizilla 180 · dizigom 160 · yabancidizi 100.
   - Sonuç: korsan marka ailesi beklenenden zayıf (41 markanın yalnızca 9'unda hacim var, toplam 1.120/ay). Türkiye'de kullanıcılar site adıyla değil dizi adıyla arıyor; talep `{dizi} izle` ailesinde toplanıyor.
 - Kapsam: 2.138 → **2.425 keyword** · 900.080 → **908.100/ay**. Excel çıktıları yenilendi.
+- **Kırılım ekseni hatası düzeltildi.** Sayfa Tipi & Intent sekmesinde eksen "Dizi" seçiliyken bir satıra tıklanınca `Kategori: pluribus` filtresi kuruluyordu ve sonuç 0 çıkıyordu. Sebep: `SezonTakvimi` tıklamada iç `seviye` state'ini kullanıyordu; gruplar dışarıdan geldiğinde (`gruplarDis` + `eksenDis`) o state varsayılan 'spor' değerinde kalıyor. Tıklama artık `eksenDis || seviye` ile yürüyor. Özet sekmesi kendi işleyicisinde ekseni yok saydığı için etkilenmemişti.
+- **Dinamiklik denetimi (yeni keyword'lere göre):**
+  - `bucket` ve `trend` seçenek listeleri koda gömülüydü; hacmi olmayan satırların düştüğü "Veri yok" bandı listede olmadığı için filtrelenemiyordu (154 + 461 keyword). Listeler artık veriden süzülüyor.
+  - Boş kalan `milli` ve `avrupa` fasetleri (spor dikeyi kalıntısı) kaldırıldı; artık boş faset yok.
+  - `build-data.js` içindeki spor dikeyine ait 94 satır temizlendi: `etiket_duzelt.json` yükleyicisi (her çalıştırmada uyarı basıyordu), milli takım üyeliği bloğu, ad çakışan kulüpleri spor dalına göre ayırma, Türk kulübü/Türk bağlantısı türetimi, `KAPSAM_DISI_SPOR`. "Tek varlık tek tür" bloğu bu dikeyde de anlamlı olduğu için dile çevrilerek korundu. Çıktı birebir aynı doğrulandı (2.425 kw · 908.100 · 10.759.150).
+  - Yeni 297 keyword'ün etiket denetimi temiz: sayfa tipi, intent, varlık tipi ve marka tipi kalıptan gelen beklenen değerlerle birebir.
 

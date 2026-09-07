@@ -108,6 +108,11 @@ window.TABS = (function(){
     // İniş modunda bir satıra tıklamak yolu uzatır ve matrisi bir alt eksene
     // taşır: kategoride Drama seçilince türler gelir. Eksen
     // dışarıdan yönetiliyorsa (Özet) ilerletmeyi orası yapar.
+    // Gruplar dışarıdan geliyorsa (gruplarDis + eksenDis) gerçek kırılım ekseni
+    // odur; iç seviye state'i 'spor' varsayılanında kalır. Tıklamada bu eksen
+    // kullanılmazsa yol ve filtre yanlış fasete yazılır (dizi seçiliyken
+    // kategori filtresi kurulup sonuç 0 çıkıyordu).
+    const etkinEksen = eksenDis || seviye;
     const grupTikla = function(eks, deg){
       if(!onSelectGroup) return;
       onSelectGroup(eks, deg);
@@ -191,7 +196,7 @@ window.TABS = (function(){
       h('div',{className:'matrix-scroll'},
         h(C.Heatmap,{rows:hmRows, monthsLabels:etiketler, showValues:true, showYoY:true,
           showPeakDot:true,
-          onClickCell:(row)=>grupTikla(seviye, row._g.ust),
+          onClickCell:(row)=>grupTikla(etkinEksen, row._g.ust),
           rowAction: onGrupDetay
             ? {ipucu:'Bu grubu Gruplar sekmesinde aç', simge:'→',
                onClick:(row)=>onGrupDetay(row._g.ust)}

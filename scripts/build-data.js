@@ -102,38 +102,10 @@ function kulupAnahtar(kw){
 // Etiket düzeltmeleri: takım anahtarı birleştirme, 2026-27 lig üyelikleri,
 // meşru çoklu yarışma ve Avrupa kupası ikincil üyeliği. Tek dosyadan okunur,
 // ham CSV'ler değişmez; kural değişirse yeniden çekim gerekmez.
-let ETIKET = {TAKIM_ESLE:{}, LIG_2627:{}, COKLU_MESRU:[], AVRUPA_2627:{},
-              OYUNCU_KULUP:{}, ORG_BIRLESTIR:{}, SPOR_AYIRMA_HARIC:[], CINSIYET:{}};
-try {
-  ETIKET = Object.assign(ETIKET, JSON.parse(fs.readFileSync(
-    path.join(__dirname, '..', 'data', 'denetim', 'etiket_duzelt.json'), 'utf8')));
-} catch(e) { console.warn('etiket_duzelt.json okunamadı, düzeltmeler uygulanmıyor'); }
-const COKLU_MESRU = new Set(ETIKET.COKLU_MESRU);
-const SPOR_HARIC  = new Set(ETIKET.SPOR_AYIRMA_HARIC);
-
-// Milli takım üyeliği. Bir oyuncu hem kulübünün hem milli takımının
-// kümesinde sayılabilmeli; kulüp kümesini bozmamak için ayrı alan tutulur.
-// Satır çoğaltılmaz, hacim iki kez sayılmaz.
-let MILLI_UYE = new Map();
-try {
-  const kadro = JSON.parse(fs.readFileSync(
-    path.join(__dirname, '..', 'data', 'denetim', 'milli_kadro.json'), 'utf8'));
-  for(const [takim, oyuncular] of Object.entries(kadro))
-    for(const o of oyuncular) MILLI_UYE.set(String(o).trim().toLowerCase(), takim);
-} catch(e) { /* kadro dosyası yoksa alan boş kalır */ }
-// Milli takım organizasyonları: takım ve lig satırları bu ada göre eşleşir.
-// "Milli Takım Karşılaşmaları" bir fikstür organizasyonudur, buraya girmez.
-const MILLI_TAKIMLAR = new Set(MILLI_UYE.size ? [...new Set(MILLI_UYE.values())] : []);
-
-// Portföy kapsamı dışına alınan spor dalları. E-Spor TV+ yayın portföyünde
-// karşılığı olmadığı için kapsam dışıdır; satırlar kaynak dosyalarda durur,
-// yalnızca dashboard'a taşınmaz. Geri almak için listeden çıkarmak yeterli.
-const KAPSAM_DISI_SPOR = new Set(['E-Spor']);
-
-// CSV kolonu → DATA kısa adı
+// CSV kolonu → DATA kısa adı. Şema değişince şu dört yer birlikte güncellenir:
+// bu harita · app.jsx BIRINCIL/EK · utils.js FACET_ETIKET · tabs.jsx MODAL_FASET_GRUP.
 const FACET = {
-  // Hiyerarşi: kategori (Drama) → tür (Science fiction) → dizi (Severance).
-  // Kısa adlar TV+ şablonuyla aynı tutuldu; arayüz bu kısa adları bekliyor.
+  // Hiyerarşi: kategori (Drama) → tür (Bilim Kurgu) → dizi (Severance).
   kategori:'spor', tur:'org', tur_ham:'turHam', dizi:'diziAd', dizi_anahtar:'kulup',
   cikis_yili:'yil', sezon_sayisi:'sezonSay', durum:'durum', sezon_no:'sezonNo',
   sayfa_tipi:'st', intent_katmani:'it', entity_tipi:'ent', marka_tipi:'marka',
@@ -158,7 +130,6 @@ for(const f of dosyalar){
 
   for(const r of rows){
     if(r.veri_var !== 'evet') continue;
-    if(KAPSAM_DISI_SPOR.has(r.spor_dali)) continue;
     const kw = (r.keyword||'').trim().toLowerCase();
     if(!kw) continue;
     const sv = parseInt(r.search_volume||'0',10) || 0;
@@ -228,16 +199,6 @@ for(const o of kwMap.values()){
   k.takim = k.kulup || null;
   if(!k.takim) delete k.takim;
 
-  // Milli takım üyeliği. Oyuncu satırında oyuncunun adından çözülür; takım ve
-  // organizasyon satırında satırın kendi organizasyonu bir milli takımsa ondan.
-  // Böylece küme hem takım aramasını hem oyuncu aramasını toplayabilir.
-  // Kulüp kümesi (k.takim) olduğu gibi kalır, satır çoğaltılmaz.
-  if(k.ent==='Oyuncu'){
-    const m = MILLI_UYE.get(String(k.anaAd || k.kw).trim().toLowerCase());
-    if(m) k.milli = m;
-  } else if(k.org && MILLI_TAKIMLAR.has(k.org)){
-    k.milli = k.org;
-  }
 
   // "Türk Sporcu Var" yalnızca yabancı organizasyonlar için anlamlıdır:
   // amaç yabancı lig ve kulüplerdeki Türk sporcuları ayırt edebilmek.
@@ -254,67 +215,10 @@ for(const o of kwMap.values()){
 }
 keywords.sort((a,b)=>(b.r12||0)-(a.r12||0));
 
-// ——————————————————————————— aynı ada sahip farklı kulüpler ayrılır
-// Bir takım anahtarı birden çok spor dalına yayılıyorsa bu tek kulüp değil,
-// adı çakışan iki kulüptür: "fenerbahçe opet" hem kadın voleybol hem kadın
-// basketbol satırlarını topluyordu, "tokat belediye plevne" hem futbol hem
-// voleybol kulübünü. Baskın spor anahtarı korur, diğerleri spor adıyla
-// ayrılır; böylece kümeler ve lig üyelikleri karışmaz.
-{
-  const spor = {};
-  for(const k of keywords){
-    if(!k.takim || !k.spor) continue;
-    (spor[k.takim] = spor[k.takim] || {})[k.spor] =
-      (spor[k.takim][k.spor] || 0) + (k.r12 || 0);
-  }
-  const baskinSpor = {};
-  for(const [takim, sp] of Object.entries(spor)){
-    const ad = Object.keys(sp);
-    if(ad.length < 2 || SPOR_HARIC.has(takim)) continue;
-    baskinSpor[takim] = ad.sort((x,y)=>sp[y]-sp[x])[0];
-  }
-  let ayrilan = 0;
-  for(const k of keywords)
-    if(k.takim && baskinSpor[k.takim] && k.spor !== baskinSpor[k.takim]){
-      k.takim = `${k.takim} (${k.spor})`; ayrilan++;
-    }
-  if(ayrilan) console.log(`Etiket      : ${Object.keys(baskinSpor).length} takım adı spor dalına göre ayrıldı (${ayrilan} satır)`);
-}
-
-// 2026-27 lig üyeliği: yükselen/düşen takımlar güncel ligine çekilir.
-// Spor ayrımından sonra uygulanır ki ada çakışan diğer kulüp etkilenmesin.
-for(const k of keywords){
-  if(k.takim && ETIKET.LIG_2627[k.takim]) k.org = ETIKET.LIG_2627[k.takim];
-  if(k.takim && ETIKET.AVRUPA_2627[k.takim]) k.avrupa = ETIKET.AVRUPA_2627[k.takim];
-  else if(k.avrupa && !ETIKET.AVRUPA_2627[k.takim]) delete k.avrupa;
-  // Eleme turu birleştirmesi bir kulübü yanlış kupanın altına koyabiliyor:
-  // Union Saint-Gilloise Şampiyonlar Ligi elemesinde oynayıp Avrupa Ligi lig
-  // aşamasına düştü. Güncel üyelik avrupa alanındadır, org ondan alınır.
-  if(k.avrupa && /^UEFA /.test(k.org || '') && k.org !== k.avrupa) k.org = k.avrupa;
-}
-
-// ——————————————————————————— Türk kulübü, Türk bağlantısı
-// Türk bağlantısı yarışmanın coğrafyasından türetiliyordu: Fenerbahçe Beko
-// EuroLeague'de oynadığı için "Avrupa / Yabancı / Türk bağlantısı yok"
-// çıkıyordu. Kulübün milliyeti yarışmadan değil, bir Türk liginde yer alıp
-// almadığından okunur.
-{
-  const TR_LIG = new Set(['Süper Lig','TFF 1. Lig','Basketbol Süper Ligi',
-    'Sultanlar Ligi','Efeler Ligi','Kadınlar Basketbol Süper Ligi','Türkiye Kupası']);
-  const trKulup = new Set();
-  for(const k of keywords) if(k.takim && TR_LIG.has(k.org)) trKulup.add(k.takim);
-  let n = 0;
-  for(const k of keywords)
-    if(k.takim && trKulup.has(k.takim) && k.turk === 'Yok'){ k.turk = 'Türk Takımı Var'; n++; }
-  if(n) console.log(`Etiket      : ${trKulup.size} Türk kulübünün ${n} satırında Türk bağlantısı düzeltildi`);
-}
-
-// ——————————————————————————— tek takım, tek organizasyon
-// Bir takım anahtarı birden çok organizasyonda görünüyorsa bu genellikle
-// etiketleme sızıntısıdır (fenerbahçe'nin birkaç satırının Ligue 1'de
-// kalması gibi). Baskın organizasyon o takımın tüm satırlarına yazılır.
-// İstisna COKLU_MESRU: basketbolda EuroLeague + ülke ligi gerçek bir çift
-// üyeliktir, oradaki takımlara dokunulmaz.
+// ——————————————————————————— tek varlık, tek tür
+// Bir küme anahtarı birden çok türde görünüyorsa bu genellikle etiketleme
+// sızıntısıdır. Baskın tür o varlığın tüm satırlarına yazılır; böylece
+// kırılım ekseninde aynı varlık iki dalda birden görünmez.
 {
   const dagilim = {};
   for(const k of keywords){
@@ -326,7 +230,7 @@ for(const k of keywords){
   let tasinan = 0, etkilenen = 0;
   for(const [takim, orgs] of Object.entries(dagilim)){
     const ad = Object.keys(orgs);
-    if(ad.length < 2 || COKLU_MESRU.has(takim)) continue;
+    if(ad.length < 2) continue;
     baskin[takim] = ad.sort((x,y)=>orgs[y]-orgs[x])[0];
     etkilenen++;
   }
@@ -334,7 +238,7 @@ for(const k of keywords){
     if(k.takim && baskin[k.takim] && k.org !== baskin[k.takim]){
       k.org = baskin[k.takim]; tasinan++;
     }
-  console.log(`Etiket      : ${etkilenen} takım tek organizasyona çekildi (${tasinan} satır)`);
+  console.log(`Etiket      : ${etkilenen} varlık tek türe çekildi (${tasinan} satır)`);
 }
 
 // ——————————————————————————————————————————— faset envanteri
@@ -346,15 +250,14 @@ for(const kisa of Object.values(FACET)){
 }
 facetDegerleri.sinif  = [...new Set(keywords.map(k=>k.sinif))].sort();
 // Takım kümesi çok değerli bir eksen; filtre için tamamı taşınır
-facetDegerleri.milli = [...new Set(keywords.map(k=>k.milli).filter(Boolean))]
-  .sort((a,b)=>String(a).localeCompare(String(b),'tr'));
-facetDegerleri.avrupa = [...new Set(keywords.map(k=>k.avrupa).filter(Boolean))]
-  .sort((a,b)=>String(a).localeCompare(String(b),'tr'));
 facetDegerleri.takim = [...new Set(keywords.map(k=>k.takim).filter(Boolean))]
   .sort((a,b)=>String(a).localeCompare(String(b),'tr'));
-facetDegerleri.bucket = ['< 1.000','1.000 – 4.999','5.000 – 19.999','20.000 – 99.999','100.000 – 999.999','1M+']
+// Sıra sabittir ama liste veriden süzülür: hacmi olmayan satırlar 'Veri yok'
+// bandına düşüyor ve seçenek listesinde bulunmadığı için filtrelenemiyordu.
+facetDegerleri.bucket = ['< 1.000','1.000 – 4.999','5.000 – 19.999','20.000 – 99.999','100.000 – 999.999','1M+','Veri yok']
   .filter(b=>keywords.some(k=>k.bucket===b));
-facetDegerleri.trend  = ['Yükselen','Stabil','Düşen'];
+facetDegerleri.trend  = ['Yükselen','Stabil','Düşen','Veri Yok']
+  .filter(t=>keywords.some(k=>k.trend===t));
 
 // Spor dalı renk paleti (rolling hacme göre)
 const sporSirali = [...new Set(keywords.map(k=>k.spor).filter(Boolean))]
@@ -393,7 +296,7 @@ const DATA = {
 // ——————————————————————————————————————————— dize sözlüğü
 // Faset değerleri satır başına tekrar ettiği için dosya gereksiz büyüyor.
 // Değerler sözlüğe alınıp indeksle saklanır, tarayıcıda yüklenirken geri açılır.
-const SOZLUK_ALAN = Object.values(FACET).concat(['sinif','bucket','trend','kaynak','catalog','takim','milli','avrupa']);
+const SOZLUK_ALAN = Object.values(FACET).concat(['sinif','bucket','trend','kaynak','catalog','takim']);
 const sozluk = {};
 for(const alan of SOZLUK_ALAN){
   const set = new Set();
