@@ -118,3 +118,12 @@
 - Excel'lerden erişim fasetiyle ilgili her şey çıkarıldı: "Meşru Erişim" küme sayfası ve Master Liste'deki aynı adlı sütun. Faset panoda duruyor, teslim dosyalarında yer almıyor. Arama hacmi dosyası 12 → 11 sayfa.
 - Rakip dosyasının Yöntem sayfasında "Jenerik Sayfa Trafiği" tanımı örnekle güçlendirildi (nowtv.com.tr/film-izle vakası).
 
+
+### Excel sütun adları netleştirildi
+- Kullanıcı: *"Excel de aylık hacim yazdığın yerde bu aylık hacim son 12 ay ortalaması mı yoksa belirli bir yıl ortalaması mı onu yaz. Son 12 ay, önceki 12 ay gibi sütunlar 12 ay toplamı mı, ortalaması mı bu detayları da sütun adında ver."*
+- Hacim Excel'i: `Aylık Hacim` → `Aylık Hacim (Google Ads ort.)`, `Son 12 Ay` → `Son 12 Ay Toplam`, `Önceki 12 Ay` → `Önceki 12 Ay Toplam`, `YoY %` → `YoY % (toplam karşılaştırması)`. Küme sayfalarında `Toplam Aylık Hacim` → `Aylık Hacim Toplamı`, `İzleme Hacmi` → `İzleme Aylık Hacmi`.
+- Yeni sütun: `Son 12 Ay Aylık Ort.` (toplamın 12'ye bölümü) — pano aylık ortalama gösterdiği için Excel'de karşılığı eklendi.
+- Rakip Excel'i: `Sorgu Hacmi` → `Sorgu Aylık Hacmi (Google Ads ort.)`, trafik sütunları `... Aylık Trafik`, `Ahrefs Sayfa Trafiği` → `Aylık Sayfa Trafiği (Ahrefs tah.)`.
+- Yüzde biçimi düzeltildi: `#,##0` altında %21.398,8 değeri hücrede `21.399` görünüyordu. `excel_ortak.py` başlığında `%` geçen sütuna `#,##0.0` uyguluyor.
+- Her iki dosyanın Yöntem sayfasına metrik tanımı satırları eklendi; dönem pencereleri tarihleriyle yazıldı (Son 12 Ay = 2025-08 – 2026-07).
+- Aynı kural skill'e işlendi: `references/excel-cikti.md` yeni bölüm, `guardlar.md` D6/D7/H6, SKILL.md Excel teslimleri.

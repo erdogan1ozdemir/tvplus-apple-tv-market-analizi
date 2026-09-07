@@ -44,26 +44,28 @@ domain = sorted(dm.values(), key=lambda x: -x["n"])
 
 wb = Workbook(); wb.remove(wb.active)
 
-SAY = {"Sorgu Hacmi","İzleme Odaklı Trafik","Korsan","Meşru Platform","Agregatör",
-       "İlk 3 Trafiği","Taranan Sayfa","Pozisyon",
-       "Ahrefs Sayfa Trafiği","İlk 10'da","İlk 3'te","Dizi Sayısı","Aylık Hacim"}
+SAY = {"Sorgu Aylık Hacmi (Google Ads ort.)","İzleme Odaklı Aylık Trafik",
+       "Korsan Aylık Trafik","Meşru Platform Aylık Trafik","Agregatör Aylık Trafik",
+       "İlk 3 Aylık Trafik","Taranan Sayfa","Pozisyon","Aylık Sayfa Trafiği (Ahrefs tah.)",
+       "İlk 10'da","İlk 3'te","Dizi Sayısı","Aylık Hacim (Google Ads ort.)"}
 
 sayfa_yaz(wb.create_sheet("Dizi Bazında Trafik"),
-    ["Dizi","Sorgu","Kategori","Tür","Sorgu Hacmi","İzleme Odaklı Trafik","Korsan",
-     "Meşru Platform","Agregatör","İlk 3 Trafiği","Taranan Sayfa"],
+    ["Dizi","Sorgu","Kategori","Tür","Sorgu Aylık Hacmi (Google Ads ort.)",
+     "İzleme Odaklı Aylık Trafik","Korsan Aylık Trafik","Meşru Platform Aylık Trafik",
+     "Agregatör Aylık Trafik","İlk 3 Aylık Trafik","Taranan Sayfa"],
     [[x["dizi"], x["kw"], x["kategori"], x["tur"], x["hacim"], x["izleme"], x["korsan"],
       x["mesru"], x["agregat"], x["ilk3"], x["sayfa"]] for x in dizi], SAY)
 
 sayfa_yaz(wb.create_sheet("Tüm SERP Sonuçları"),
-    ["Dizi","Sorgu","Aylık Hacim","Pozisyon","Domain","Sayfa URL","Sayfa Başlığı",
-     "Sınıf","Ahrefs Sayfa Trafiği","Kapsam"],
+    ["Dizi","Sorgu","Aylık Hacim (Google Ads ort.)","Pozisyon","Domain","Sayfa URL",
+     "Sayfa Başlığı","Sınıf","Aylık Sayfa Trafiği (Ahrefs tah.)","Kapsam"],
     [[s["dizi"], s["keyword"], s["aylik_hacim"], s["pozisyon"], s["domain"], s["url"],
       s.get("baslik") or "", s["sinif"], s["sayfa_trafik"] or 0,
       "Dizi sayfası" if s["dizi_sayfasi"] else "Jenerik / başka yapım"] for s in serp], SAY,
     {"Sayfa URL": 60, "Sayfa Başlığı": 45})
 
 sayfa_yaz(wb.create_sheet("Domain Özeti"),
-    ["Domain","Sınıf","İlk 10'da","İlk 3'te","Dizi Sayısı","Ahrefs Sayfa Trafiği"],
+    ["Domain","Sınıf","İlk 10'da","İlk 3'te","Dizi Sayısı","Aylık Sayfa Trafiği (Ahrefs tah.)"],
     [[x["dom"], x["sinif"], x["n"], x["ilk3"], len(x["diziler"]), x["trafik"]] for x in domain], SAY)
 
 sinif = collections.Counter(); sinifT = collections.Counter()
@@ -71,12 +73,16 @@ for s in serp:
     sinif[s["sinif"]] += 1
     if s["dizi_sayfasi"]: sinifT[s["sinif"]] += s["sayfa_trafik"] or 0
 sayfa_yaz(wb.create_sheet("Sınıf Özeti"),
-    ["Sınıf","İlk 10'da","Ahrefs Sayfa Trafiği"],
+    ["Sınıf","İlk 10'da","Aylık Sayfa Trafiği (Ahrefs tah.)"],
     [[k, v, sinifT[k]] for k, v in sinif.most_common()], SAY)
 
 not_sayfasi(wb.create_sheet("Yöntem"), [
  ("Kapsam", f"{len({s['dizi'] for s in serp})} dizi · {len({s['keyword'] for s in serp})} sorgu · "
             f"{len(serp)} SERP sonucu. Her dizi için '{{dizi adı}} izle' sorgusunun ilk 10 organik sonucu."),
+ ("Sütun adlarındaki dönem", "Bu dosyadaki tüm hacim ve trafik sütunları AYLIK büyüklüktür; "
+                             "12 aylık toplam içermez. 'Google Ads ort.' aracın kendi ortalama aylık "
+                             "arama hacmi değeridir, 'Ahrefs tah.' ise sayfanın tahmini aylık organik "
+                             "trafiğidir."),
  ("Sıralama kaynağı", "DataForSEO · Google Türkiye (location 2792, dil tr, masaüstü), ilk 10 organik sonuç."),
  ("Trafik kaynağı", "Ahrefs batch-analysis, mode=exact. Değer o URL'in tahmini aylık organik trafiğidir; "
                     "yalnızca bu sorgudan geleni değil, sayfanın tamamını kapsar. Üst sınır okuması verir."),

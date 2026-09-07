@@ -25,6 +25,8 @@ def sayfa_yaz(ws, basliklar, satirlar, sayisal=(), genislik=None, dondur=True):
     for h in ws[1]:
         h.fill = BASLIK_DOLGU; h.font = BASLIK_YAZI; h.alignment = ORTA_ORTA
     say_idx = {i for i, b in enumerate(basliklar) if b in sayisal}
+    # Yüzde sütunları tam sayı biçimiyle basılırsa "%21.398,8" değeri "21.399" görünür.
+    yuz_idx = {i for i, b in enumerate(basliklar) if "%" in str(b)}
     for s in satirlar:
         ws.append(list(s))
     for satir in ws.iter_rows(min_row=2):
@@ -33,7 +35,7 @@ def sayfa_yaz(ws, basliklar, satirlar, sayisal=(), genislik=None, dondur=True):
             h.alignment = ORTA_ORTA if i in say_idx else ORTA_SOL
             h.border = UST_KENAR
             if isinstance(h.value, (int, float)) and i in say_idx:
-                h.number_format = "#,##0"
+                h.number_format = "#,##0.0" if i in yuz_idx else "#,##0"
     ws.freeze_panes = "A2" if dondur else None
     for i, b in enumerate(basliklar):
         w = (genislik or {}).get(b)

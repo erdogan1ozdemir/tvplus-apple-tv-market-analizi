@@ -22,9 +22,9 @@ AYLAR.sort()
 SON12, ONC12 = AYLAR[-12:], AYLAR[-24:-12]
 def top(r, aylar): return sum(int(float(r.get(a) or 0)) for a in aylar)
 
-SAY = {"Aylık Hacim","Son 12 Ay","Önceki 12 Ay","Son 12 Ay Aylık Ort.","YoY %",
-       "Keyword","Dizi Sayısı","Toplam Aylık Hacim","İzleme Hacmi","İzleme Payı %",
-       "Çıkış Yılı","Sezon Sayısı"}
+SAY = {"Aylık Hacim (Google Ads ort.)","Son 12 Ay Toplam","Önceki 12 Ay Toplam",
+       "Son 12 Ay Aylık Ort.","YoY % (toplam karşılaştırması)","Keyword","Dizi Sayısı",
+       "Aylık Hacim Toplamı","İzleme Aylık Hacmi","İzleme Payı %","Çıkış Yılı","Sezon Sayısı"}
 
 wb = Workbook(); wb.remove(wb.active)
 
@@ -32,10 +32,12 @@ wb = Workbook(); wb.remove(wb.active)
 sayfa_yaz(wb.create_sheet("Master Liste"),
   ["Keyword","Dizi","Kategori","Tür","Alt Tür","Sayfa Tipi","Intent","Varlık Tipi",
    "Marka Tipi","Dil","Çıkış Yılı","Sezon Sayısı","Durum",
-   "Aylık Hacim","Son 12 Ay","Önceki 12 Ay","YoY %"],
+   "Aylık Hacim (Google Ads ort.)","Son 12 Ay Toplam","Son 12 Ay Aylık Ort.",
+   "Önceki 12 Ay Toplam","YoY % (toplam karşılaştırması)"],
   [[r["keyword"], r["dizi"], r["kategori"], r["tur"], r.get("tur_ham",""), r["sayfa_tipi"],
     r["intent_katmani"], r["entity_tipi"], r["marka_tipi"], r["dil"],
-    r["cikis_yili"], r["sezon_sayisi"], r["durum"], V(r), top(r, SON12), top(r, ONC12),
+    r["cikis_yili"], r["sezon_sayisi"], r["durum"], V(r), top(r, SON12),
+    round(top(r, SON12)/12), top(r, ONC12),
     round(100*(top(r,SON12)-top(r,ONC12))/top(r,ONC12), 1) if top(r, ONC12) else ""]
    for r in sorted(kapsam, key=lambda x: -V(x))], SAY, {"Keyword": 42})
 
@@ -49,7 +51,7 @@ def kume(ad, alan, ek=None):
             round(100*v["izl"]/v["hac"], 1) if v["hac"] else 0]
            for k, v in sorted(g.items(), key=lambda x: -x[1]["hac"])]
     sayfa_yaz(wb.create_sheet(ad),
-      [ek or ad, "Keyword", "Dizi Sayısı", "Toplam Aylık Hacim", "İzleme Hacmi", "İzleme Payı %"],
+      [ek or ad, "Keyword", "Dizi Sayısı", "Aylık Hacim Toplamı", "İzleme Aylık Hacmi", "İzleme Payı %"],
       sat, SAY | {"İzleme Payı %"})
 
 kume("Dizi", "dizi"); kume("Kategori", "kategori"); kume("Tür", "tur")
@@ -61,14 +63,14 @@ tipler = sorted({r["sayfa_tipi"] for r in kapsam})
 capraz = collections.defaultdict(lambda: collections.Counter())
 for r in kapsam: capraz[r["dizi"]][r["sayfa_tipi"]] += V(r)
 sayfa_yaz(wb.create_sheet("Dizi × Sayfa Tipi"),
-  ["Dizi", "Toplam Aylık Hacim"] + tipler,
+  ["Dizi", "Aylık Hacim Toplamı"] + tipler,
   [[d, sum(c.values())] + [c.get(t, 0) for t in tipler]
    for d, c in sorted(capraz.items(), key=lambda x: -sum(x[1].values()))],
   SAY | set(tipler))
 
 # ——— Kapsam dışı
 sayfa_yaz(wb.create_sheet("Kapsam Dışı"),
-  ["Keyword","Dizi","Aylık Hacim","Gerekçe"],
+  ["Keyword","Dizi","Aylık Hacim (Google Ads ort.)","Gerekçe"],
   [[r["keyword"], r["dizi"], V(r), r["mantik_denetim"]]
    for r in sorted(disi, key=lambda x: -V(x))], SAY, {"Gerekçe": 70, "Keyword": 36})
 
@@ -77,8 +79,19 @@ not_sayfasi(wb.create_sheet("Yöntem"), [
             f"aylık toplam {sum(map(V, kapsam)):,} arama.".replace(",", ".")),
  ("Dönem", f"{AYLAR[0]} – {AYLAR[-1]} ({len(AYLAR)} ay). Son 12 Ay = {SON12[0]}–{SON12[-1]}, "
            f"Önceki 12 Ay = {ONC12[0]}–{ONC12[-1]}. YoY bu iki pencere arasındadır."),
- ("Aylık Hacim", "Google Ads'in verdiği aylık ortalama arama hacmi; aylık seri sütunlarının "
-                 "ortalaması değil, aracın kendi değeridir."),
+ ("Aylık Hacim (Google Ads ort.)",
+  "Google Ads'in 'ortalama aylık arama hacmi' değeri: son 12 ayın ortalamasıdır ve aracın kendi "
+  "hesabıdır, aylık seri sütunlarının ortalaması değildir. Panodaki varsayılan gösterim de budur."),
+ ("Son 12 Ay Toplam / Önceki 12 Ay Toplam",
+  f"İki pencerenin aylık seri değerlerinin TOPLAMIDIR, ortalaması değil. Son 12 Ay = {SON12[0]}–{SON12[-1]}, "
+  f"Önceki 12 Ay = {ONC12[0]}–{ONC12[-1]}. Aylık karşılığı için 'Son 12 Ay Aylık Ort.' sütunu vardır "
+  "(toplamın 12'ye bölümü)."),
+ ("YoY % (toplam karşılaştırması)",
+  "İki 12 aylık TOPLAM arasındaki yüzde değişim. Aylık ortalamalar üzerinden hesaplansaydı sonuç "
+  "aynı olurdu; bölen ortak olduğu için oran değişmez."),
+ ("Küme sayfalarındaki 'Aylık Hacim Toplamı'",
+  "O kümedeki keyword'lerin 'Aylık Hacim (Google Ads ort.)' değerlerinin toplamıdır; aylık bir "
+  "büyüklüktür, 12 aylık toplam değildir."),
  ("Kapsam dışı", f"{len(disi)} keyword mantık denetimiyle kapsam dışı bırakıldı "
                  "(ad belirsizliği ya da dizi olmayan kayıt). Satırlar silinmedi, "
                  "'Kapsam Dışı' sayfasında gerekçesiyle durur."),
