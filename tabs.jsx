@@ -108,10 +108,10 @@ window.TABS = (function(){
     // İniş modunda bir satıra tıklamak yolu uzatır ve matrisi bir alt eksene
     // taşır: kategoride Drama seçilince türler gelir. Eksen
     // dışarıdan yönetiliyorsa (Özet) ilerletmeyi orası yapar.
-    // Gruplar dışarıdan geliyorsa (gruplarDis + eksenDis) gerçek kırılım ekseni
-    // odur; iç seviye state'i 'spor' varsayılanında kalır. Tıklamada bu eksen
-    // kullanılmazsa yol ve filtre yanlış fasete yazılır (dizi seçiliyken
-    // kategori filtresi kurulup sonuç 0 çıkıyordu).
+    // Tıklamada eksen grubun kendisinden okunur (g.alan). Dışarıdan gelen
+    // gruplarda (gruplarDis) iç seviye state'i 'spor' varsayılanında kalıyor
+    // ve filtre yanlış fasete yazılıyordu: eksen "Tür" seçiliyken tıklamak
+    // "Kategori: Bilim Kurgu" kuruyor, sonuç 0 çıkıyordu. eksenDis yedektir.
     const etkinEksen = eksenDis || seviye;
     const grupTikla = function(eks, deg){
       if(!onSelectGroup) return;
@@ -196,7 +196,7 @@ window.TABS = (function(){
       h('div',{className:'matrix-scroll'},
         h(C.Heatmap,{rows:hmRows, monthsLabels:etiketler, showValues:true, showYoY:true,
           showPeakDot:true,
-          onClickCell:(row)=>grupTikla(etkinEksen, row._g.ust),
+          onClickCell:(row)=>grupTikla(row._g.alan || etkinEksen, row._g.ust),
           rowAction: onGrupDetay
             ? {ipucu:'Bu grubu Gruplar sekmesinde aç', simge:'→',
                onClick:(row)=>onGrupDetay(row._g.ust)}
@@ -910,6 +910,7 @@ window.TABS = (function(){
     const [altEksen, setAltEksen] = React.useState('');
     const matrisGrup = React.useMemo(()=>groupBy(rows, eksen, altEksen||null),
       [rows, eksen, altEksen]);
+    const karneGrup = React.useMemo(()=>groupBy(rows, eksen), [rows, eksen]);
     const stG = groupBy(rows,'st'), itG = groupBy(rows,'it'), entG = groupBy(rows,'ent');
     const izleme = rows.filter(k=>k.it==='İzleme');
     const veri = rows.filter(k=>['Konu','Oyuncular','Sezon Bilgi','Sezon Takvim'].includes(k.st));
@@ -953,17 +954,17 @@ window.TABS = (function(){
       h(SezonTakvimi,{rows, viewMode, baslik:'Sayfa tipi sezonsallığı',
         gruplarDis: matrisGrup, eksenDis: eksen,
         inisModu: !!inAlt, onSelectGroup: inAlt || onSelectGroup}),
-      h(C.SectionHeader,{icon:'karne', title:'Sayfa tipi karnesi',
-        desc:'her sayfa tipi kendi ölçeğinde · Son 12 Ay'}),
+      h(C.SectionHeader,{icon:'karne', title:(FACET_ETIKET[eksen]||'Grup')+' karnesi',
+        desc:'her '+(FACET_ETIKET[eksen]||'grup').toLocaleLowerCase('tr')+' kendi ölçeğinde · Son 12 Ay'}),
       h('div',{className:'card'},
         h(C.SmallMultiples,{yScale:'independent', monthsLabels:ROLLING_LABELS,
           toplamEtiket:'Son 12 Ay',
-          items: stG.slice(0,14).map(g=>({label:g.label,
+          items: karneGrup.slice(0,14).map(g=>({label:g.label,
             values: viewMode==='calendar'?g.cal25:g.roll,
             prevValues: viewMode==='calendar'?g.cal24:g.prev,
             yoy:yoyFor(g,viewMode), title:grupAciklama(g, viewMode),
             metrics: kartMetrikleri(g, viewMode)})),
-          onClick: it=>(inAlt ? inAlt('st', it.label) : onSelectGroup('st', it.label))}),
+          onClick: it=>(inAlt ? inAlt(eksen, it.label) : onSelectGroup(eksen, it.label))}),
         h('div',{className:'txt-3', style:{fontSize:10.5, marginTop:10}},
           'Sağ alttaki değerler aylık ortalama arama hacmidir.')),
       h('div',{className:'grid grid-2', style:{marginTop:18}},
